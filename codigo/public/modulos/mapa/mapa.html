@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapa</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- vai ser necessário um script para pegar a localização do usuário e mostrar os carregadores próximos, talvez usando a API do google maps ou algo do tipo -->
+</head>
+<body>
+    <main>
+        <!-- itens do menu: Inicio, Mapa, Planejar, Simular, Favoritos e Histórico
+         cada um desses itens deve ser um link para a página correspondente, por exemplo, o item "Mapa" deve ser um link para a página "mapa.html", o item "Planejar" deve ser um link para a página "planejar.html" e assim por diante.
+         cada item do menu deve ter um ícone representando a função, por exemplo, o item "Inicio" pode ter um ícone de uma casa, o item "Mapa" pode ter um ícone de um mapa, o item "Planejar" pode ter um ícone de um calendário, o item "Simular" pode ter um ícone de um gráfico, o item "Favoritos" pode ter um ícone de uma estrela e o item "Histórico" pode ter um ícone de um relógio. -->
+        <nav class="menu">
+            <a id="menu_inicio" class="itens">
+                <div class="Inicio">
+                    <img src="#">
+                    <p>Inicio</p>>
+                </div>
+            </a>
+
+            <a id="menu_mapa" class="itens">
+                <div class="item_mapa">
+                    <img src="#">
+                    <p>Mapa</p>
+                </div>
+            </a>
+
+            <a id="menu_planejar" class="itens">
+                <div class="item_planejar">
+                    <img src="#">
+                    <p>Planejar Viajem</p>
+                </div>
+            </a>
+
+            <a id="menu_simular" class="itens">
+                <div class="item_simular">
+                    <img src="#">
+                    <p>Simular Recarga</p>
+                </div>
+            </a>
+
+            <a id="menu_favoritos" class="itens">
+                <div class="item_favoritos">
+                    <img src="#">
+                    <p>Favoritos</p>
+                </div>
+            </a>
+
+            <a id="menu_historico" class="itens">
+                <div class="item_historico">
+                    <img src="#">
+                    <p>Histórico</p>
+                </div>
+            </a>
+        </nav>
+        <article class="container">
+            <div class="mapa">
+                <div class="mapa_fundo">
+                    <h1>Mapa de Carregadores</h1>
+                    <img src="../../assets/img/mapa.png" alt="mapa">
+                </div>
+                <!-- aqui vai ser o mapa, talvez usando a API do google maps ou algo do tipo, para mostrar os carregadores próximos do usuário-->
+
+            </div>
+
+            <div class="carregadores">
+                <h1>Carregadores próximos </h1>
+                <!-- aquela aba de carregadores proximos do usuário, com informações como nome do carregador, endereço, tipo de carregador, disponibilidade e preço. -->
+                <div class="carregadores_proximos">
+
+                    <!-- pesquisar como fazer isso, talvez usando a API do google maps ou algo do tipo, para mostrar os carregadores próximos do usuário -->
+
+                    <ul>
+                        <li>
+                            <h2>Carregador 1</h2>
+                            <p>Endereço: Rua A, 123</p>
+                            <p>Tipo: Tipo 2: 2 vagas</p>
+                            <p>Preço: R$ 10,00/hora</p>
+                        </li>
+
+                        <li>
+                            <h2>Carregador 2</h2>
+                            <p>Endereço: Rua B, 456</p> 
+                            <p>Tipo: CCS: 1 vaga</p>
+                            <p>Preço: R$ 15,00/hora</p>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
