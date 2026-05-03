@@ -1,50 +1,47 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: sans-serif;
-  display: flex;
+  background: #f4f5f7;
+  padding: 24px;
 }
 
-aside {
-  width: 200px;
-  min-height: 100vh;
-  background: #ffffff;
-  border-right: 1px solid #e2e4e9;
-  display: flex;
-  flex-direction: column;
-  padding: 16px 0;
+#lista {
+  background: #fff;
+  width: 100%;
 }
 
-nav {
+.card {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e4e9;
+  gap: 16px;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.card .dados {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 0 10px;
-}
-
-nav a {
-  padding: 9px 12px;
-  text-decoration: none;
-  color: #6b7280;
   font-size: 14px;
+  color: #2d3142;
 }
 
-nav a.active {
-  color: #3b5bdb;
-}
-
-.footer {
-  padding: 10px 10px 0;
-  border-top: 1px solid #e2e4e9;
-}
-
-.footer a {
-  display: block;
-  padding: 9px 12px;
-  text-decoration: none;
-  color: #6b7280;
+.card button {
+  padding: 10px 28px;
+  background: #2d3142;
+  color: #fff;
+  border: none;
   font-size: 14px;
-}
-
-main {
-  padding: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  flex-shrink: 0;
 }
