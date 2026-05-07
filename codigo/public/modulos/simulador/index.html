@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulação de Recarga</title>
+  <link rel="stylesheet" href="/codigo/public/assets/css/simulador.css" />
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-logo">
+        <span class="logo-arrow">&#9664;</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item">
+        <span class="nav-icon">&#8962;</span>
+        <span class="nav-label">Início</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">&#128205;</span>
+        <span class="nav-label">Mapa</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">&#129517;</span>
+        <span class="nav-label">Planejar Viagem</span>
+      </a>
+      <a href="#" class="nav-item active">
+        <span class="nav-icon">&#128267;</span>
+        <span class="nav-label">Simular Carga</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">&#9733;</span>
+        <span class="nav-label">Favoritos</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">&#9711;</span>
+        <span class="nav-label">Histórico</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-avatar">&#128100;</div>
+      <span class="nav-label">Login</span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <div class="top-cards">
+      <div class="card top-card">
+        <p class="card-title">Carga Atual</p>
+        <p class="card-value">22%</p>
+      </div>
+      <div class="card top-card">
+        <p class="card-title">Autonomia Restante</p>
+        <p class="card-value">85 Km</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Simulação de Recarga</h2>
+
+    <div class="simulation-row">
+
+      <div class="card param-card">
+        <h3 class="card-heading">Parâmetros de Carga</h3>
+
+        <label class="field-label">Meta de Carga</label>
+        <div class="slider-wrapper">
+          <div class="slider-track">
+            <div class="slider-fill"></div>
+            <div class="slider-thumb"></div>
+          </div>
+          <div class="slider-limits">
+            <span>0%</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <label class="field-label">Tipo de Carrregador</label>
+        <div class="select-visual">
+          <span class="select-arrow">&#9660;</span>
+        </div>
+      </div>
+
+      
+      <div class="card result-card">
+        <h3 class="card-heading">Resultado Estimado</h3>
+        <div class="result-circle"></div>
+      </div>
+
+      
+      <div class="buttons-col">
+        <button class="action-btn">
+          <span class="btn-icon">&#9654;</span>
+          <span>Iniciar Simulação</span>
+        </button>
+        <button class="action-btn">
+          <span class="btn-icon">&#8617;</span>
+          <span>Refazer Planejamento</span>
+        </button>
+      </div>
+
+    </div>
+
+    
+    <h2 class="section-title detail-title">Detalhamento da Simulação</h2>
+    <div class="detail-box"></div>
+
+  </main>
+
+</body>
+</html>
