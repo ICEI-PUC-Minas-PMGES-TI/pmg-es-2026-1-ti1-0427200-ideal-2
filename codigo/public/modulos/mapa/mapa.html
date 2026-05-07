@@ -6,6 +6,23 @@
     <title>mapa</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- vai ser necessário um script para pegar a localização do usuário e mostrar os carregadores próximos, talvez usando a API do google maps ou algo do tipo -->
+    <script>
+      const CONFIGURATION = {
+        "locations": [
+        ],
+        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17,"mapId":""},
+        "mapsApiKey": "YOUR_API_KEY_HERE",
+        "capabilities": {"input":true,"autocomplete":true,"directions":true,"distanceMatrix":true,"details":true,"actions":false}
+      };
+
+    </script>
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', async () => {
+        await customElements.whenDefined('gmpx-store-locator');
+        const locator = document.querySelector('gmpx-store-locator');
+        locator.configureFromQuickBuilder(CONFIGURATION);
+      });
+    </script>
 </head>
 <body>
     <main>
@@ -13,47 +30,59 @@
          cada um desses itens deve ser um link para a página correspondente, por exemplo, o item "Mapa" deve ser um link para a página "mapa.html", o item "Planejar" deve ser um link para a página "planejar.html" e assim por diante.
          cada item do menu deve ter um ícone representando a função, por exemplo, o item "Inicio" pode ter um ícone de uma casa, o item "Mapa" pode ter um ícone de um mapa, o item "Planejar" pode ter um ícone de um calendário, o item "Simular" pode ter um ícone de um gráfico, o item "Favoritos" pode ter um ícone de uma estrela e o item "Histórico" pode ter um ícone de um relógio. -->
         <nav class="menu">
-            <a id="menu_inicio" class="itens">
-                <div class="Inicio">
-                    <img src="#">
-                    <p>Inicio</p>>
-                </div>
-            </a>
-
-            <a id="menu_mapa" class="itens">
-                <div class="item_mapa">
-                    <img src="#">
-                    <p>Mapa</p>
-                </div>
-            </a>
-
-            <a id="menu_planejar" class="itens">
-                <div class="item_planejar">
-                    <img src="#">
-                    <p>Planejar Viajem</p>
-                </div>
-            </a>
-
-            <a id="menu_simular" class="itens">
-                <div class="item_simular">
-                    <img src="#">
-                    <p>Simular Recarga</p>
-                </div>
-            </a>
-
-            <a id="menu_favoritos" class="itens">
-                <div class="item_favoritos">
-                    <img src="#">
-                    <p>Favoritos</p>
-                </div>
-            </a>
-
-            <a id="menu_historico" class="itens">
-                <div class="item_historico">
-                    <img src="#">
-                    <p>Histórico</p>
-                </div>
-            </a>
+            <div>
+                <img src="../../assets/images/logo.png" alt="logo" class="logo">
+            </div>
+                <a id="menu_inicio" class="itens">
+                    <div class="Inicio menu-links">
+                        <img src="../../assets/images/iconHome.png" class="icon">
+                        <p>Inicio</p>
+                    </div>
+                </a>
+    
+                <a id="menu_mapa" class="itens">
+                    <div class="item_mapa menu-links">
+                        <img src="../../assets/images/iconMap.png" class="icon">
+                        <p>Mapa</p>
+                 </div>
+                </a>
+    
+                <a id="menu_planejar" class="itens">
+                    <div class="item_planejar menu-links">
+                        <img src="../../assets/images/iconCompass.png" class="icon">
+                        <p>Planejar Viajem</p>
+                    </div>
+                </a>
+    
+                <a id="menu_simular" class="itens">
+                    <div class="item_simular menu-links">
+                        <img src="../../assets/images/iconFlash.png" class="icon">
+                        <p>Simular Recarga</p>
+                    </div>
+                </a>
+    
+                <a id="menu_favoritos" class="itens">
+                    <div class="item_favoritos menu-links">
+                        <img src="../../assets/images/iconHeart.png" class="icon">
+                        <p>Favoritos</p>
+                    </div>
+                </a>
+    
+                <a id="menu_historico" class="itens">
+                    <div class="item_historico menu-links">
+                        <img src="../../assets/images/iconHistory.png" class="icon">
+                        <p>Histórico</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a id="menu_login" class="itens">
+                    <div class="item_login menu-links">
+                        <img src="../../assets/images/iconLogin.png" class="icon">
+                        <p>Login</p>
+                    </div>
+                </a>
+            </div>
         </nav>
         <article class="container">
             <div class="mapa">
