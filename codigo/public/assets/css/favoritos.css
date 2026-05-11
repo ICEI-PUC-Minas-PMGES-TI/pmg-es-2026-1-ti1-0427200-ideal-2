@@ -10,12 +10,42 @@ body {
   padding: 32px;
 }
 
+#pesquisa {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1f2937;
+  background: #fff;
+  border: 1px solid #e2e4e9;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#pesquisa::placeholder {
+  color: #9ca3af;
+}
+
+#pesquisa:focus {
+  border-color: #1f2937;
+  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.08);
+}
+
 #lista {
   background: #fff;
   width: 100%;
   border: 1px solid #e2e4e9;
   border-radius: 8px;
   overflow: hidden;
+}
+
+.sem-resultado {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
 }
 
 .card {
