@@ -7,13 +7,77 @@
 body {
   font-family: sans-serif;
   background: #f4f5f7;
-  padding: 32px;
+  min-height: 100vh;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #e2e4e9;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.menu-item:hover {
+  background: #f4f5f7;
+  color: #1f2937;
+}
+
+.menu-item.ativo {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.menu-icon {
+  font-size: 16px;
+  width: 20px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.login {
+  border-top: 1px solid #e2e4e9;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 32px 40px;
+  min-width: 0;
 }
 
 #pesquisa {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 20px;
+  max-width: 420px;
+  padding: 10px 14px;
+  margin-bottom: 24px;
   font-family: inherit;
   font-size: 14px;
   color: #1f2937;
@@ -42,7 +106,7 @@ body {
 }
 
 .sem-resultado {
-  padding: 24px;
+  padding: 32px;
   text-align: center;
   font-size: 14px;
   color: #6b7280;
@@ -51,9 +115,9 @@ body {
 .card {
   display: flex;
   align-items: center;
-  padding: 20px 24px;
+  padding: 28px 32px;
   border-bottom: 1px solid #e2e4e9;
-  gap: 20px;
+  gap: 28px;
   transition: background 0.15s;
 }
 
@@ -66,9 +130,9 @@ body {
 }
 
 .card img {
-  width: 64px;
-  height: 64px;
-  border-radius: 6px;
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
   background: #e5e7eb;
@@ -78,16 +142,16 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .card-info strong {
-  font-size: 15px;
+  font-size: 17px;
   color: #1f2937;
 }
 
 .card-info span {
-  font-size: 13px;
+  font-size: 14px;
   color: #6b7280;
 }
 
@@ -97,12 +161,12 @@ body {
 }
 
 .card button {
-  padding: 10px 24px;
+  padding: 12px 28px;
   background: #1f2937;
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s;
