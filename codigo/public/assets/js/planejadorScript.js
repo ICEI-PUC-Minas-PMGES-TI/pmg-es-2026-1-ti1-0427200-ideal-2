@@ -1,3 +1,5 @@
+import { rotas } from "./dataPlanejador.js";
+
 function showMeDetails() {
     const saida = document.getElementById('saida').value;
     const chegada = document.getElementById('chegada').value;
