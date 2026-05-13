@@ -38,3 +38,8 @@ body{
     height: 50%;
     width: 90%;
 }
+
+#mapImg{
+    max-width: 1000px;
+    width: 100%;
+}

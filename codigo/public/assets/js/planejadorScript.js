@@ -3,11 +3,18 @@ import { rotas } from "./dataPlanejador.js";
 function showMeDetails() {
     const saida = document.getElementById('saida').value;
     const chegada = document.getElementById('chegada').value;
-    const results = document.getElementById('results');
-    results.innerHTML = `
-    ${saida}
-    ${chegada}
-    `
+    const tempo = document.getElementById('tempo');
+    const distancia = document.getElementById('distancia');
+    const pT = document.createElement('p');
+    const pD = document.createElement('p');
+    const img = document.getElementById('mapImg');
+    img.src = 'https://rech.com.br/wp-content/uploads/2019/07/erp_siger_rotas_google_maps_13092017.jpg'
+    const rota = rotas.find(r =>
+        r.origem == saida && r.destino == chegada);
+    pT.innerText = `${rota.tempo}h`;
+    tempo.appendChild(pT);
+    pD.innerText = `${rota.distancia}`;
+    distancia.appendChild(pD);
 }
 
 const saida = document.getElementById('saida');
