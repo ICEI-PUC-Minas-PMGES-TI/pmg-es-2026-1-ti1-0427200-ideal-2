@@ -1,13 +1,14 @@
+body{
+    display: flex;
+}
 .menu{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border: 2px solid #279b10;
-    width: 10%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 15%;
+    height: 95vh;
+    margin-right: 100px;
 }
 .menu-links{
     border: 2px solid #279b10;
@@ -21,4 +22,19 @@
 
 .logo{
     width: 100%;
+}
+
+.endereco{
+    height: 50px;
+    width: 500px;
+    border: 2px solid #279b10;
+}
+
+.endereco img{
+    width: 5%;
+}
+
+.endereco input{
+    height: 50%;
+    width: 90%;
 }
