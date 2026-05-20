@@ -4,7 +4,9 @@ function showMeDetails() {
     const saida = document.getElementById('saida').value;
     const chegada = document.getElementById('chegada').value;
     const tempo = document.getElementById('tempo');
+    tempo.innerHTML = '';
     const distancia = document.getElementById('distancia');
+    distancia.innerHTML = '';
     const pT = document.createElement('p');
     const pD = document.createElement('p');
     const img = document.getElementById('mapImg');
@@ -13,7 +15,7 @@ function showMeDetails() {
         r.origem == saida && r.destino == chegada);
     pT.innerText = `${rota.tempo}h`;
     tempo.appendChild(pT);
-    pD.innerText = `${rota.distancia}`;
+    pD.innerText = `${rota.distancia}Km`;
     distancia.appendChild(pD);
 }
 
