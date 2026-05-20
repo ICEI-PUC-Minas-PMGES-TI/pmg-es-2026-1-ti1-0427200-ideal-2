@@ -3,20 +3,25 @@ import { rotas } from "./dataPlanejador.js";
 function showMeDetails() {
     const saida = document.getElementById('saida').value;
     const chegada = document.getElementById('chegada').value;
+    if (saida == '' || chegada == '') {
+        alert('Digite um endereço de saida e de destino!!!');
+        return NaN;
+    }
     const tempo = document.getElementById('tempo');
     tempo.innerHTML = '';
     const distancia = document.getElementById('distancia');
     distancia.innerHTML = '';
+    const postos = document.getElementById('postos');
+    postos.innerHTML = '';
     const pT = document.createElement('p');
     const pD = document.createElement('p');
     const img = document.getElementById('mapImg');
-    img.src = 'https://rech.com.br/wp-content/uploads/2019/07/erp_siger_rotas_google_maps_13092017.jpg'
+    img.src = 'https://rech.com.br/wp-content/uploads/2019/07/erp_siger_rotas_google_maps_13092017.jpg';
     const rota = rotas.find(r =>
         r.origem == saida && r.destino == chegada);
-    pT.innerText = `${rota.tempo}h`;
-    tempo.appendChild(pT);
-    pD.innerText = `${rota.distancia}Km`;
-    distancia.appendChild(pD);
+    tempo.innerText = `${rota.tempo}h`;
+    distancia.innerText = `${rota.distancia}Km`;
+    postos.innerText = `${rota.postos}`;
 }
 
 const saida = document.getElementById('saida');
