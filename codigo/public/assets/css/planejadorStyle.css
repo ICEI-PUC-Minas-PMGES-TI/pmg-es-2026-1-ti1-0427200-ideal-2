@@ -1,6 +1,23 @@
 body{
     display: flex;
+    background-color: #7bc56ce0;
 }
+
+main{
+    width: 85%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+main section{
+    background-color: #f8f8f8;
+    border: 2px solid #279b10;
+    border-radius: 15px;
+    padding: 20px;
+}
+
 .menu{
     display: flex;
     flex-direction: column;
@@ -10,6 +27,7 @@ body{
     height: 95vh;
     margin-right: 100px;
 }
+
 .menu-links{
     border: 2px solid #279b10;
     gap: 10px;
@@ -24,22 +42,71 @@ body{
     width: 100%;
 }
 
+.cad-end{
+    background-color: #7bc56ce0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .endereco{
-    height: 50px;
-    width: 500px;
-    border: 2px solid #279b10;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #279b10;
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
 .endereco img{
     width: 5%;
 }
 
+
 .endereco input{
     height: 50%;
     width: 90%;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.btnCalcular{
+    height: 50px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #279b10;
+    color: white;
+    font-size: 16px;
+}
+
+.map{
+    background-color: #7bc56ce0;
+    display: flex;
+    justify-content: space-around;
 }
 
 #mapImg{
-    max-width: 1000px;
+    max-width: 700px;
+    border-radius: 15px;
     width: 100%;
+}
+
+
+.results{
+    background-color: #7bc56ce0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+.results div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
