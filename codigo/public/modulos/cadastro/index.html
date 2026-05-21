@@ -1,96 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wireframe Login</title>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
 
-  <link rel="stylesheet" href="/codigo/public/assets/css/cadastro.css">
-
-  <!-- Ícones -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/codigo/public/assets/css/cadastro.css">
 </head>
-
 <body>
 
-  <div class="container">
-
     <!-- MENU LATERAL -->
-    <aside class="sidebar">
+    <div class="menu">
 
-      <div class="logo">
-        <i class="fa-solid fa-bolt"></i>
-      </div>
+        <h2>Menu</h2>
 
-      <nav>
-        <ul>
+        <a href="#">Início</a>
+        <a href="#">Mapa</a>
+        <a href="#">Planejar Viagem</a>
+        <a href="#">Simular Recarga</a>
+        <a href="#">Favoritos</a>
+        <a href="#">Histórico</a>
 
-          <li class="active">
-            <i class="fa-solid fa-house"></i>
-            <span>Início</span>
-          </li>
+    </div>
 
-          <li>
-            <i class="fa-solid fa-map"></i>
-            <span>Mapa</span>
-          </li>
+    <!-- ÁREA PRINCIPAL -->
+    <div class="conteudo">
 
-          <li>
-            <i class="fa-solid fa-compass"></i>
-            <span>Planejar<br>Viagem</span>
-          </li>
+        <h1>Cadastro</h1>
 
-          <li>
-            <i class="fa-solid fa-bolt"></i>
-            <span>Simular<br>Recarga</span>
-          </li>
+        <form>
 
-          <li>
-            <i class="fa-regular fa-heart"></i>
-            <span>Favoritos</span>
-          </li>
+            <label>Nome:</label>
+            <input type="text">
 
-          <li>
-            <i class="fa-solid fa-clock-rotate-left"></i>
-            <span>Histórico</span>
-          </li>
+            <label>E-mail:</label>
+            <input type="email">
 
-        </ul>
-      </nav>
+            <label>Senha:</label>
+            <input type="password">
 
-      <div class="login-menu">
-        <i class="fa-solid fa-circle-user"></i>
-        <span>Login</span>
-      </div>
+            <label>Confirmar senha:</label>
+            <input type="password">
 
-    </aside>
+            <button>Cadastrar</button>
 
-    <!-- CONTEÚDO -->
-    <main class="main-content">
+        </form>
 
-      <div class="login-box">
-
-        <div class="user-icon">
-          <i class="fa-solid fa-circle-user"></i>
-        </div>
-
-        <input type="text" placeholder="Usuário">
-
-        <input type="password" placeholder="Senha">
-
-        <a href="#" class="forgot">Esqueci minha senha.</a>
-
-        <div class="buttons">
-          <button>Cadastrar</button>
-          <button>Logar</button>
-        </div>
-
-      </div>
-
-    </main>
-
-  </div>
+    </div>
 
 </body>
 </html>
