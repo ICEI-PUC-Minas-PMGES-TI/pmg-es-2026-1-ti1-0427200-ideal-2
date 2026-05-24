@@ -1,33 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
 
     <link rel="stylesheet" href="/codigo/public/assets/css/cadastro.css">
 </head>
+
 <body>
 
-    <!-- MENU LATERAL -->
-    <div class="menu">
+   
+    <nav class="menu">
 
-        <h2>Menu</h2>
+        <div>
 
-        <a href="#">Início</a>
-        <a href="#">Mapa</a>
-        <a href="#">Planejar Viagem</a>
-        <a href="#">Simular Recarga</a>
-        <a href="#">Favoritos</a>
-        <a href="#">Histórico</a>
+            <img src="../../assets/images/logo.png" alt="logo" class="logo">
 
-    </div>
+            <a id="menu_inicio" class="itens">
+                <div class="Inicio menu-links">
+                    <img src="../../assets/images/iconHome.png" class="icon">
+                    <p>Inicio</p>
+                </div>
+            </a>
 
-    <!-- ÁREA PRINCIPAL -->
+            <a id="menu_mapa" class="itens">
+                <div class="item_mapa menu-links">
+                    <img src="../../assets/images/iconMap.png" class="icon">
+                    <p>Mapa</p>
+                </div>
+            </a>
+
+            <a id="menu_planejar" class="itens">
+                <div class="item_planejar menu-links">
+                    <img src="../../assets/images/iconCompass.png" class="icon">
+                    <p>Planejar Viagem</p>
+                </div>
+            </a>
+
+            <a id="menu_simular" class="itens">
+                <div class="item_simular menu-links">
+                    <img src="../../assets/images/iconFlash.png" class="icon">
+                    <p>Simular Recarga</p>
+                </div>
+            </a>
+
+            <a id="menu_favoritos" class="itens">
+                <div class="item_favoritos menu-links">
+                    <img src="../../assets/images/iconHeart.png" class="icon">
+                    <p>Favoritos</p>
+                </div>
+            </a>
+
+            <a id="menu_historico" class="itens">
+                <div class="item_historico menu-links">
+                    <img src="../../assets/images/iconHistory.png" class="icon">
+                    <p>Histórico</p>
+                </div>
+            </a>
+
+        </div>
+
+        <div>
+
+            <a id="menu_login" class="itens">
+                <div class="item_login menu-links">
+                    <img src="../../assets/images/iconLogin.png" class="icon">
+                    <p>Login</p>
+                </div>
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- CONTEÚDO -->
     <div class="conteudo">
 
-        <h1>Cadastro</h1>
-
         <form>
+
+            <h1>Cadastro</h1>
 
             <label>Nome:</label>
             <input type="text">
@@ -48,4 +100,5 @@
     </div>
 
 </body>
+
 </html>

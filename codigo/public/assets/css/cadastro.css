@@ -1,87 +1,115 @@
-/* tira espaços automáticos do navegador */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* corpo da página */
 body{
     display: flex;
-    font-family: Arial, sans-serif;
-    background-color: #eeeeee;
+    background-color: #8cc97a;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* menu lateral */
+/* MENU */
+
 .menu{
     width: 220px;
     height: 100vh;
-
-    background-color: #d9d9d9;
-
-    padding: 20px;
-}
-
-/* título do menu */
-.menu h2{
-    margin-bottom: 20px;
-}
-
-/* links */
-.menu a{
-    display: block;
-
-    text-decoration: none;
-    color: black;
-
-    margin-bottom: 15px;
-
-    font-size: 18px;
-}
-
-/* conteúdo */
-.conteudo{
-    flex: 1;
-
-    padding: 50px;
-}
-
-/* título */
-.conteudo h1{
-    margin-bottom: 40px;
-}
-
-/* formulário */
-form{
-    width: 400px;
+    background-color: #8cc97a;
+    border-right: 3px solid #1fa10d;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-/* textos */
+.logo{
+    width: 150px;
+    display: block;
+    margin: 20px auto;
+}
+
+.itens{
+    text-decoration: none;
+    color: black;
+}
+
+.menu-links{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    border-top: 2px solid #1fa10d;
+    border-bottom: 2px solid #1fa10d;
+
+    padding: 15px;
+}
+
+.icon{
+    width: 40px;
+}
+
+/* CONTEÚDO */
+
+.conteudo{
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FORMULÁRIO */
+
+form{
+    width: 500px;
+
+    background-color: #7fc56d;
+
+    border: 2px solid #1fa10d;
+    border-radius: 20px;
+
+    padding: 40px;
+}
+
+/* TÍTULO */
+
+form h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* LABELS */
+
 label{
-    margin-top: 15px;
+    display: block;
+    margin-top: 20px;
     margin-bottom: 5px;
 }
 
-/* caixas */
+/* INPUTS */
+
 input{
-    height: 35px;
-
-    padding-left: 10px;
-}
-
-/* botão */
-button{
-    margin-top: 30px;
-
-    height: 40px;
-
-    background-color: #444;
-    color: white;
+    width: 100%;
+    padding: 12px;
 
     border: none;
+    border-radius: 10px;
+}
+
+/* BOTÃO */
+
+button{
+    width: 100%;
+
+    padding: 15px;
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #1fa10d;
+    color: white;
 
     cursor: pointer;
 }
