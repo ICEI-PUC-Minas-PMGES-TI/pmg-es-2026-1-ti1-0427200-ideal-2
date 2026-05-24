@@ -4,95 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simulação de Recarga</title>
-  <link rel="stylesheet" href="../../assets/css/simulador.css" />
+  <link rel="stylesheet" href="/codigo/public/assets/css/simulador.css" />
 </head>
 <body>
 
-  <!-- barra lateral -->
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="sidebar-logo">
-        <span class="logo-arrow">&#9664;</span>
-      </div>
+  <nav class="menu">
+    <div>
+      <img src="../../assets/images/logo.png" alt="logo" class="logo">
+      <a id="menu_inicio" class="itens">
+        <div class="Inicio menu-links">
+          <img src="../../assets/images/iconHome.png" class="icon">
+          <p>Inicio</p>
+        </div>
+      </a>
+      <a id="menu_mapa" class="itens">
+        <div class="item_mapa menu-links">
+          <img src="../../assets/images/iconMap.png" class="icon">
+          <p>Mapa</p>
+        </div>
+      </a>
+      <a id="menu_planejar" class="itens">
+        <div class="item_planejar menu-links">
+          <img src="../../assets/images/iconCompass.png" class="icon">
+          <p>Planejar Viajem</p>
+        </div>
+      </a>
+      <a id="menu_simular" class="itens active">
+        <div class="item_simular menu-links">
+          <img src="../../assets/images/iconFlash.png" class="icon">
+          <p>Simular Recarga</p>
+        </div>
+      </a>
+      <a id="menu_favoritos" class="itens">
+        <div class="item_favoritos menu-links">
+          <img src="../../assets/images/iconHeart.png" class="icon">
+          <p>Favoritos</p>
+        </div>
+      </a>
+      <a id="menu_historico" class="itens">
+        <div class="item_historico menu-links">
+          <img src="../../assets/images/iconHistory.png" class="icon">
+          <p>Histórico</p>
+        </div>
+      </a>
     </div>
-
-    <nav class="sidebar-nav">
-      <a href="#" class="nav-item">
-        <span class="nav-icon">&#8962;</span>
-        <span class="nav-label">Início</span>
+    <div>
+      <a id="menu_login" class="itens">
+        <div class="item_login menu-links">
+          <img src="../../assets/images/iconLogin.png" class="icon">
+          <p>Login</p>
+        </div>
       </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">&#128205;</span>
-        <span class="nav-label">Mapa</span>
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">&#129517;</span>
-        <span class="nav-label">Planejar Viagem</span>
-      </a>
-      <a href="#" class="nav-item active">
-        <span class="nav-icon">&#128267;</span>
-        <span class="nav-label">Simular Carga</span>
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">&#9733;</span>
-        <span class="nav-label">Favoritos</span>
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">&#9711;</span>
-        <span class="nav-label">Histórico</span>
-      </a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="user-avatar">&#128100;</div>
-      <span class="nav-label">Login</span>
     </div>
-  </aside>
+  </nav>
 
-  <!-- conteudo principal -->
-  <main class="main-content">
+  <main>
+    <h1>Simulação de Recarga</h1>
 
-    <!-- cards de cima -->
-    <div class="top-cards">
-      <div class="card top-card">
-        <p class="card-title">Carga Atual</p>
-        <p class="card-value">22%</p>
-      </div>
-      <div class="card top-card">
-        <p class="card-title">Autonomia Restante</p>
-        <p class="card-value">85 Km</p>
-      </div>
-    </div>
+    <div class="card">
+      <div class="form-grid">
 
-    
-    <h2 class="section-title">Simulação de Recarga</h2>
-
-    <!-- area da simulação -->
-    <div class="simulation-row">
-
-      <!-- card de parametros -->
-      <div class="card param-card">
-        <h3 class="card-heading">Parâmetros de Carga</h3>
-
-        <label class="field-label">Meta de Carga</label>
-        <div class="slider-wrapper">
-          <div class="slider-track">
-            <div class="slider-fill"></div>
-            <div class="slider-thumb"></div>
-          </div>
-          <div class="slider-limits">
-            <span>0%</span>
-            <span>100%</span>
+        <div class="field">
+          <label for="charge-range">Meta de Carga</label>
+          <div class="slider-row">
+            <input type="range" id="charge-range" min="0" max="100" value="0" />
+            <span class="slider-val" id="slider-pct">0%</span>
           </div>
         </div>
 
-        <label class="field-label">Tipo de Carrregador</label>
-        <div class="select-visual">
-          <span class="select-arrow">&#9660;</span>
+        <div class="field">
+          <label for="current-range">Carga Atual</label>
+          <div class="slider-row">
+            <input type="range" id="current-range" min="0" max="100" value="0" />
+            <span class="slider-val" id="current-pct">0%</span>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="charger-select">Tipo de Carregador</label>
+          <select id="charger-select">
+            <optgroup label="AC — Corrente Alternada">
+              <option>AC Monofásico — 3,7 kW</option>
+              <option>AC Bifásico — 7,4 kW</option>
+              <option>AC Trifásico — 11 kW</option>
+              <option>AC Trifásico — 22 kW</option>
+            </optgroup>
+            <optgroup label="DC — Corrente Contínua">
+              <option>DC Rápido — 50 kW</option>
+              <option>DC Rápido — 100 kW</option>
+              <option>DC Ultra-Rápido — 150 kW</option>
+              <option>DC Ultra-Rápido — 350 kW</option>
+            </optgroup>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="result-inline" id="result-inline">
+        <div class="result-item">
+          <span class="val" id="res-time">—</span>
+          <span class="lbl">Tempo Est.</span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item">
+          <span class="val" id="res-energy">—</span>
+          <span class="lbl">Energia</span>
         </div>
       </div>
 
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="simular()">Simular</button>
+        <button class="btn btn-ghost" onclick="resetar()">Resetar</button>
+      </div>
+    </div>
+
+    <div class="history-section">
+      <div class="history-header-row">
+        <h2>Histórico</h2>
+      </div>
+      <div class="history-box">
+        <div class="history-empty" id="history-empty">Nenhuma simulação realizada ainda.</div>
+        <table id="history-table" style="display:none;">
+          <thead>
+            <tr>
+              <th>Sessão</th>
+              <th>Meta</th>
+              <th>Carregador</th>
+              <th>Tempo Est.</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="history-tbody"></tbody>
+        </table>
+      </div>
+    </div>
   </main>
 
+  <script src="/codigo/public/assets/js/simulador.js"></script>
 </body>
 </html>
