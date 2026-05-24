@@ -1,31 +1,31 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: iDeal
 authors:
-  - family-names: 
+  - family-names: Crispim Bruno
     given-names: 
-  - family-names: 
+  - family-names: Joao Paulo
     given-names: 
-  - family-names: 
+  - family-names: Matheus Possemato
     given-names: 
-  - family-names: 
+  - family-names: Marcelo
     given-names: 
-  - family-names: 
+  - family-names: Brendon Leonardo
     given-names: 
-  - family-names: 
+  - family-names: Gabriel Assis
     given-names:
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
+    family-names: Diego
     given-names: 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
+    family-names: Danilo
     given-names: 
 keywords:
   - 
   - 
-repository-code: 
+repository-code: ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-ideal-2/tree/master
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2022-07-14
