@@ -1,7 +1,7 @@
 const LOCATIONS = [
-    { id: 1, title: "Shopping Central", address: "Av. Paulista, 1234", lat: -19.942824, lng: -44.076051, type: "Tipo 2", price: "R$ 12,00/h", status: "disponivel" },
-    { id: 2, title: "Posto Shell Eco", address: "Rua Augusta, 500", lat: -19.933936, lng: -43.936350, type: "CCS 50kW", price: "R$ 1.50/kWh", status: "ocupado" },
-    { id: 3, title: "Eletroposto Parque", address: "Ibirapuera, Portão 3", lat: -19.922553, lng: -43.993710, type: "Tipo 2", price: "Grátis", status: "disponivel" }
+    { id: 1, title: "Puc Coreu", address: "Av. Paulista, 1234", lat: -19.942824, lng: -44.076051, type: "Tipo 2", price: "R$ 12,00/h", status: "disponivel" },
+    { id: 2, title: "Puc Lourdes", address: "Rua Augusta, 500", lat: -19.933936, lng: -43.936350, type: "CCS 50kW", price: "R$ 1.50/kWh", status: "ocupado" },
+    { id: 3, title: "Puc contagem", address: "Ibirapuera, Portão 3", lat: -19.922553, lng: -43.993710, type: "Tipo 2", price: "Grátis", status: "disponivel" }
 ];
 
 const map = L.map('map').setView([-19.922553, -43.993710], 13);
