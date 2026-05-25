@@ -2,32 +2,52 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Postos</title>
-  <link rel="stylesheet" href="favoritos.css" />
+  <title>Meus Favoritos</title>
+  <link rel="stylesheet" href="../../assets/css/favoritos.css" />
 </head>
 <body>
 
-  <div id="lista"></div>
+  <div class="layout">
 
-  <script src="cards.js"></script>
-  <script>
-    const lista = document.getElementById("lista");
+    <aside class="sidebar">
+      <nav class="menu">
+        <a href="#" class="menu-item">
+          <span>Início</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span>Mapa</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span>Planejar Viagem</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span>Simular Recarga</span>
+        </a>
+        <a href="cards.html" class="menu-item ativo">
+          <span>Favoritos</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span>Histórico</span>
+        </a>
+      </nav>
 
-    postos.forEach(function(posto) {
-      const card = document.createElement("div");
-      card.classList.add("card");
+      <div class="login">
+        <a href="#" class="menu-item">
+          <span>Login</span>
+        </a>
+      </div>
+    </aside>
 
-      card.innerHTML =
-        "<img src='" + posto.imagem + "' alt='posto' />" +
-        "<div class='card-info'>" +
-          "<strong>" + posto.nome + "</strong>" +
-          "<span>" + posto.endereco + " — " + posto.cidade + "</span>" +
-        "</div>" +
-        "<a href='detalhe.html?id=" + posto.id + "'><button>Ver detalhes</button></a>";
+    <main class="conteudo">
+      <input type="text" id="pesquisa" placeholder="Pesquisar por nome, endereço ou cidade..." />
+      <div id="lista"></div>
+    </main>
 
-      lista.appendChild(card);
-    });
-  </script>
+  </div>
+
+  <script src="../../assets/js/cards.js"></script>
+  <script src="../../assets/js/favoritos.js"></script>
+  <script src="../../assets/js/cards-render.js"></script>
 
 </body>
 </html>
