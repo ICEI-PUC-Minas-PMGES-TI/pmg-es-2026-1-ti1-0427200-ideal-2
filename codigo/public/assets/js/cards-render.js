@@ -59,12 +59,23 @@ function renderizarLista(listaPostos) {
         "<strong>" + posto.nome + "</strong>" +
         "<span>" + posto.endereco + " — " + posto.cidade + "</span>" +
       "</div>" +
-      "<a href='favoritos.html?id=" + posto.id + "'><button>Ver detalhes</button></a>";
+      "<a href='favoritos.html?id=" + posto.id + "'><button>Ver detalhes</button></a>" +
+      "<button class='btn-remover' data-id='" + posto.id + "'>Remover</button>";
 
     lista.appendChild(card);
   });
 }
 
+function removerFavorito(idPosto) {
+  postosFavoritos = postosFavoritos.filter(function(posto) {
+    return posto.id !== idPosto;
+  });
+ 
+  // Re-renderiza respeitando o que estiver digitado na pesquisa
+  const termoAtual = pesquisa ? pesquisa.value : "";
+  renderizarLista(filtrarPostos(termoAtual));
+}
+ 
 function filtrarPostos(termo) {
   const termoLower = termo.trim().toLowerCase();
 
@@ -82,6 +93,13 @@ function filtrarPostos(termo) {
 }
 
 renderizarLista(postosFavoritos);
+
+lista.addEventListener("click", function(e) {
+  const botao = e.target.closest(".btn-remover");
+  if (botao) {
+    removerFavorito(Number(botao.dataset.id));
+  }
+});
 
 if (pesquisa) {
   pesquisa.addEventListener("input", function(e) {
