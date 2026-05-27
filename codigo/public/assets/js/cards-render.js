@@ -1,5 +1,20 @@
 //Pra funcionar la e puxar diferentes favoritos tem que escrever ?usuario="número de usuário aqui" pra aparecer diferentes postos que foram favoritados no site
 
+function formatarStatus(posto) {
+  if (!posto.recarga) return "";
+
+  const labels = {
+    "disponivel": "Disponível",
+    "ocupada": "Ocupada",
+    "fora-de-servico": "Fora de serviço"
+  };
+
+  const texto = labels[posto.status];
+  if (!texto) return "";
+
+  return "<span class='status-pill status-" + posto.status + "'>" + texto + "</span>";
+}
+
 const lista = document.getElementById("lista");
 const pesquisa = document.getElementById("pesquisa");
 
@@ -58,6 +73,7 @@ function renderizarLista(listaPostos) {
       "<div class='card-info'>" +
         "<strong>" + posto.nome + "</strong>" +
         "<span>" + posto.endereco + " — " + posto.cidade + "</span>" +
+        formatarStatus(posto) +
       "</div>" +
       "<a href='favoritos.html?id=" + posto.id + "'><button>Ver detalhes</button></a>" +
       "<button class='btn-remover' data-id='" + posto.id + "'>Remover</button>";
@@ -70,12 +86,12 @@ function removerFavorito(idPosto) {
   postosFavoritos = postosFavoritos.filter(function(posto) {
     return posto.id !== idPosto;
   });
- 
+
   // Re-renderiza respeitando o que estiver digitado na pesquisa
   const termoAtual = pesquisa ? pesquisa.value : "";
   renderizarLista(filtrarPostos(termoAtual));
 }
- 
+
 function filtrarPostos(termo) {
   const termoLower = termo.trim().toLowerCase();
 
