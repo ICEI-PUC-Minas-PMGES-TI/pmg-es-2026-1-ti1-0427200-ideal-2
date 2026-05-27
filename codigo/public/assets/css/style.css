@@ -1,7 +1,7 @@
 :root {
     --primary: #2ecc71;
     --dark: #2c3e50;
-    --gray: #ecf0f1;
+    --gray: #ffffff;
     --danger: #e74c3c;
 }
 
@@ -22,14 +22,14 @@ body {
     padding: 20px;
 }
 
-.logo { width: 120px; margin-bottom: 30px; filter: brightness(0) invert(1); }
+.logo { width: 120px; margin-bottom: 30px; border-radius: 50%; }
 
 .menu-links {
     display: flex;
     align-items: center;
     padding: 12px;
     text-decoration: none;
-    color: #bdc3c7;
+    color: #ffffff;
     transition: 0.3s;
     border-radius: 8px;
     margin-bottom: 5px;
@@ -41,6 +41,10 @@ body {
 }
 
 .menu-links p { margin: 0; margin-left: 15px; }
+
+#menuItems{
+    color: #ffffff !important
+}
 
 .container {
     flex: 1;
