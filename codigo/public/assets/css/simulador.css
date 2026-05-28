@@ -1,4 +1,4 @@
-/* ── variaveis ── */
+/* ── variaveis usadas ── */
 :root {
   --bg: #fff;
   --surface: #f5f7fa;
@@ -10,7 +10,7 @@
   --menu-width: 140px;
 }
 
-/* ── Reset ── */
+/* ── estilo padrao da página/sofrerá mudanças para ficar igual as outras paginas ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -21,7 +21,7 @@ body {
   display: flex;
 }
 
-/* ── Menu ── */
+/* ── menu ── */
 .menu {
   width: var(--menu-width);
   flex-shrink: 0;
@@ -83,7 +83,7 @@ body {
   line-height: 1.2;
 }
 
-/* ── Main ── */
+/* ── main ── */
 main {
   margin-left: var(--menu-width);
   flex: 1;
@@ -106,7 +106,7 @@ h1 {
   padding: 24px;
 }
 
-/* ── Form grid ── */
+/* ── grids ── */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
