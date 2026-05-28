@@ -60,7 +60,7 @@ function renderizarLista(listaPostos) {
 
   if (listaPostos.length === 0) {
     lista.innerHTML =
-      "<div class='sem-resultado'>Nenhum posto encontrado para a sua pesquisa.</div>";
+      "<div class='sem-resultado'>Nenhum posto encontrado para os filtros selecionados.</div>";
     return;
   }
 
@@ -87,24 +87,30 @@ function removerFavorito(idPosto) {
     return posto.id !== idPosto;
   });
 
-  // Re-renderiza respeitando o que estiver digitado na pesquisa
-  const termoAtual = pesquisa ? pesquisa.value : "";
-  renderizarLista(filtrarPostos(termoAtual));
+  renderizarLista(aplicarFiltros());
 }
 
-function filtrarPostos(termo) {
-  const termoLower = termo.trim().toLowerCase();
+let statusAtivo = "todos";
 
-  if (termoLower === "") {
-    return postosFavoritos;
-  }
+function combinaTexto(posto, termoLower) {
+  if (termoLower === "") return true;
+  return (
+    posto.nome.toLowerCase().includes(termoLower) ||
+    posto.endereco.toLowerCase().includes(termoLower) ||
+    posto.cidade.toLowerCase().includes(termoLower)
+  );
+}
+
+function combinaStatus(posto) {
+  if (statusAtivo === "todos") return true;
+  return posto.status === statusAtivo;
+}
+
+function aplicarFiltros() {
+  const termoLower = pesquisa ? pesquisa.value.trim().toLowerCase() : "";
 
   return postosFavoritos.filter(function(posto) {
-    return (
-      posto.nome.toLowerCase().includes(termoLower) ||
-      posto.endereco.toLowerCase().includes(termoLower) ||
-      posto.cidade.toLowerCase().includes(termoLower)
-    );
+    return combinaStatus(posto) && combinaTexto(posto, termoLower);
   });
 }
 
@@ -118,8 +124,26 @@ lista.addEventListener("click", function(e) {
 });
 
 if (pesquisa) {
-  pesquisa.addEventListener("input", function(e) {
-    const resultados = filtrarPostos(e.target.value);
-    renderizarLista(resultados);
+  pesquisa.addEventListener("input", function() {
+    renderizarLista(aplicarFiltros());
+  });
+}
+
+const filtros = document.getElementById("filtros");
+
+if (filtros) {
+  filtros.addEventListener("click", function(e) {
+    const botao = e.target.closest(".filtro-btn");
+    if (!botao) return;
+
+    statusAtivo = botao.dataset.status;
+
+    // Marca visualmente o botão ativo
+    filtros.querySelectorAll(".filtro-btn").forEach(function(b) {
+      b.classList.remove("ativo");
+    });
+    botao.classList.add("ativo");
+
+    renderizarLista(aplicarFiltros());
   });
 }

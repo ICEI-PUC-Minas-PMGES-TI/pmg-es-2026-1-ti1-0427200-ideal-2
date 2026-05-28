@@ -40,6 +40,12 @@
 
     <main class="conteudo">
       <input type="text" id="pesquisa" placeholder="Pesquisar por nome, endereço ou cidade..." />
+      <div id="filtros">
+        <button class="filtro-btn ativo" data-status="todos">Todos</button>
+        <button class="filtro-btn" data-status="disponivel">Disponível</button>
+        <button class="filtro-btn" data-status="ocupada">Ocupada</button>
+        <button class="filtro-btn" data-status="fora-de-servico">Fora de serviço</button>
+      </div>
       <div id="lista"></div>
     </main>
 

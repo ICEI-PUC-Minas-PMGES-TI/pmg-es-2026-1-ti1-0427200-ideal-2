@@ -313,3 +313,34 @@ body {
   color: #6b7280;
   border: 1px solid #e5e7eb;
 }
+
+#filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filtro-btn {
+  padding: 8px 16px;
+  background: #fff;
+  color: #4b5563;
+  border: 1px solid #e2e4e9;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filtro-btn:hover {
+  background: #f4f5f7;
+  color: #1f2937;
+}
+
+.filtro-btn.ativo {
+  background: #1f2937;
+  color: #fff;
+  border-color: #1f2937;
+}
