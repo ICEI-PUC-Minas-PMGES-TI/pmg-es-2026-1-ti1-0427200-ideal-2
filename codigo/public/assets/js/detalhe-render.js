@@ -1,3 +1,5 @@
+const POSTOS_URL = "/postos";
+
 function formatarStatus(posto) {
   if (!posto.recarga) return "";
 
@@ -13,13 +15,12 @@ function formatarStatus(posto) {
   return "<span class='status-pill status-" + posto.status + "'>" + texto + "</span>";
 }
 
-const params = new URLSearchParams(window.location.search);
-const id = Number(params.get("id"));
-const posto = postos.find(function(p) { return p.id === id; });
-
 const detalhe = document.getElementById("detalhe");
 
-if (posto) {
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
+
+function renderizarPosto(posto) {
   const recargaHtml = posto.recarga
     ? "<div class='secao-recarga'>" +
         "<h3>Ponto de Recarga Elétrica</h3>" +
@@ -43,8 +44,23 @@ if (posto) {
     "</div>" +
     recargaHtml +
     "<a class='btn-voltar' href='cards.html'>← Voltar</a>";
-} else {
+}
+
+function renderizarErro(mensagem) {
   detalhe.innerHTML =
-    "<p>Posto não encontrado.</p>" +
+    "<p>" + mensagem + "</p>" +
     "<a class='btn-voltar' href='cards.html'>← Voltar</a>";
 }
+
+fetch(POSTOS_URL + "/" + id)
+  .then(function(r) {
+    if (!r.ok) throw new Error("Posto não encontrado");
+    return r.json();
+  })
+  .then(function(posto) {
+    renderizarPosto(posto);
+  })
+  .catch(function(error) {
+    console.error("Erro ao carregar posto:", error);
+    renderizarErro("Posto não encontrado.");
+  });

@@ -1,4 +1,19 @@
-//Pra funcionar la e puxar diferentes favoritos tem que escrever ?usuario="número de usuário aqui" pra aparecer diferentes postos que foram favoritados no site
+const POSTOS_URL = "/postos";
+const FAVORITOS_URL = "/favoritos";
+
+let postos = [];
+let favoritos = [];
+
+let postosFavoritos = [];
+let usuario = null;
+let statusAtivo = "todos";
+
+const lista = document.getElementById("lista");
+const pesquisa = document.getElementById("pesquisa");
+const filtros = document.getElementById("filtros");
+
+const params = new URLSearchParams(window.location.search);
+const usuarioId = params.get("usuario") ? Number(params.get("usuario")) : 1;
 
 function formatarStatus(posto) {
   if (!posto.recarga) return "";
@@ -13,24 +28,6 @@ function formatarStatus(posto) {
   if (!texto) return "";
 
   return "<span class='status-pill status-" + posto.status + "'>" + texto + "</span>";
-}
-
-const lista = document.getElementById("lista");
-const pesquisa = document.getElementById("pesquisa");
-
-const params = new URLSearchParams(window.location.search);
-const usuarioId = params.get("usuario") ? Number(params.get("usuario")) : 1;
-
-const usuario = favoritos.find(function(u) {
-  return u.usuarioId === usuarioId;
-});
-
-let postosFavoritos = [];
-
-if (usuario) {
-  postosFavoritos = postos.filter(function(posto) {
-    return usuario.postosFavoritos.includes(posto.id);
-  });
 }
 
 function renderizarLista(listaPostos) {
@@ -90,8 +87,6 @@ function removerFavorito(idPosto) {
   renderizarLista(aplicarFiltros());
 }
 
-let statusAtivo = "todos";
-
 function combinaTexto(posto, termoLower) {
   if (termoLower === "") return true;
   return (
@@ -114,8 +109,6 @@ function aplicarFiltros() {
   });
 }
 
-renderizarLista(postosFavoritos);
-
 lista.addEventListener("click", function(e) {
   const botao = e.target.closest(".btn-remover");
   if (botao) {
@@ -129,8 +122,6 @@ if (pesquisa) {
   });
 }
 
-const filtros = document.getElementById("filtros");
-
 if (filtros) {
   filtros.addEventListener("click", function(e) {
     const botao = e.target.closest(".filtro-btn");
@@ -138,7 +129,6 @@ if (filtros) {
 
     statusAtivo = botao.dataset.status;
 
-    // Marca visualmente o botão ativo
     filtros.querySelectorAll(".filtro-btn").forEach(function(b) {
       b.classList.remove("ativo");
     });
@@ -147,3 +137,29 @@ if (filtros) {
     renderizarLista(aplicarFiltros());
   });
 }
+
+Promise.all([
+  fetch(POSTOS_URL).then(function(r) { return r.json(); }),
+  fetch(FAVORITOS_URL).then(function(r) { return r.json(); })
+])
+.then(function(resultados) {
+  postos = resultados[0];
+  favoritos = resultados[1];
+
+  usuario = favoritos.find(function(u) {
+    return u.usuarioId === usuarioId;
+  });
+
+  if (usuario) {
+    postosFavoritos = postos.filter(function(posto) {
+      return usuario.postosFavoritos.includes(posto.id);
+    });
+  }
+
+  renderizarLista(postosFavoritos);
+})
+.catch(function(error) {
+  console.error("Erro ao carregar dados da API:", error);
+  lista.innerHTML =
+    "<div class='sem-resultado'>Erro ao carregar os dados. Verifique se o servidor está rodando.</div>";
+});
