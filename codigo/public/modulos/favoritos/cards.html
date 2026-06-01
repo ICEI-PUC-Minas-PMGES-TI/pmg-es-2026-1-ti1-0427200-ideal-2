@@ -40,15 +40,31 @@
 
     <main class="conteudo">
       <input type="text" id="pesquisa" placeholder="Pesquisar por nome, endereço ou cidade..." />
-      <div id="filtros">
-        <button class="filtro-btn ativo" data-status="todos">Todos</button>
-        <button class="filtro-btn" data-status="disponivel">Disponível</button>
-        <button class="filtro-btn" data-status="ocupada">Ocupada</button>
-        <button class="filtro-btn" data-status="fora-de-servico">Fora de serviço</button>
+
+      <div class="barra-acoes">
+        <div id="filtros">
+          <button class="filtro-btn ativo" data-status="todos">Todos</button>
+          <button class="filtro-btn" data-status="disponivel">Disponível</button>
+          <button class="filtro-btn" data-status="ocupada">Ocupada</button>
+          <button class="filtro-btn" data-status="fora-de-servico">Fora de serviço</button>
+        </div>
+        <button id="btn-adicionar">+ Adicionar favorito</button>
       </div>
+
       <div id="lista"></div>
     </main>
 
+  </div>
+
+  <!-- Modal de adicionar favorito (escondido por padrão; o JS mostra quando precisa) -->
+  <div id="modal-adicionar" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-cabecalho">
+        <h2>Adicionar aos favoritos</h2>
+        <button class="modal-fechar" id="modal-fechar" aria-label="Fechar">×</button>
+      </div>
+      <div id="modal-lista"></div>
+    </div>
   </div>
 
   <script src="../../assets/js/cards-render.js"></script>

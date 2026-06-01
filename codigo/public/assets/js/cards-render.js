@@ -1,17 +1,30 @@
+// Pra funcionar e puxar diferentes favoritos tem que escrever ?usuario="número de usuário aqui" pra aparecer diferentes postos que foram favoritados no site
+//
+// Esta versão lê os dados da API JSONServer (endpoints /postos e /favoritos)
+// e adiciona novos favoritos via PATCH em /favoritos/:id.
+
 const POSTOS_URL = "/postos";
 const FAVORITOS_URL = "/favoritos";
 
+// Dados carregados da API
 let postos = [];
 let favoritos = [];
 
+// Estado da página
 let postosFavoritos = [];
 let usuario = null;
 let statusAtivo = "todos";
 
+// Elementos da página
 const lista = document.getElementById("lista");
 const pesquisa = document.getElementById("pesquisa");
 const filtros = document.getElementById("filtros");
+const btnAdicionar = document.getElementById("btn-adicionar");
+const modal = document.getElementById("modal-adicionar");
+const modalLista = document.getElementById("modal-lista");
+const modalFechar = document.getElementById("modal-fechar");
 
+// Identifica o usuário pela query string (?usuario=N)
 const params = new URLSearchParams(window.location.search);
 const usuarioId = params.get("usuario") ? Number(params.get("usuario")) : 1;
 
@@ -65,6 +78,8 @@ function renderizarLista(listaPostos) {
     const card = document.createElement("div");
     card.classList.add("card");
 
+    const linkDetalhe = "favoritos.html?id=" + posto.id + "&usuario=" + usuarioId;
+
     card.innerHTML =
       "<img src='" + posto.imagem + "' alt='posto' />" +
       "<div class='card-info'>" +
@@ -72,7 +87,7 @@ function renderizarLista(listaPostos) {
         "<span>" + posto.endereco + " — " + posto.cidade + "</span>" +
         formatarStatus(posto) +
       "</div>" +
-      "<a href='favoritos.html?id=" + posto.id + "'><button>Ver detalhes</button></a>" +
+      "<a href='" + linkDetalhe + "'><button>Ver detalhes</button></a>" +
       "<button class='btn-remover' data-id='" + posto.id + "'>Remover</button>";
 
     lista.appendChild(card);
@@ -109,6 +124,87 @@ function aplicarFiltros() {
   });
 }
 
+// === Modal: adicionar favorito ===
+
+function postosDisponiveisParaAdicionar() {
+  // Postos do sistema que o usuário ainda NÃO favoritou
+  return postos.filter(function(posto) {
+    return !usuario.postosFavoritos.includes(posto.id);
+  });
+}
+
+function renderizarModal() {
+  modalLista.innerHTML = "";
+
+  const disponiveis = postosDisponiveisParaAdicionar();
+
+  if (disponiveis.length === 0) {
+    modalLista.innerHTML =
+      "<div class='sem-resultado'>Todos os postos já estão nos seus favoritos.</div>";
+    return;
+  }
+
+  disponiveis.forEach(function(posto) {
+    const item = document.createElement("div");
+    item.classList.add("card");
+
+    item.innerHTML =
+      "<img src='" + posto.imagem + "' alt='posto' />" +
+      "<div class='card-info'>" +
+        "<strong>" + posto.nome + "</strong>" +
+        "<span>" + posto.endereco + " — " + posto.cidade + "</span>" +
+        formatarStatus(posto) +
+      "</div>" +
+      "<button class='btn-adicionar-favorito' data-id='" + posto.id + "'>Adicionar</button>";
+
+    modalLista.appendChild(item);
+  });
+}
+
+function abrirModal() {
+  if (!usuario) return;
+  renderizarModal();
+  modal.hidden = false;
+}
+
+function fecharModal() {
+  modal.hidden = true;
+}
+
+function adicionarFavorito(idPosto) {
+  // 1. Calcula a nova lista de favoritos do usuário
+  const novosFavoritos = usuario.postosFavoritos.concat([idPosto]);
+
+  // 2. Atualiza no servidor via PATCH (só o campo postosFavoritos)
+  fetch(FAVORITOS_URL + "/" + usuario.id, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ postosFavoritos: novosFavoritos })
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error("Falha ao adicionar favorito");
+    return r.json();
+  })
+  .then(function(usuarioAtualizado) {
+    // 3. Sincroniza o estado local com o que o servidor retornou
+    usuario = usuarioAtualizado;
+    postosFavoritos = postos.filter(function(posto) {
+      return usuario.postosFavoritos.includes(posto.id);
+    });
+
+    // 4. Atualiza as duas telas (modal e lista de fundo)
+    renderizarModal();
+    renderizarLista(aplicarFiltros());
+    fecharModal();
+  })
+  .catch(function(error) {
+    console.error("Erro ao adicionar favorito:", error);
+    alert("Não foi possível adicionar o posto aos favoritos. Tente novamente.");
+  });
+}
+
+// === Listeners de UI ===
+
 lista.addEventListener("click", function(e) {
   const botao = e.target.closest(".btn-remover");
   if (botao) {
@@ -135,6 +231,33 @@ if (filtros) {
     botao.classList.add("ativo");
 
     renderizarLista(aplicarFiltros());
+  });
+}
+
+if (btnAdicionar) {
+  btnAdicionar.addEventListener("click", abrirModal);
+}
+
+if (modalFechar) {
+  modalFechar.addEventListener("click", fecharModal);
+}
+
+if (modal) {
+  modal.addEventListener("click", function(e) {
+    if (e.target === modal) fecharModal();
+  });
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape" && modal && !modal.hidden) fecharModal();
+});
+
+if (modalLista) {
+  modalLista.addEventListener("click", function(e) {
+    const botao = e.target.closest(".btn-adicionar-favorito");
+    if (botao) {
+      adicionarFavorito(Number(botao.dataset.id));
+    }
   });
 }
 
