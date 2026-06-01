@@ -27,5 +27,8 @@ function showMeDetails() {
 const saida = document.getElementById('saida');
 const chegada = document.getElementById('chegada');
 const btn = document.getElementById('btnCalcular');
-
+const map = L.map('map').setView([-19.9167, -43.9345], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
 btn.addEventListener('click', ()=>showMeDetails());
