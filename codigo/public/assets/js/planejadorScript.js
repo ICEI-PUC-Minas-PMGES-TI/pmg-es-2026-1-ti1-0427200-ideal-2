@@ -1,6 +1,17 @@
 import { rotas } from "./dataPlanejador.js";
 let rotaAtual;
 
+function tratamentoInfos(data) {
+    const distanciaKm = (data.distance / 1000).toFixed(1);
+    const tempoHoras = Math.floor(data.duration / 3600);
+    const tempoMinutos = Math.floor((data.duration % 3600) / 60);
+    return {
+        'distancia': distanciaKm,
+        'horas': tempoHoras,
+        'min': tempoMinutos
+    }
+}
+
 async function buscarEndereco(endereco) {
     const response = await fetch(
         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`
@@ -42,6 +53,9 @@ async function buscarRota(origem, destino) {
     }
     const data = await response.json();
     rotaAtual = L.geoJSON(data).addTo(map);
+    const infos = data.features[0].properties.summary;
+    console.log(data.features[0].properties.summary);
+    return tratamentoInfos(infos);
 }
 
 async function showMeDetails() {
@@ -61,10 +75,10 @@ async function showMeDetails() {
     const pD = document.createElement('p');
     const infoSaida = await buscarEndereco(saida);
     const infoChegada = await buscarEndereco(chegada);
-    await buscarRota(infoSaida, infoChegada);
-    /* tempo.innerText = `${rota.tempo}h`;
-    distancia.innerText = `${rota.distancia}Km`;
-    postos.innerText = `${rota.postos}`; */
+    const infosViajem = await buscarRota(infoSaida, infoChegada);
+    tempo.innerText = `${infosViajem.horas}h e ${infosViajem.min} min`;
+    distancia.innerText = `${infosViajem.distancia}Km`;
+    /* postos.innerText = `${rota.postos}`; */
 }
 
 const saida = document.getElementById('saida');
