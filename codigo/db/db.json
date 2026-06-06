@@ -77,7 +77,7 @@
       "potencia": "350 kW",
       "tomadas": 6,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1606131959866-21ca5619bac5?w=120&h=120&fit=crop&auto=format"
     },
     {
       "id": 5,
@@ -91,7 +91,7 @@
       "potencia": "22 kW",
       "tomadas": 2,
       "status": "ocupada",
-      "imagem": "https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1678903434882-d8bc7782b953?w=120&h=120&fit=crop&auto=format"
     },
     {
       "id": 6,
@@ -105,7 +105,7 @@
       "potencia": "120 kW",
       "tomadas": 3,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1697552441953-44a2ec1bf42d?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1591179535738-0fe38055847b?w=120&h=120&fit=crop&auto=format"
     },
     {
       "id": 7,
@@ -119,7 +119,7 @@
       "potencia": "7 kW",
       "tomadas": 4,
       "status": "ocupada",
-      "imagem": "https://images.unsplash.com/photo-1611174243460-3d624dd13f86?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1654334036171-e01e52b2ce8e?w=120&h=120&fit=crop&auto=format"
     },
     {
       "id": 8,
@@ -133,7 +133,7 @@
       "potencia": "60 kW",
       "tomadas": 2,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1558389186-a7a3193c5e84?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1635627026254-b652e62d1d07?w=120&h=120&fit=crop&auto=format"
     }
   ],
   "favoritos": [
@@ -142,7 +142,6 @@
       "usuarioId": 1,
       "nomeUsuario": "Lucas",
       "postosFavoritos": [
-        3,
         1,
         4
       ]
