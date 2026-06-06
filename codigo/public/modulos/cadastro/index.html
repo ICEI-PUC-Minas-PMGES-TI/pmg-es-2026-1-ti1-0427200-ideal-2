@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <title>Cadastro</title>
 
-    <link rel="stylesheet" href="/codigo/public/assets/css/cadastro.css">
+    <link rel="stylesheet" href="/public/assets/css/cadastro.css">
 </head>
 
 <body>
 
    
     <nav class="menu">
-
+        
         <div>
 
             <img src="../../assets/images/logo.png" alt="logo" class="logo">
@@ -77,27 +77,69 @@
     
     <div class="conteudo">
 
-        <form>
+        <form id="formCadastro">
 
             <h1>Cadastro</h1>
 
             <label>Nome:</label>
-            <input type="text">
+            <input type="text" id="nome">
 
             <label>E-mail:</label>
-            <input type="email">
+            <input type="email" id="email">
 
             <label>Senha:</label>
-            <input type="password">
+            <input type="password" id="senha">
 
             <label>Confirmar senha:</label>
-            <input type="password">
+            <input type="password" id="confirmarSenha">
 
-            <button>Cadastrar</button>
+            <button type="submit">Cadastrar</button>
+
+            <p id="mensagem"></p>
 
         </form>
 
     </div>
+
+    
+    <script>
+        const form = document.getElementById("formCadastro");
+        const mensagem = document.getElementById("mensagem");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            if (nome === "" || email === "" || senha === "" || confirmarSenha === "") {
+                mensagem.innerText = "Preencha todos os campos!";
+                mensagem.style.color = "red";
+                return;
+            }
+
+            if (senha.length < 6) {
+                mensagem.innerText = "A senha deve ter pelo menos 6 caracteres.";
+                mensagem.style.color = "red";
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                mensagem.innerText = "As senhas não coincidem!";
+                mensagem.style.color = "red";
+                return;
+            }
+
+            mensagem.innerText = "Cadastro realizado com sucesso!";
+            mensagem.style.color = "green";
+
+            console.log({ nome, email, senha });
+
+            form.reset();
+        });
+    </script>
 
 </body>
 
