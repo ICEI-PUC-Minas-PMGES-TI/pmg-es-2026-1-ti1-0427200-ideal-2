@@ -21,5 +21,149 @@
       "email": "rommel@gmail.com",
       "id": 3
     }
+  ],
+  "postos": [
+    {
+      "id": 1,
+      "nome": "Posto Shell Select",
+      "endereco": "Av. Afonso Pena, 1500",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "(31) 3222-1100",
+      "horario": "24 horas",
+      "recarga": true,
+      "tipoConector": "Tipo 2 / CCS",
+      "potencia": "50 kW",
+      "tomadas": 2,
+      "status": "disponivel",
+      "imagem": "https://images.unsplash.com/photo-1585740452884-2a29a1d21514?w=120&h=120&fit=crop&auto=format"
+    },
+    {
+      "id": 2,
+      "nome": "Posto Ipiranga",
+      "endereco": "Rua dos Tupinambás, 820",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "(31) 3271-4455",
+      "horario": "06h às 22h",
+      "recarga": true,
+      "tipoConector": "CHAdeMO / Tipo 2",
+      "potencia": "22 kW",
+      "tomadas": 1,
+      "status": "ocupada",
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format"
+    },
+    {
+      "id": 3,
+      "nome": "Posto BR Mania",
+      "endereco": "Av. Cristiano Machado, 4000",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "(31) 3422-9870",
+      "horario": "24 horas",
+      "recarga": true,
+      "tipoConector": "CCS / CHAdeMO",
+      "potencia": "150 kW",
+      "tomadas": 4,
+      "status": "fora-de-servico",
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format&crop=right"
+    },
+    {
+      "id": 4,
+      "nome": "EletroPosto Savassi",
+      "endereco": "Rua Pernambuco, 1200",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "(31) 3261-7788",
+      "horario": "24 horas",
+      "recarga": true,
+      "tipoConector": "CCS",
+      "potencia": "350 kW",
+      "tomadas": 6,
+      "status": "disponivel",
+      "imagem": "https://images.unsplash.com/photo-1606131959866-21ca5619bac5?w=120&h=120&fit=crop&auto=format"
+    },
+    {
+      "id": 5,
+      "nome": "Posto Petrobras Contagem",
+      "endereco": "Av. João César de Oliveira, 5000",
+      "cidade": "Contagem - MG",
+      "telefone": "(31) 3391-2244",
+      "horario": "05h às 23h",
+      "recarga": true,
+      "tipoConector": "Tipo 2",
+      "potencia": "22 kW",
+      "tomadas": 2,
+      "status": "ocupada",
+      "imagem": "https://images.unsplash.com/photo-1678903434882-d8bc7782b953?w=120&h=120&fit=crop&auto=format"
+    },
+    {
+      "id": 6,
+      "nome": "Recarga Verde Nova Lima",
+      "endereco": "Alameda Oscar Niemeyer, 300",
+      "cidade": "Nova Lima - MG",
+      "telefone": "(31) 3541-9900",
+      "horario": "07h às 22h",
+      "recarga": true,
+      "tipoConector": "CCS / Tipo 2",
+      "potencia": "120 kW",
+      "tomadas": 3,
+      "status": "disponivel",
+      "imagem": "https://images.unsplash.com/photo-1591179535738-0fe38055847b?w=120&h=120&fit=crop&auto=format"
+    },
+    {
+      "id": 7,
+      "nome": "Posto Ale Pampulha",
+      "endereco": "Av. Antônio Carlos, 7500",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "(31) 3441-5566",
+      "horario": "24 horas",
+      "recarga": true,
+      "tipoConector": "Tipo 2",
+      "potencia": "7 kW",
+      "tomadas": 4,
+      "status": "ocupada",
+      "imagem": "https://images.unsplash.com/photo-1654334036171-e01e52b2ce8e?w=120&h=120&fit=crop&auto=format"
+    },
+    {
+      "id": 8,
+      "nome": "Hub Recarga Barreiro",
+      "endereco": "Av. Olinto Meireles, 2200",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "(31) 3382-1010",
+      "horario": "06h às 22h",
+      "recarga": true,
+      "tipoConector": "CHAdeMO / CCS",
+      "potencia": "60 kW",
+      "tomadas": 2,
+      "status": "disponivel",
+      "imagem": "https://images.unsplash.com/photo-1635627026254-b652e62d1d07?w=120&h=120&fit=crop&auto=format"
+    }
+  ],
+  "favoritos": [
+    {
+      "id": 1,
+      "usuarioId": 1,
+      "nomeUsuario": "Lucas",
+      "postosFavoritos": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "usuarioId": 2,
+      "nomeUsuario": "Maria",
+      "postosFavoritos": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "usuarioId": 3,
+      "nomeUsuario": "João",
+      "postosFavoritos": [
+        1,
+        2,
+        3
+      ]
+    }
   ]
 }
