@@ -13,7 +13,7 @@ let rowCounter = 0;
 
 function paintTrack(input) {
   const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
-  input.style.background = `linear-gradient(to right, #3b82f6 ${pct}%, #e2e8f0 ${pct}%)`;
+  input.style.background = `linear-gradient(to right, #279b10 ${pct}%, #e2e8f0 ${pct}%)`;
 }
 
 const rangeA = document.getElementById('charge-range');
