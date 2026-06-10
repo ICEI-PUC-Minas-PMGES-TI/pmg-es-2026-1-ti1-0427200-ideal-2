@@ -5,6 +5,11 @@ async function buscarPostos() {
     const dados = await response.json();
     return dados;
 }
+async function deletePosto(id) {
+    fetch(`http://localhost:3000/postos/${id}`, {
+      method: "DELETE"
+    });
+}
 
 function createPostos(posto) {
     const card = document.createElement('div');
@@ -18,7 +23,7 @@ function createPostos(posto) {
     </div>
     <div class="card-btn">
         <a href="./editPosto.html?id=${posto.id}">Editar</a>
-        <button class="btnCalcular" id="btnCalcular">Deletar</button>
+        <button class="btnDeletar" id="btnDeletar"  data-id="${posto.id}">Deletar</button>
     </div>
     `;
     return card;
@@ -30,4 +35,15 @@ async function renderPostos() {
     postos.forEach(p => listPostos.appendChild(createPostos(p)));
 }
 
-await renderPostos()
+async function init() {
+    await renderPostos()
+    document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btnDeletar")) {
+        const id = e.target.dataset.id;
+        console.log("ID do posto deletado:", id);
+        deletePosto(id);
+    }
+});
+}
+
+init();
