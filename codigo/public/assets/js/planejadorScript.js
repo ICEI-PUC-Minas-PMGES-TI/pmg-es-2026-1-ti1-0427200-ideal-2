@@ -1,4 +1,3 @@
-import { rotas } from "./dataPlanejador.js";
 let rotaAtual;
 
 function tratamentoInfos(data) {
