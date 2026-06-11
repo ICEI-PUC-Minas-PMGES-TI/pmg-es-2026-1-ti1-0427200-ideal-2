@@ -38,19 +38,19 @@ async function renderPostos() {
 async function init() {
     await renderPostos()
     document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("btnDeletar")) {
-        const id = e.target.dataset.id;
-        const confirmar = confirm(
-            "Tem certeza que deseja deletar este posto?"
-        );
-        if (!confirmar) {
-            return;
+        if (e.target.classList.contains("btnDeletar")) {
+            const id = e.target.dataset.id;
+            const confirmar = confirm(
+                "Tem certeza que deseja deletar este posto?"
+            );
+            if (!confirmar) {
+                return;
+            }
+            console.log("ID do posto deletado:", id);
+            deletePosto(id);
+            location.reload();
         }
-        console.log("ID do posto deletado:", id);
-        deletePosto(id);
-        location.reload();
-    }
-});
+    });
 }
 
 init();

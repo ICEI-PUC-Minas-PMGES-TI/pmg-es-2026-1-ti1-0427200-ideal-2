@@ -57,7 +57,69 @@
         </div>
     </nav>
     <main>
-        
+        <form id="formPosto">
+            <div>
+                <label for="nome">Nome</label>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Nome do posto"
+                    required
+                >
+            </div>
+            <div>
+                <label for="endereco">Endereço</label>
+                <input
+                    type="text"
+                    id="endereco"
+                    name="endereco"
+                    placeholder="Rua, avenida, número"
+                    required
+                >
+            </div>
+            <div>
+                <label for="cidade">Cidade</label>
+                <input
+                    type="text"
+                    id="cidade"
+                    name="cidade"
+                    placeholder="Cidade"
+                    required
+                >
+            </div>
+            <div>
+                <label for="telefone">Telefone</label>
+                <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder="(31) 99999-9999"
+                    required
+                >
+            </div>
+            <div>
+                <label for="horario">Horário de Funcionamento</label>
+                <input
+                    type="text"
+                    id="horario"
+                    name="horario"
+                    placeholder="Ex: 24 horas ou 08:00 às 18:00"
+                    required
+                >
+            </div>
+            <div>
+                <label for="imagem">Imagem</label>
+                <input
+                    type="text"
+                    id="imagem"
+                    name="imagem"
+                    placeholder="URL"
+                    required
+                >
+            </div>
+            <button type="submit">Salvar Posto</button>
+        </form>
     </main>
 </body>
 <script type="module" src="../../assets/js/editPosto.js"></script>
