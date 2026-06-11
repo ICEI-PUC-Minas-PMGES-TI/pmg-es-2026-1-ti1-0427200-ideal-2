@@ -1,0 +1,88 @@
+body{
+    display: flex;
+    background-color: #7bc56ce0;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #279b10;
+    width: 15%;
+    height: 95vh;
+    margin-right: 100px;
+}
+
+.menu-links{
+    border: 2px solid #279b10;
+    gap: 10px;
+    display: flex;
+}
+
+.icon {
+    width: 50px;
+}
+
+.logo{
+    width: 100%;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+#formPosto {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#formPosto div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#formPosto label {
+    font-weight: 600;
+    color: #333;
+}
+
+#formPosto input {
+    padding: 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+#formPosto input:focus {
+    outline: none;
+    border-color: #0d6efd;
+}
+
+#formPosto button {
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #198754;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#formPosto button:hover {
+    background-color: #157347;
+}
