@@ -29,7 +29,7 @@ body {
   width: 15%;
   min-width: 140px;
   height: 95vh;
-  background: var(--bg);
+  background: #8cc97a;
   flex-shrink: 0;
   align-self: flex-start;
   position: sticky;
