@@ -4,27 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Charge | Mapa de Carregadores</title>
+    <title>Mapa de Carregadores</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 
 <body>
-    <nav class="menu">
-        <div class="menu-header">
-        <img src="https://picsum.photos/200" alt="logo" class="logo">
-    </div>
+    <aside class="sidebar">
+        <div class="logo-box">
+            <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="22" r="16" fill="#2e7d32" />
+                <circle cx="30" cy="22" r="10" fill="#1565c0" />
+                <rect x="23" y="19" width="14" height="7" rx="2" fill="white" />
+                <rect x="25" y="16" width="10" height="5" rx="1" fill="white" />
+                <circle cx="26" cy="27" r="2" fill="#2e7d32" />
+                <circle cx="34" cy="27" r="2" fill="#2e7d32" />
+                <path d="M33 14 L29 20 h3 l-2 6 5-7h-3z" fill="#76ff03" />
+                <path d="M30 36 L24 28 Q30 32 36 28 Z" fill="#2e7d32" />
+                <path d="M10 48 Q20 38 30 44 Q40 50 50 40 L50 60 L10 60Z" fill="#388e3c" opacity="0.5" />
+                <text x="8" y="58" font-family="Arial" font-weight="bold" font-size="11"
+                    fill="#2e7d32">ChargerMap</text>
+            </svg>
+        </div>
 
-    <div class="menu-items" id="menuItems">
-        <a href="#" class="menu-links"><p>Início</p></a>
-        <a href="../mapa/mapa.html" class="menu-links active"><p>Mapa</p></a>
-        <a href="../planejador/planejador.html" class="menu-links"><p>Planejar Viagem</p></a>
-        <a href="../favoritos/favoritos.html" class="menu-links"><p>simular recarga</p></a>
-        <a href="../favoritos/favoritos.html" class="menu-links"><p>Favoritos</p></a>
-        <a href="../historico/historico.html" class="menu-links"><p>historico</p></a>
-         
-    </div>
-    </nav>
+        <nav class="nav">
+            <div class="nav-item" onclick="location.href='#'">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                Início
+            </div>
+            <div class="nav-item active" onclick="location.href='../mapa/mapa.html'">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+                </svg>
+                Mapa
+            </div>
+            <div class="nav-item" onclick="location.href='../planejador/planejador.html'">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                Planejar Viagem
+            </div>
+            <div class="nav-item" onclick="location.href='../favoritos/favoritos.html'">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+                </svg>
+                Simular Recarga
+            </div>
+            <div class="nav-item" onclick="location.href='../favoritos/favoritos.html'">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+                Favoritos
+            </div>
+            <div class="nav-item" onclick="location.href='../historico/historico.html'">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+                </svg>
+                Histórico
+            </div>
+            <div class="nav-spacer"></div>
+        </nav>
+
+        <div class="nav-bottom">
+            <div class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                Login
+            </div>
+        </div>
+    </aside>
 
     <article class="container">
         <section style="display: flex; flex-direction: column;">
@@ -41,7 +98,8 @@
     </article>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
     <script src="../../assets/js/mapa.js"></script>
 </body>
 
-</html> 
+</html>
