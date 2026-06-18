@@ -97,16 +97,21 @@ async function init() {
         const form = document.getElementById('formPosto');
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            postPosto(form);
+            await postPosto(form);
+            alert('Posto criado!');
             window.location.href = 'postos.html';
         });
     } else {
         const posto = await buscarPostos(getId);
         const form = document.getElementById('formPosto');
+        const btn = document.getElementById('btnSubmit');
+        btn.innerText=''
+        btn.innerText='Atualizar Posto'
         mostrarDadosPosto(posto);
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             await updatePosto(posto.id, form);
+            alert('Posto Atualizado!');
             window.location.href = 'postos.html';
         });
     }
