@@ -9,7 +9,7 @@ const chargerPowers = {
   'DC Ultra-Rápido — 350 kW': 350,
 };
 const BATTERY_KWH = 60;
-let rowCounter = 0;
+const API = 'http://localhost:3000/simulacoes';
 
 function paintTrack(input) {
   const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
@@ -34,7 +34,24 @@ rangeB.addEventListener('input', () => {
   paintTrack(rangeB);
 });
 
-function simular() {
+async function carregarHistorico() {
+  try {
+    const res = await fetch(API);
+    if (!res.ok) throw new Error('Erro ao carregar histórico');
+    const simulacoes = await res.json();
+
+    if (simulacoes.length === 0) return;
+
+    document.getElementById('history-empty').style.display = 'none';
+    document.getElementById('history-table').style.display = 'table';
+
+    simulacoes.forEach(s => adicionarLinha(s));
+  } catch (err) {
+    console.error('Nao foi possivel conectar ao JSON Server:', err);
+  }
+}
+
+async function simular() {
   const meta = +rangeA.value;
   const atual = +rangeB.value;
   const sel = document.getElementById('charger-select');
@@ -59,23 +76,51 @@ function simular() {
 
   const hoje = new Date();
   const data = `${String(hoje.getDate()).padStart(2,'0')}/${String(hoje.getMonth()+1).padStart(2,'0')}/${hoje.getFullYear()}`;
-  const tag = chargerName.split('—')[1]?.trim() || chargerName;
-  const id = `row-${++rowCounter}`;
+  const tag = chargerName.split('\u2014')[1]?.trim() || chargerName;
 
+  try {
+    const listaAtual = await fetch(API).then(r => r.json());
+    if (listaAtual.length >= 10) {
+      const maisAntiga = listaAtual[0];
+      await fetch(`${API}/${maisAntiga.id}`, { method: 'DELETE' });
+      document.getElementById(`row-${maisAntiga.id}`)?.remove();
+    }
+
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sessao: `${atual}% \u2192 ${meta}%`,
+        meta: `${meta}%`,
+        tag,
+        timeStr,
+        data
+      })
+    });
+    if (!res.ok) throw new Error('Erro ao salvar');
+    const salvo = await res.json();
+
+    adicionarLinha(salvo);
+    document.getElementById('history-empty').style.display = 'none';
+    document.getElementById('history-table').style.display = 'table';
+  } catch (err) {
+    console.error('Nao foi possivel salvar no JSON Server:', err);
+  }
+}
+
+function adicionarLinha(s) {
   const tr = document.createElement('tr');
-  tr.id = id;
+  tr.id = `row-${s.id}`;
   tr.innerHTML = `
-    <td class="col-name">${atual}% → ${meta}%</td>
-    <td>${meta}%</td>
-    <td><span class="charger-tag">${tag}</span></td>
-    <td>${timeStr}</td>
-    <td class="col-date">${data}</td>
-    <td><button class="remove-btn" onclick="remover('${id}')">✕</button></td>
+    <td class="col-name">${s.sessao}</td>
+    <td>${s.meta}</td>
+    <td><span class="charger-tag">${s.tag}</span></td>
+    <td>${s.timeStr}</td>
+    <td class="col-date">${s.data}</td>
+    <td><button class="remove-btn" onclick="remover('${s.id}')">&#10005;</button></td>
   `;
-
-  document.getElementById('history-tbody').appendChild(tr);
-  document.getElementById('history-empty').style.display = 'none';
-  document.getElementById('history-table').style.display = 'table';
+  const tbody = document.getElementById('history-tbody');
+  tbody.insertBefore(tr, tbody.firstChild);
 }
 
 function resetar() {
@@ -90,10 +135,17 @@ function resetar() {
   document.getElementById('result-inline').classList.remove('visible');
 }
 
-function remover(id) {
-  document.getElementById(id)?.remove();
+async function remover(id) {
+  try {
+    await fetch(`${API}/${id}`, { method: 'DELETE' });
+  } catch (err) {
+    console.error('Erro ao remover do JSON Server:', err);
+  }
+  document.getElementById(`row-${id}`)?.remove();
   if (!document.querySelectorAll('#history-tbody tr').length) {
     document.getElementById('history-empty').style.display = 'block';
     document.getElementById('history-table').style.display = 'none';
   }
 }
+
+carregarHistorico();
