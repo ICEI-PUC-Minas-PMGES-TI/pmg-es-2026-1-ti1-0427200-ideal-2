@@ -1,4 +1,10 @@
-
+async function buscarPostos(id) {
+    const response = await fetch(
+        `http://localhost:3000/postos/${id}`
+    );
+    const dados = await response.json();
+    return dados;
+}
 
 async function buscarEndereco(endereco) {
     const response = await fetch(
@@ -43,12 +49,67 @@ async function postPosto(form) {
     });
 }
 
-async function init() {
-    const form = document.getElementById('formPosto');
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        postPosto(form)
+function mostrarDadosPosto(posto) {
+    document.getElementById('nome').value = posto.nome;
+    document.getElementById('endereco').value = posto.endereco;
+    document.getElementById('cidade').value = posto.cidade;
+    document.getElementById('telefone').value = posto.telefone;
+    document.getElementById('horario').value = posto.horario;
+    document.getElementById('imagem').value = posto.imagem;
+}
+
+async function updatePosto(id, form) {
+    const dados = new FormData(form);
+    const nome = dados.get("nome");
+    const endereco = dados.get("endereco");
+    const cidade = dados.get("cidade");
+    const tel = dados.get("telefone");
+    const horario = dados.get("horario");
+    const imagem = dados.get("imagem");
+    const {lat, lon} = await buscarEndereco(endereco+', '+cidade);
+    
+    const posto = {
+        nome,
+        endereco,
+        cidade,
+        telefone: tel,
+        horario,
+        imagem,
+        latitude: lat,
+        longitude: lon
+    };
+    
+    await fetch(`http://localhost:3000/postos/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(posto)
     });
+    
+    
+}
+
+async function init() {
+    const params = new URLSearchParams(window.location.search);
+    const getId = params.get('id');
+    if (getId == null) {
+        const form = document.getElementById('formPosto');
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            postPosto(form);
+            window.location.href = 'postos.html';
+        });
+    } else {
+        const posto = await buscarPostos(getId);
+        const form = document.getElementById('formPosto');
+        mostrarDadosPosto(posto);
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            await updatePosto(posto.id, form);
+            window.location.href = 'postos.html';
+        });
+    }
 }
 
 init();
