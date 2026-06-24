@@ -5,11 +5,13 @@ export function logOrNot() {
     if (usuario.login) {
         const btnLogin = document.getElementById('bottomLogin');
         const divLogin = document.getElementById('divLogin');
+        const logout = document.getElementById('logout');
         btnLogin.setAttribute(
             'onclick',
             "location.href='../perfil/perfil.html'"
         );
         divLogin.lastChild.textContent = usuario.nome;
+        logout.addEventListener('click', ()=>logoutUser())
         return usuario
     }
     else{
@@ -20,7 +22,7 @@ export function logOrNot() {
 export function logoutUser () {
     let usuarioCorrente = {'login': false};
     sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));
-    window.location = 'planejador.html';
+    window.location = '../mapa/mapa.html';
 }
 
 async function init() {
@@ -31,6 +33,7 @@ async function init() {
         sessionStorage.setItem ('usuarioCorrente', JSON.stringify ({}));
     }
     const logado = logOrNot();
+    
 }
 
 init();
