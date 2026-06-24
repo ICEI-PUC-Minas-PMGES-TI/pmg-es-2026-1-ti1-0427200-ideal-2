@@ -150,6 +150,17 @@
       "imagem": "https://images.unsplash.com/photo-1635627026254-b652e62d1d07?w=120&h=120&fit=crop&auto=format",
       "latitude": -19.9788,
       "longitude": -44.0111
+    },
+    {
+      "nome": "Gabriel Assis",
+      "endereco": "BR 040",
+      "cidade": "congonhas",
+      "telefone": "31988874742",
+      "horario": "24H",
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
+      "latitude": -20.5593122,
+      "longitude": -43.813166,
+      "id": "nQFOWm2C1io"
     }
   ],
   "favoritos": [

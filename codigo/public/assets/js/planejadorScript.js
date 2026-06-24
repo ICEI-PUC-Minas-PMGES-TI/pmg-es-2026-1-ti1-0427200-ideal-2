@@ -1,4 +1,5 @@
 let rotaAtual;
+let map;
 
 async function buscarPostos() {
     const response = await fetch(
@@ -8,14 +9,38 @@ async function buscarPostos() {
     return dados;
 }
 
-function tratamentoInfos(data) {
+function contarPostosNaRota(rota, postos, map) {
+    const coordenadas = rota.features[0].geometry.coordinates;
+    let quantidade = 0;
+    const postosEncontrados = [];
+    postos.forEach(posto => {
+        const passouPerto = coordenadas.some(coord => {
+            const distancia = map.distance(
+                [coord[1], coord[0]],
+                [posto.latitude, posto.longitude]
+            );
+            return distancia <= 500;
+        });
+        if (passouPerto) {
+            quantidade++;
+            postosEncontrados.push(posto);
+        }
+    });
+    return {
+        quantidade,
+        postosEncontrados
+    };
+}
+
+function tratamentoInfos(data,postosQtd) {
     const distanciaKm = (data.distance / 1000).toFixed(1);
     const tempoHoras = Math.floor(data.duration / 3600);
     const tempoMinutos = Math.floor((data.duration % 3600) / 60);
     return {
         'distancia': distanciaKm,
         'horas': tempoHoras,
-        'min': tempoMinutos
+        'min': tempoMinutos,
+        'postos': postosQtd
     }
 }
 
@@ -59,10 +84,14 @@ async function buscarRota(origem, destino) {
         map.removeLayer(rotaAtual);
     }
     const data = await response.json();
+    const resultado = contarPostosNaRota(
+        data,
+        await buscarPostos(),
+        map
+    );
     rotaAtual = L.geoJSON(data).addTo(map);
     const infos = data.features[0].properties.summary;
-    console.log(data.features[0].properties.summary);
-    return tratamentoInfos(infos);
+    return tratamentoInfos(infos, resultado.quantidade);
 }
 
 async function showMeDetails() {
@@ -85,14 +114,14 @@ async function showMeDetails() {
     const infosViajem = await buscarRota(infoSaida, infoChegada);
     tempo.innerText = `${infosViajem.horas}h e ${infosViajem.min} min`;
     distancia.innerText = `${infosViajem.distancia}Km`;
-    /* postos.innerText = `${rota.postos}`; */
+    postos.innerText = `${infosViajem.postos}`;
 }
 
 async function init() {
     const saida = document.getElementById('saida');
     const chegada = document.getElementById('chegada');
     const btn = document.getElementById('btnCalcular');
-    const map = L.map('map').setView([-19.9167, -43.9345], 13);
+    map = L.map('map').setView([-19.9167, -43.9345], 13);
     const postos = await buscarPostos();
     postos.forEach(posto => {
         if (!posto.latitude || !posto.longitude) return;
