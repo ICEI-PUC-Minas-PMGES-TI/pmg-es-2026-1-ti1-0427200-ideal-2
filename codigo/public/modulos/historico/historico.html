@@ -2,10 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhe do Posto</title>
-  <link rel="stylesheet" href="../../assets/css/favoritos.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Histórico – ChargerMap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../assets/css/historico.css"/>
+  <link rel="stylesheet" href="../../assets/css/style.css"/>
 </head>
 <body>
 
@@ -52,14 +53,14 @@
                 </svg>
                 Postos
             </div>
-            <div class="nav-item active" onclick="location.href='../favoritos/cards.html'">
+            <div class="nav-item" onclick="location.href='../favoritos/cards.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
                 Favoritos
             </div>
-            <div class="nav-item" onclick="location.href='../historico/index.html'">
+            <div class="nav-item active" onclick="location.href='../historico/historico.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
@@ -80,11 +81,93 @@
         </div>
     </aside>
 
-  <main class="conteudo">
-    <div id="detalhe"></div>
-  </main>
+<main class="main">
+  <h2 class="page-title">Histórico</h2>
 
-  <script src="../../assets/js/detalhe-render.js"></script>
+  <div class="toolbar">
+    <select class="filter-select">
+      <option value="">Filtro</option>
+      <option value="recarga">Recarga</option>
+      <option value="viagem">Viagem</option>
+      <option value="favorito">Favorito</option>
+    </select>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-title">Recarga — Posto Centro</span>
+        <span class="card-sub">Rua das Flores, 420 · Belo Horizonte</span>
+        <div class="card-meta">
+          <span class="card-tag">Recarga</span>
+          <span class="card-tag">45 min</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="card-value">38 kWh</div>
+        <div class="card-date">23 mai 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-title">Viagem — BH → Ouro Preto</span>
+        <span class="card-sub">101 km · 1h 22min estimado</span>
+        <div class="card-meta">
+          <span class="card-tag">Viagem</span>
+          <span class="card-tag">1 parada</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="card-value">101 km</div>
+        <div class="card-date">20 mai 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-title">Recarga — Shopping Contagem</span>
+        <span class="card-sub">Av. João César de Oliveira, 1500</span>
+        <div class="card-meta">
+          <span class="card-tag">Recarga</span>
+          <span class="card-tag">30 min</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="card-value">22 kWh</div>
+        <div class="card-date">17 mai 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </div>
+      <div class="card-body">
+        <span class="card-title">Favorito adicionado</span>
+        <span class="card-sub">Eletroposto Savassi · Belo Horizonte</span>
+        <div class="card-meta">
+          <span class="card-tag">Favorito</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="card-value">—</div>
+        <div class="card-date">14 mai 2026</div>
+      </div>
+    </div>
+
+  </div>
+</main>
 
 </body>
 </html>

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhe do Posto</title>
-  <link rel="stylesheet" href="../../assets/css/favoritos.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/planejadorStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejador</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
-
-<aside class="sidebar">
+        <aside class="sidebar">
         <div class="logo-box">
             <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="30" cy="22" r="16" fill="#2e7d32" />
@@ -33,7 +34,7 @@
                 </svg>
                 Início
             </div>
-            <div class="nav-item" onclick="location.href='../planejador/planejador.html'">
+            <div class="nav-item active" onclick="location.href='../planejador/planejador.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
@@ -52,7 +53,7 @@
                 </svg>
                 Postos
             </div>
-            <div class="nav-item active" onclick="location.href='../favoritos/cards.html'">
+            <div class="nav-item" onclick="location.href='../favoritos/cards.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -79,12 +80,36 @@
             </div>
         </div>
     </aside>
-
-  <main class="conteudo">
-    <div id="detalhe"></div>
-  </main>
-
-  <script src="../../assets/js/detalhe-render.js"></script>
-
+    <main>
+        <section class="cad-end">
+            <div class="endereco">
+                <img src="../../assets/images/iconPin.png" class="icon">
+                <input id="saida" type="text">
+            </div>
+            <div class="endereco">
+                <img src="../../assets/images/iconPin.png" class="icon">
+                <input id="chegada" type="text">
+            </div>
+            <button class="btnCalcular" id="btnCalcular">Calcular</button>
+        </section>
+        <div id="map"></div>
+        <section class="results" id="results">
+            <div class="tempo">
+                <p>Tempo estimado:</p>
+                <p id="tempo"></p>
+            </div>
+            <div class="distancia">
+                <p>Distancia estimado:</p>
+                <p id="distancia"></p>
+            </div>
+            <div class="postos">
+                <p>Postos no caminho:</p>
+                <p id="postos"></p>
+            </div>
+        </section>
+    </main>
 </body>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script type="module" src="../../assets/js/planejadorScript.js"></script>
 </html>

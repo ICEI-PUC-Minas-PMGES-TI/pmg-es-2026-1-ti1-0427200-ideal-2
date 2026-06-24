@@ -18,7 +18,7 @@ function formatarStatus(posto) {
 const detalhe = document.getElementById("detalhe");
 
 const params = new URLSearchParams(window.location.search);
-const id = Number(params.get("id"));
+const id = params.get("id");
 
 function renderizarPosto(posto) {
   const recargaHtml = posto.recarga

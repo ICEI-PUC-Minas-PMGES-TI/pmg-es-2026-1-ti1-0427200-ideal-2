@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhe do Posto</title>
-  <link rel="stylesheet" href="../../assets/css/favoritos.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - ChargerMap</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/perfil.css">
 </head>
 <body>
 
@@ -52,7 +52,7 @@
                 </svg>
                 Postos
             </div>
-            <div class="nav-item active" onclick="location.href='../favoritos/cards.html'">
+            <div class="nav-item" onclick="location.href='../favoritos/cards.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -69,7 +69,7 @@
             <div class="nav-spacer"></div>
         </nav>
 
-        <div class="nav-bottom" onclick="location.href='../perfil/perfil.html'">
+        <div class="nav-bottom active" onclick="location.href='../perfil/perfil.html'">
             <div class="nav-item">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -80,11 +80,65 @@
         </div>
     </aside>
 
-  <main class="conteudo">
-    <div id="detalhe"></div>
-  </main>
+    <div class="container perfil-container">
 
-  <script src="../../assets/js/detalhe-render.js"></script>
+        <div class="perfil-card">
+            <h1>Meu Perfil</h1>
+            <p class="perfil-subtitulo">Visualize e edite suas informações de cadastro.</p>
 
+            <div id="alerta-perfil" class="alerta-msg" style="display:none;"></div>
+
+            <form id="form-perfil">
+                <div class="campo-grupo">
+                    <label for="input-nome">Nome</label>
+                    <input type="text" id="input-nome" disabled required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="input-login">Login</label>
+                    <input type="text" id="input-login" disabled>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="input-email">E-mail</label>
+                    <input type="email" id="input-email" disabled required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="input-senha">Senha</label>
+                    <input type="password" id="input-senha" disabled required>
+                </div>
+
+                <div class="perfil-botoes">
+                    <button type="button" id="btn-editar" class="btn-primario">Editar dados</button>
+                    <button type="submit" id="btn-salvar" class="btn-primario" style="display:none;">Salvar alterações</button>
+                    <button type="button" id="btn-cancelar" class="btn-secundario" style="display:none;">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="modal-verificacao" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <h2>Confirmação de segurança</h2>
+            <p id="modal-texto">Enviamos um código de verificação para o seu e-mail.</p>
+            <p class="email-mascarado" id="email-mascarado"></p>
+
+            <div class="campo-grupo">
+                <label for="input-codigo">Código de verificação</label>
+                <input type="text" id="input-codigo" maxlength="4" placeholder="0000" autocomplete="off">
+            </div>
+
+            <div id="alerta-codigo" class="alerta-msg" style="display:none;"></div>
+
+            <div class="perfil-botoes">
+                <button type="button" id="btn-confirmar-codigo" class="btn-primario">Confirmar</button>
+                <button type="button" id="btn-cancelar-codigo" class="btn-secundario">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/perfil.js"></script>
 </body>
 </html>

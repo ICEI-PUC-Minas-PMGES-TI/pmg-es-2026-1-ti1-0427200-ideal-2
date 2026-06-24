@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhe do Posto</title>
-  <link rel="stylesheet" href="../../assets/css/favoritos.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulação de Recarga</title>
   <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/simulador.css" />
 </head>
 <body>
 
@@ -40,7 +40,7 @@
                 </svg>
                 Planejar Viagem
             </div>
-            <div class="nav-item" onclick="location.href='../simulador/index.html'">
+            <div class="nav-item active" onclick="location.href='../simulador/index.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M7 2v11h3v9l7-12h-4l4-8z" />
                 </svg>
@@ -52,7 +52,7 @@
                 </svg>
                 Postos
             </div>
-            <div class="nav-item active" onclick="location.href='../favoritos/cards.html'">
+            <div class="nav-item" onclick="location.href='../favoritos/cards.html'">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -80,11 +80,89 @@
         </div>
     </aside>
 
-  <main class="conteudo">
-    <div id="detalhe"></div>
+  <main>
+    <h1>Simulação de Recarga</h1>
+
+    <div class="card">
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="charge-range">Meta de Carga</label>
+          <div class="slider-row">
+            <input type="range" id="charge-range" min="0" max="100" value="0" />
+            <span class="slider-val" id="slider-pct">0%</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="current-range">Carga Atual</label>
+          <div class="slider-row">
+            <input type="range" id="current-range" min="0" max="100" value="0" />
+            <span class="slider-val" id="current-pct">0%</span>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="charger-select">Tipo de Carregador</label>
+          <select id="charger-select">
+            <optgroup label="AC — Corrente Alternada">
+              <option>AC Monofásico — 3,7 kW</option>
+              <option>AC Bifásico — 7,4 kW</option>
+              <option>AC Trifásico — 11 kW</option>
+              <option>AC Trifásico — 22 kW</option>
+            </optgroup>
+            <optgroup label="DC — Corrente Contínua">
+              <option>DC Rápido — 50 kW</option>
+              <option>DC Rápido — 100 kW</option>
+              <option>DC Ultra-Rápido — 150 kW</option>
+              <option>DC Ultra-Rápido — 350 kW</option>
+            </optgroup>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="result-inline" id="result-inline">
+        <div class="result-item">
+          <span class="val" id="res-time">—</span>
+          <span class="lbl">Tempo Est.</span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item">
+          <span class="val" id="res-energy">—</span>
+          <span class="lbl">Energia</span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="simular()">Simular</button>
+        <button class="btn btn-ghost" onclick="resetar()">Resetar</button>
+      </div>
+    </div>
+
+    <div class="history-section">
+      <div class="history-header-row">
+        <h2>Histórico</h2>
+      </div>
+      <div class="history-box">
+        <div class="history-empty" id="history-empty">Nenhuma simulação realizada ainda.</div>
+        <table id="history-table" style="display:none;">
+          <thead>
+            <tr>
+              <th>Sessão</th>
+              <th>Meta</th>
+              <th>Carregador</th>
+              <th>Tempo Est.</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="history-tbody"></tbody>
+        </table>
+      </div>
+    </div>
   </main>
 
-  <script src="../../assets/js/detalhe-render.js"></script>
-
+  <script src="../../assets/js/simulador.js"></script>
 </body>
 </html>
