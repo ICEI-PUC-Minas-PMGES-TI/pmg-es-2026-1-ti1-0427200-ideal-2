@@ -1,5 +1,13 @@
 let rotaAtual;
 
+async function buscarPostos() {
+    const response = await fetch(
+        `http://localhost:3000/postos`
+    );
+    const dados = await response.json();
+    return dados;
+}
+
 function tratamentoInfos(data) {
     const distanciaKm = (data.distance / 1000).toFixed(1);
     const tempoHoras = Math.floor(data.duration / 3600);
@@ -80,11 +88,23 @@ async function showMeDetails() {
     /* postos.innerText = `${rota.postos}`; */
 }
 
-const saida = document.getElementById('saida');
-const chegada = document.getElementById('chegada');
-const btn = document.getElementById('btnCalcular');
-const map = L.map('map').setView([-19.9167, -43.9345], 13);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap'
-}).addTo(map);
-btn.addEventListener('click', ()=>showMeDetails());
+async function init() {
+    const saida = document.getElementById('saida');
+    const chegada = document.getElementById('chegada');
+    const btn = document.getElementById('btnCalcular');
+    const map = L.map('map').setView([-19.9167, -43.9345], 13);
+    const postos = await buscarPostos();
+    postos.forEach(posto => {
+        if (!posto.latitude || !posto.longitude) return;
+
+        const marker = L.marker([posto.latitude, posto.longitude]).addTo(map);
+        marker.bindPopup(`<b>${posto.nome}</b><br>${posto.tipoConector ?? ''}`);
+        });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    btn.addEventListener('click', ()=>showMeDetails());
+}
+
+init();
+

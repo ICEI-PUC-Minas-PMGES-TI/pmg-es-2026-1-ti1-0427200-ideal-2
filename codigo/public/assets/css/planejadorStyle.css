@@ -1,104 +1,179 @@
-body{
+:root {
+    --primary: #2ecc71;
+    --dark: #2c3e50;
+    --danger: #e74c3c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
     display: flex;
+    min-height: 100vh;
     background-color: #7bc56ce0;
 }
 
-main{
-    width: 85%;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
+/* MENU */
 
-main section{
-    background-color: #f8f8f8;
-    border: 2px solid #279b10;
-    border-radius: 15px;
-    padding: 20px;
-}
-
-.menu{
+.menu {
+    width: 195px;
+    background: #fff;
+    border-right: 3px solid #4caf50;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid #279b10;
-    width: 15%;
-    height: 95vh;
-    margin-right: 100px;
+    flex-shrink: 0;
 }
 
-.menu-links{
-    border: 2px solid #279b10;
-    gap: 10px;
+.logo {
+    width: 120px;
+    display: block;
+    margin: 20px auto;
+}
+
+.menu-links {
     display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1.5px solid #4caf50;
+    transition: .2s;
+}
+
+.menu-links:hover {
+    background: #e8f5e9;
+}
+
+.itens {
+    text-decoration: none;
+    color: #222;
 }
 
 .icon {
-    width: 50px;
+    width: 24px;
+    height: 24px;
 }
 
-.logo{
-    width: 100%;
-}
+/* CONTEÚDO */
 
-.cad-end{
-    background-color: #7bc56ce0;
-    display: flex;
-    align-items: center;
+main {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     gap: 20px;
+    overflow: hidden;
 }
 
-.endereco{
+/* FORMULÁRIO */
+
+.cad-end {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.endereco {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #279b10;
+    border: 2px solid #ddd;
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 12px;
 }
 
-.endereco img{
-    width: 5%;
-}
-
-
-.endereco input{
-    height: 50%;
-    width: 90%;
-    border-radius: 10px;
-    padding: 5px 10px;
+.endereco input {
     border: none;
-    font-size: 16px;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
 }
 
-.btnCalcular{
-    height: 50px;
-    padding: 0 25px;
-    border: none;
-    border-radius: 10px;
-    background-color: #279b10;
+.btnCalcular {
+    background: var(--primary);
     color: white;
-    font-size: 16px;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
 }
+
+.btnCalcular:hover {
+    transform: translateY(-2px);
+}
+
+/* MAPA */
 
 #map {
     width: 100%;
-    height: 500px;
+    height: 100%;
+    min-height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    z-index: 1;
 }
 
-.results{
-    background-color: #7bc56ce0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: 20px;
+/* RESULTADOS */
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.results div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+.results > div {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.results > div p:first-child {
+    font-size: .9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.results > div p:last-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark);
+    margin: 0;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    main {
+        grid-template-rows: auto auto auto;
+    }
+
+    .cad-end {
+        flex-direction: column;
+    }
+
+    .results {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        min-height: 400px;
+    }
 }

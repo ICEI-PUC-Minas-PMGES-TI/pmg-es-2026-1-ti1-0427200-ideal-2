@@ -188,6 +188,15 @@
       ]
     }
   ],
-  "simulacoes": [],
+  "simulacoes": [
+    {
+      "sessao": "6% → 70%",
+      "meta": "70%",
+      "tag": "11 kW",
+      "timeStr": "3h 29min",
+      "data": "23/06/2026",
+      "id": "hJSCLu66AmA"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

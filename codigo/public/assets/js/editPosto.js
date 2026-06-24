@@ -93,6 +93,8 @@ async function updatePosto(id, form) {
 async function init() {
     const params = new URLSearchParams(window.location.search);
     const getId = params.get('id');
+    const titulo = document.getElementById('titulo');
+    titulo.innerText = getId ? "Editar Posto" : "Cadastrar Posto";
     if (getId == null) {
         const form = document.getElementById('formPosto');
         form.addEventListener("submit", async (e) => {

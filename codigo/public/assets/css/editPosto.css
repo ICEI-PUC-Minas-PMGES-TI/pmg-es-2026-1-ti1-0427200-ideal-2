@@ -1,88 +1,152 @@
-body{
+:root {
+    --primary: #2ecc71;
+    --dark: #2c3e50;
+    --danger: #e74c3c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
     display: flex;
+    min-height: 100vh;
     background-color: #7bc56ce0;
 }
 
-.menu{
+/* MENU */
+
+.menu {
+    width: 195px;
+    background: #fff;
+    border-right: 3px solid #4caf50;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid #279b10;
-    width: 15%;
-    height: 95vh;
-    margin-right: 100px;
+    flex-shrink: 0;
 }
 
-.menu-links{
-    border: 2px solid #279b10;
-    gap: 10px;
+.logo {
+    width: 120px;
+    display: block;
+    margin: 20px auto;
+}
+
+.menu-links {
     display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1.5px solid #4caf50;
+    transition: .2s;
+}
+
+.menu-links:hover {
+    background: #e8f5e9;
+}
+
+.itens {
+    text-decoration: none;
+    color: #222;
 }
 
 .icon {
-    width: 50px;
+    width: 24px;
+    height: 24px;
 }
 
-.logo{
-    width: 100%;
-}
+/* CONTEÚDO */
 
 main {
     flex: 1;
     display: flex;
     justify-content: center;
-    padding: 40px 20px;
+    align-items: center;
+    padding: 30px;
 }
+
+/* FORMULÁRIO */
 
 #formPosto {
     width: 100%;
-    max-width: 600px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
+#formPosto h1 {
+    text-align: center;
+    color: var(--dark);
+    margin-top: 0;
+}
+
+/* CAMPOS */
+
 #formPosto div {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 #formPosto label {
     font-weight: 600;
-    color: #333;
+    color: var(--dark);
 }
 
 #formPosto input {
-    padding: 12px;
-    border: 1px solid #d0d7de;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: border-color 0.2s;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: .2s;
+    outline: none;
 }
 
 #formPosto input:focus {
-    outline: none;
-    border-color: #0d6efd;
+    border-color: var(--primary);
 }
 
-#formPosto button {
+/* BOTÃO */
+
+#btnSubmit {
     margin-top: 10px;
-    padding: 14px;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
-    background-color: #198754;
+    border-radius: 10px;
+    background: var(--primary);
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: .2s;
 }
 
-#formPosto button:hover {
-    background-color: #157347;
+#btnSubmit:hover {
+    transform: translateY(-2px);
+    background: #27ae60;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    #formPosto {
+        padding: 25px;
+    }
 }

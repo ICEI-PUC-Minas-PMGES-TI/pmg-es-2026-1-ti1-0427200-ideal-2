@@ -1,116 +1,197 @@
-body{
+:root {
+    --primary: #2ecc71;
+    --dark: #2c3e50;
+    --danger: #e74c3c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
     display: flex;
+    min-height: 100vh;
     background-color: #7bc56ce0;
 }
 
-main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
+/* MENU */
+
+.menu {
+    width: 195px;
+    background: #fff;
+    border-right: 3px solid #4caf50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
 }
+
+.logo {
+    width: 120px;
+    display: block;
+    margin: 20px auto;
+}
+
+.menu-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1.5px solid #4caf50;
+    transition: .2s;
+}
+
+.menu-links:hover {
+    background: #e8f5e9;
+}
+
+.itens {
+    text-decoration: none;
+    color: #222;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* CONTEÚDO */
+
+main {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* BOTÃO ADICIONAR */
 
 main > a {
     display: inline-block;
-    padding: 10px 18px;
-    margin-bottom: 20px;
-    background-color: #28a745;
+    background: var(--primary);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    transition: .2s;
 }
+
+main > a:hover {
+    transform: translateY(-2px);
+}
+
+/* LISTA DE POSTOS */
 
 #listaDePostos {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 20px;
 }
 
+/* CARD */
+
 #listaDePostos > div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
     background: white;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    border-radius: 15px;
+    padding: 18px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    transition: .2s;
 }
 
 #listaDePostos > div:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
+
+/* IMAGEM */
 
 #listaDePostos img {
     width: 120px;
     height: 120px;
+    border-radius: 12px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
-#listaDePostos p {
-    margin: 4px 0;
+/* INFORMAÇÕES */
+
+.info {
+    flex: 1;
 }
 
-#listaDePostos p:first-of-type {
-    font-size: 1.2rem;
+.info p:first-child {
+    font-size: 1.1rem;
     font-weight: bold;
-    color: #222;
+    color: var(--dark);
+    margin-bottom: 10px;
 }
 
-.menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid #279b10;
-    width: 15%;
-    height: 95vh;
-    margin-right: 100px;
+.info p {
+    margin: 6px 0;
+    color: #666;
 }
 
-.menu-links{
-    border: 2px solid #279b10;
-    gap: 10px;
-    display: flex;
-}
-
-.icon {
-    width: 50px;
-}
-
-.logo{
-    width: 100%;
-}
+/* BOTÕES */
 
 .card-btn {
-    margin-left: auto;
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
 .card-btn a,
 .card-btn button {
-    padding: 10px 16px;
     border: none;
-    border-radius: 6px;
     text-decoration: none;
-    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
+    text-align: center;
+    transition: .2s;
 }
 
 .card-btn a {
-    background-color: #007bff;
+    background: #3498db;
     color: white;
 }
 
 .card-btn a:hover {
-    background-color: #0056b3;
+    background: #2980b9;
 }
 
-.card-btn button {
-    background-color: #dc3545;
+.btnDeletar {
+    background: var(--danger);
     color: white;
 }
 
-.card-btn button:hover {
-    background-color: #b02a37;
+.btnDeletar:hover {
+    background: #c0392b;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 900px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    #listaDePostos {
+        grid-template-columns: 1fr;
+    }
+
+    #listaDePostos > div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-btn {
+        width: 100%;
+    }
 }
