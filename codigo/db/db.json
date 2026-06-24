@@ -20,6 +20,14 @@
       "nome": "Rommel",
       "email": "rommel@gmail.com",
       "id": "3"
+    },
+    {
+      "id": "cXvlDubPqpU",
+      "login": "Gabriel",
+      "senha": "123",
+      "nome": "Gabriel Assis",
+      "email": "gabrieleboltffggff@gmail.com",
+      "admin": false
     }
   ],
   "postos": [
@@ -193,6 +201,11 @@
         2,
         3
       ]
+    },
+    {
+      "usuarioId": "cXvlDubPqpU",
+      "idGames": [],
+      "id": "T97gPeerFEg"
     }
   ],
   "simulacoes": [
