@@ -1,14 +1,14 @@
 {
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "login": "admin",
       "senha": "123",
       "nome": "Administrador do Sistema",
       "email": "admin@abc.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "login": "user",
       "senha": "123",
       "nome": "Usuario Comum",
@@ -19,40 +19,44 @@
       "senha": "123",
       "nome": "Rommel",
       "email": "rommel@gmail.com",
-      "id": 3
+      "id": "3"
     }
   ],
   "postos": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Posto Shell Select",
       "endereco": "Av. Afonso Pena, 1500",
       "cidade": "Belo Horizonte - MG",
       "telefone": "(31) 3222-1100",
-      "horario": "24 horas",
+      "horario": "21 horas",
       "recarga": true,
       "tipoConector": "Tipo 2 / CCS",
       "potencia": "50 kW",
       "tomadas": 2,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1585740452884-2a29a1d21514?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1585740452884-2a29a1d21514?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.9256585,
+      "longitude": -43.9349312
     },
     {
-      "id": 2,
-      "nome": "Posto Ipiranga",
+      "id": "2",
+      "nome": "Posto Ipiranga Tupi",
       "endereco": "Rua dos Tupinambás, 820",
       "cidade": "Belo Horizonte - MG",
       "telefone": "(31) 3271-4455",
-      "horario": "06h às 22h",
+      "horario": "06h às 20h",
       "recarga": true,
       "tipoConector": "CHAdeMO / Tipo 2",
       "potencia": "22 kW",
       "tomadas": 1,
       "status": "ocupada",
-      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.918438,
+      "longitude": -43.9360596
     },
     {
-      "id": 3,
+      "id": "3",
       "nome": "Posto BR Mania",
       "endereco": "Av. Cristiano Machado, 4000",
       "cidade": "Belo Horizonte - MG",
@@ -63,10 +67,12 @@
       "potencia": "150 kW",
       "tomadas": 4,
       "status": "fora-de-servico",
-      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format&crop=right"
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format&crop=right",
+      "latitude": -19.8747,
+      "longitude": -43.925
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "EletroPosto Savassi",
       "endereco": "Rua Pernambuco, 1200",
       "cidade": "Belo Horizonte - MG",
@@ -77,10 +83,12 @@
       "potencia": "350 kW",
       "tomadas": 6,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1606131959866-21ca5619bac5?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.9355,
+      "longitude": -43.9348
     },
     {
-      "id": 5,
+      "id": "5",
       "nome": "Posto Petrobras Contagem",
       "endereco": "Av. João César de Oliveira, 5000",
       "cidade": "Contagem - MG",
@@ -91,10 +99,12 @@
       "potencia": "22 kW",
       "tomadas": 2,
       "status": "ocupada",
-      "imagem": "https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1678903434882-d8bc7782b953?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.9292,
+      "longitude": -44.068
     },
     {
-      "id": 6,
+      "id": "6",
       "nome": "Recarga Verde Nova Lima",
       "endereco": "Alameda Oscar Niemeyer, 300",
       "cidade": "Nova Lima - MG",
@@ -105,10 +115,12 @@
       "potencia": "120 kW",
       "tomadas": 3,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1697552441953-44a2ec1bf42d?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1591179535738-0fe38055847b?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.9793,
+      "longitude": -43.9428
     },
     {
-      "id": 7,
+      "id": "7",
       "nome": "Posto Ale Pampulha",
       "endereco": "Av. Antônio Carlos, 7500",
       "cidade": "Belo Horizonte - MG",
@@ -119,10 +131,12 @@
       "potencia": "7 kW",
       "tomadas": 4,
       "status": "ocupada",
-      "imagem": "https://images.unsplash.com/photo-1611174243460-3d624dd13f86?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1654334036171-e01e52b2ce8e?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.8622,
+      "longitude": -43.9706
     },
     {
-      "id": 8,
+      "id": "8",
       "nome": "Hub Recarga Barreiro",
       "endereco": "Av. Olinto Meireles, 2200",
       "cidade": "Belo Horizonte - MG",
@@ -133,29 +147,36 @@
       "potencia": "60 kW",
       "tomadas": 2,
       "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1558389186-a7a3193c5e84?w=120&h=120&fit=crop&auto=format"
+      "imagem": "https://images.unsplash.com/photo-1635627026254-b652e62d1d07?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.9788,
+      "longitude": -44.0111
+    },
+    {
+      "nome": "Gabriel Assis",
+      "endereco": "BR 040",
+      "cidade": "congonhas",
+      "telefone": "31988874742",
+      "horario": "24H",
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
+      "latitude": -20.5593122,
+      "longitude": -43.813166,
+      "id": "nQFOWm2C1io"
     }
   ],
   "favoritos": [
     {
-      "id": 1,
+      "id": "1",
       "usuarioId": 1,
       "nomeUsuario": "Lucas",
       "postosFavoritos": [
-<<<<<<< Updated upstream
-        3,
-        1,
-        4
-=======
         "6",
         "8",
         "7",
         "2"
->>>>>>> Stashed changes
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "usuarioId": 2,
       "nomeUsuario": "Maria",
       "postosFavoritos": [
@@ -164,7 +185,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "usuarioId": 3,
       "nomeUsuario": "João",
       "postosFavoritos": [
@@ -173,5 +194,16 @@
         "3"
       ]
     }
-  ]
+  ],
+  "simulacoes": [
+    {
+      "sessao": "6% → 70%",
+      "meta": "70%",
+      "tag": "11 kW",
+      "timeStr": "3h 29min",
+      "data": "23/06/2026",
+      "id": "hJSCLu66AmA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

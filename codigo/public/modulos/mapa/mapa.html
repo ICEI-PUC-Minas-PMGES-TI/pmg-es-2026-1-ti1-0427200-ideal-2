@@ -1,61 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mapa</title>
+    <title>Mapa de Carregadores</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <!-- vai ser necessário um script para pegar a localização do usuário e mostrar os carregadores próximos, talvez usando a API do google maps ou algo do tipo -->
 </head>
+
 <body>
-<<<<<<< Updated upstream
-    <main>
-        <!-- itens do menu: Inicio, Mapa, Planejar, Simular, Favoritos e Histórico
-         cada um desses itens deve ser um link para a página correspondente, por exemplo, o item "Mapa" deve ser um link para a página "mapa.html", o item "Planejar" deve ser um link para a página "planejar.html" e assim por diante.
-         cada item do menu deve ter um ícone representando a função, por exemplo, o item "Inicio" pode ter um ícone de uma casa, o item "Mapa" pode ter um ícone de um mapa, o item "Planejar" pode ter um ícone de um calendário, o item "Simular" pode ter um ícone de um gráfico, o item "Favoritos" pode ter um ícone de uma estrela e o item "Histórico" pode ter um ícone de um relógio. -->
-        <nav class="menu">
-            <a id="menu_inicio" class="itens">
-                <div class="Inicio">
-                    <img src="#">
-                    <p>Inicio</p>>
-                </div>
-            </a>
-
-            <a id="menu_mapa" class="itens">
-                <div class="item_mapa">
-                    <img src="#">
-                    <p>Mapa</p>
-                </div>
-            </a>
-
-            <a id="menu_planejar" class="itens">
-                <div class="item_planejar">
-                    <img src="#">
-                    <p>Planejar Viajem</p>
-                </div>
-            </a>
-
-            <a id="menu_simular" class="itens">
-                <div class="item_simular">
-                    <img src="#">
-                    <p>Simular Recarga</p>
-                </div>
-            </a>
-
-            <a id="menu_favoritos" class="itens">
-                <div class="item_favoritos">
-                    <img src="#">
-                    <p>Favoritos</p>
-                </div>
-            </a>
-
-            <a id="menu_historico" class="itens">
-                <div class="item_historico">
-                    <img src="#">
-                    <p>Histórico</p>
-                </div>
-            </a>
-=======
         <aside class="sidebar">
         <div class="logo-box">
             <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
@@ -114,44 +69,36 @@
                 Histórico
             </div>
             <div class="nav-spacer"></div>
->>>>>>> Stashed changes
         </nav>
-        <article class="container">
-            <div class="mapa">
-                <div class="mapa_fundo">
-                    <h1>Mapa de Carregadores</h1>
-                    <img src="../../assets/img/mapa.png" alt="mapa">
-                </div>
-                <!-- aqui vai ser o mapa, talvez usando a API do google maps ou algo do tipo, para mostrar os carregadores próximos do usuário-->
+
+        <div class="nav-bottom" onclick="location.href='../perfil/perfil.html'">
+            <div class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                Login
+            </div>
+        </div>
+    </aside>
+
+    <article class="container">
+        <section style="display: flex; flex-direction: column;">
+            <h1>Mapa de Carregadores</h1>
+            <div id="map"></div>
+        </section>
+
+        <section class="carregadores">
+            <h1>Próximos a você</h1>
+            <div id="lista-carregadores">
 
             </div>
+        </section>
+    </article>
 
-            <div class="carregadores">
-                <h1>Carregadores próximos </h1>
-                <!-- aquela aba de carregadores proximos do usuário, com informações como nome do carregador, endereço, tipo de carregador, disponibilidade e preço. -->
-                <div class="carregadores_proximos">
-
-                    <!-- pesquisar como fazer isso, talvez usando a API do google maps ou algo do tipo, para mostrar os carregadores próximos do usuário -->
-
-                    <ul>
-                        <li>
-                            <h2>Carregador 1</h2>
-                            <p>Endereço: Rua A, 123</p>
-                            <p>Tipo: Tipo 2: 2 vagas</p>
-                            <p>Preço: R$ 10,00/hora</p>
-                        </li>
-
-                        <li>
-                            <h2>Carregador 2</h2>
-                            <p>Endereço: Rua B, 456</p> 
-                            <p>Tipo: CCS: 1 vaga</p>
-                            <p>Preço: R$ 15,00/hora</p>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </article>
-    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="../../assets/js/mapa.js"></script>
 </body>
+
 </html>

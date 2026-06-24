@@ -119,14 +119,7 @@ function removerFavorito(idPosto) {
   })
   .then(function(usuarioAtualizado) {
     usuario = usuarioAtualizado;
-<<<<<<< Updated upstream
-    postosFavoritos = postos.filter(function(posto) {
-      return usuario.postosFavoritos.includes(posto.id);
-    });
-
-=======
     recalcularPostosFavoritos();
->>>>>>> Stashed changes
     renderizarLista(aplicarFiltros());
   })
   .catch(function(error) {
@@ -159,11 +152,7 @@ function aplicarFiltros() {
 
 function postosDisponiveisParaAdicionar() {
   return postos.filter(function(posto) {
-<<<<<<< Updated upstream
-    return !usuario.postosFavoritos.includes(posto.id);
-=======
     return !ehFavorito(posto);
->>>>>>> Stashed changes
   });
 }
 
@@ -219,14 +208,7 @@ function adicionarFavorito(idPosto) {
   })
   .then(function(usuarioAtualizado) {
     usuario = usuarioAtualizado;
-<<<<<<< Updated upstream
-    postosFavoritos = postos.filter(function(posto) {
-      return usuario.postosFavoritos.includes(posto.id);
-    });
-
-=======
     recalcularPostosFavoritos();
->>>>>>> Stashed changes
     renderizarModal();
     renderizarLista(aplicarFiltros());
     fecharModal();
@@ -306,13 +288,7 @@ Promise.all([
   });
 
   if (usuario) {
-<<<<<<< Updated upstream
-    postosFavoritos = postos.filter(function(posto) {
-      return usuario.postosFavoritos.includes(posto.id);
-    });
-=======
     recalcularPostosFavoritos();
->>>>>>> Stashed changes
   }
 
   renderizarLista(postosFavoritos);
