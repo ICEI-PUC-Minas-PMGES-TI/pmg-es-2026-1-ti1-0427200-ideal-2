@@ -1,31 +1,36 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: iDeal
+title: E-charger
 authors:
-  - family-names: Crispim Bruno
-    given-names: 
-  - family-names: Joao Paulo
-    given-names: 
-  - family-names: Matheus Possemato
-    given-names: 
-  - family-names: Marcelo
-    given-names: 
-  - family-names: Brendon Leonardo
-    given-names: 
-  - family-names: Gabriel Assis
-    given-names:
+  - family-names: Bruno Da Silva Junior
+    given-names: Crispim
+  - family-names: Ferreira Rodrigues
+    given-names: João Paulo
+  - family-names: Possemato Lopes
+    given-names: Matheus
+  - family-names: Artur Soares Sartori
+    given-names: Marcelo
+  - family-names: Leonardo Martins Alves
+    given-names: Brendon
+  - family-names: do Carmo Assis
+    given-names: Gabriel
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Diego
-    given-names: 
+    family-names: Augusto de Farias Barros
+    given-names: Diego
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Danilo
-    given-names: 
+    family-names: De Quadros Maia
+    given-names: Danilo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Rhaian Da Silva Jandre
+    given-names: Caroline
 keywords:
-  - 
-  - 
-repository-code: ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-ideal-2/tree/master
+  - Mapa
+  - Eletricos
+  - Carros
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2026-07-02
