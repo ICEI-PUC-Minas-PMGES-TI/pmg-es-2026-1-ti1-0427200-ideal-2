@@ -5,7 +5,8 @@
       "login": "admin",
       "senha": "132",
       "nome": "Aiministrador",
-      "email": "admin@abc.com"
+      "email": "admin@abc.com",
+      "admin": true
     },
     {
       "id": "2",
@@ -20,6 +21,14 @@
       "nome": "Rommel",
       "email": "rommel@gmail.com",
       "id": "3"
+    },
+    {
+      "id": "EGL9urp-tIY",
+      "login": "Gabriel",
+      "senha": "333",
+      "nome": "Gabriel Assis",
+      "email": "gabrieleboltffggff@gmail.com",
+      "admin": false
     }
   ],
   "postos": [
@@ -196,10 +205,13 @@
       ]
     },
     {
-      "usuarioId": "cXvlDubPqpU",
-      "idGames": [],
-      "id": "T97gPeerFEg",
-      "postosFavoritos": []
+      "usuarioId": "EGL9urp-tIY",
+      "postosFavoritos": [
+        "1",
+        "6"
+      ],
+      "nomeUsuario": "Gabriel Assis",
+      "id": "57HL23TqYgc"
     }
   ],
   "simulacoes": [
@@ -226,62 +238,6 @@
       "timeStr": "36min",
       "data": "24/06/2026",
       "id": "n1vcZLWK1rg"
-    },
-    {
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "350 kW",
-      "timeStr": "10min",
-      "data": "24/06/2026",
-      "id": "g5_XVVlzE3w"
-    },
-    {
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "350 kW",
-      "timeStr": "10min",
-      "data": "24/06/2026",
-      "id": "LHklRNGrwL0"
-    },
-    {
-      "sessao": "23% → 67%",
-      "meta": "67%",
-      "tag": "350 kW",
-      "timeStr": "5min",
-      "data": "25/06/2026",
-      "id": "rHnpXrT50eM"
-    },
-    {
-      "sessao": "15% → 100%",
-      "meta": "100%",
-      "tag": "150 kW",
-      "timeStr": "20min",
-      "data": "25/06/2026",
-      "id": "rcbF3Tc1shA"
-    },
-    {
-      "sessao": "0% → 74%",
-      "meta": "74%",
-      "tag": "3,7 kW",
-      "timeStr": "12h 0min",
-      "data": "25/06/2026",
-      "id": "RiuU9-RuZqc"
-    },
-    {
-      "sessao": "16% → 100%",
-      "meta": "100%",
-      "tag": "3,7 kW",
-      "timeStr": "13h 37min",
-      "data": "25/06/2026",
-      "id": "JznhJjGTkGQ"
-    },
-    {
-      "sessao": "39% → 100%",
-      "meta": "100%",
-      "tag": "3,7 kW",
-      "timeStr": "9h 54min",
-      "data": "25/06/2026",
-      "id": "fKhgtJmq3po"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

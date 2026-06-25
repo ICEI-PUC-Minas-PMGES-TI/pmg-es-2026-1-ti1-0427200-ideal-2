@@ -132,7 +132,8 @@ async function addUser (nome, login, senha, email) {
             },
             body: JSON.stringify({
                 usuarioId: ret.id,
-                idGames: []
+                postosFavoritos: [],
+                nomeUsuario: ret.nome
             })
         });
         return ret

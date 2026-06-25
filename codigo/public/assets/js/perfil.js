@@ -174,3 +174,12 @@ function mostrarAlerta(elemento, mensagem, tipo) {
 function esconderAlerta(elemento) {
     elemento.style.display = "none";
 }
+
+function logoutUser () {
+    let usuarioCorrente = {'login': false};
+    sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));
+    window.location = '../mapa/mapa.html';
+}
+
+const logout = document.getElementById('logout');
+logout.addEventListener('click', ()=>logoutUser())
