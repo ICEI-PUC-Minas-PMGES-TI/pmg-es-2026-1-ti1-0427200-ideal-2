@@ -18,6 +18,17 @@ const modalFechar = document.getElementById("modal-fechar");
 const params = new URLSearchParams(window.location.search);
 const usuarioId = params.get("usuario") ? Number(params.get("usuario")) : 1;
 
+// IDs de posto podem ser numero ("1") ou string alfanumerica ("nQFOWm2C1io"),
+// entao comparamos sempre como string.
+function favoritosComoString() {
+  if (!usuario) return [];
+  return usuario.postosFavoritos.map(function (x) { return String(x); });
+}
+function ehFavorito(posto) {
+  return favoritosComoString().indexOf(String(posto.id)) !== -1;
+}
+
+
 function formatarStatus(posto) {
   if (!posto.recarga) return "";
 
@@ -104,7 +115,11 @@ function recalcularPostosFavoritos() {
 
 function removerFavorito(idPosto) {
   const idStr = String(idPosto);
+<<<<<<< Updated upstream
   const novosFavoritos = listaFavoritosString().filter(function(id) {
+=======
+  const novosFavoritos = favoritosComoString().filter(function(id) {
+>>>>>>> Stashed changes
     return id !== idStr;
   });
 
@@ -119,7 +134,14 @@ function removerFavorito(idPosto) {
   })
   .then(function(usuarioAtualizado) {
     usuario = usuarioAtualizado;
+<<<<<<< Updated upstream
     recalcularPostosFavoritos();
+=======
+    postosFavoritos = postos.filter(function(posto) {
+      return ehFavorito(posto);
+    });
+
+>>>>>>> Stashed changes
     renderizarLista(aplicarFiltros());
   })
   .catch(function(error) {
@@ -195,7 +217,11 @@ function fecharModal() {
 }
 
 function adicionarFavorito(idPosto) {
+<<<<<<< Updated upstream
   const novosFavoritos = listaFavoritosString().concat([String(idPosto)]);
+=======
+  const novosFavoritos = favoritosComoString().concat([String(idPosto)]);
+>>>>>>> Stashed changes
 
   fetch(FAVORITOS_URL + "/" + usuario.id, {
     method: "PATCH",
@@ -208,7 +234,14 @@ function adicionarFavorito(idPosto) {
   })
   .then(function(usuarioAtualizado) {
     usuario = usuarioAtualizado;
+<<<<<<< Updated upstream
     recalcularPostosFavoritos();
+=======
+    postosFavoritos = postos.filter(function(posto) {
+      return ehFavorito(posto);
+    });
+
+>>>>>>> Stashed changes
     renderizarModal();
     renderizarLista(aplicarFiltros());
     fecharModal();
@@ -288,7 +321,13 @@ Promise.all([
   });
 
   if (usuario) {
+<<<<<<< Updated upstream
     recalcularPostosFavoritos();
+=======
+    postosFavoritos = postos.filter(function(posto) {
+      return ehFavorito(posto);
+    });
+>>>>>>> Stashed changes
   }
 
   renderizarLista(postosFavoritos);

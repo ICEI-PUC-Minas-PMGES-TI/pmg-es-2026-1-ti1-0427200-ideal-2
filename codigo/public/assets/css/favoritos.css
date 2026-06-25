@@ -15,15 +15,8 @@ body {
   min-height: 100vh;
 }
 
-.sidebar {
-  width: 220px;
-  background: #fff;
-  border-right: 1px solid #e2e4e9;
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
+/* .sidebar agora usa o padrao do style.css (sidebar unica do projeto).
+   Override antigo removido para manter consistencia visual. */
 
 .menu {
   display: flex;
