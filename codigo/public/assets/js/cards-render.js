@@ -15,11 +15,15 @@ const btnAdicionar = document.getElementById("btn-adicionar");
 const modal = document.getElementById("modal-adicionar");
 const modalLista = document.getElementById("modal-lista");
 const modalFechar = document.getElementById("modal-fechar");
-const params = new URLSearchParams(window.location.search);
-const usuarioId = params.get("usuario") ? Number(params.get("usuario")) : 1;
 
-// IDs de posto podem ser numero ("1") ou string alfanumerica ("nQFOWm2C1io"),
-// entao comparamos sempre como string.
+let usuarioLogado = null;
+try {
+  usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioCorrente"));
+} catch (e) {
+  usuarioLogado = null;
+}
+const estaLogado = !!(usuarioLogado && usuarioLogado.login && usuarioLogado.id != null);
+
 function favoritosComoString() {
   if (!usuario) return [];
   return usuario.postosFavoritos.map(function (x) { return String(x); });
@@ -44,8 +48,6 @@ function formatarStatus(posto) {
   return "<span class='status-pill status-" + posto.status + "'>" + texto + "</span>";
 }
 
-// Os IDs dos postos podem ser numéricos ("1", "2") ou alfanuméricos ("nQFOWm2C1io"),
-// então tudo é comparado como string para funcionar nos dois casos.
 function listaFavoritosString() {
   if (!usuario) return [];
   return usuario.postosFavoritos.map(function(id) { return String(id); });
@@ -59,13 +61,23 @@ function renderizarLista(listaPostos) {
   lista.innerHTML = "";
 
   if (!usuario) {
-    lista.innerHTML =
-      "<div class='card'>" +
-        "<div class='card-info'>" +
-          "<strong>Usuário não encontrado</strong>" +
-          "<span>Nenhum usuário com esse ID foi localizado.</span>" +
-        "</div>" +
-      "</div>";
+    if (!estaLogado) {
+      lista.innerHTML =
+        "<div class='card'>" +
+          "<div class='card-info'>" +
+            "<strong>Você não está logado</strong>" +
+            "<span>Faça login para ver seus postos favoritos.</span>" +
+          "</div>" +
+        "</div>";
+    } else {
+      lista.innerHTML =
+        "<div class='card'>" +
+          "<div class='card-info'>" +
+            "<strong>Favoritos não encontrados</strong>" +
+            "<span>Não localizamos a lista de favoritos deste usuário.</span>" +
+          "</div>" +
+        "</div>";
+    }
     return;
   }
 
@@ -90,7 +102,7 @@ function renderizarLista(listaPostos) {
     const card = document.createElement("div");
     card.classList.add("card");
 
-    const linkDetalhe = "favoritos.html?id=" + posto.id + "&usuario=" + usuarioId;
+    const linkDetalhe = "favoritos.html?id=" + posto.id;
 
     card.innerHTML =
       "<img src='" + posto.imagem + "' alt='posto' />" +
@@ -300,9 +312,11 @@ Promise.all([
   postos = resultados[0];
   favoritos = resultados[1];
 
-  usuario = favoritos.find(function(u) {
-    return u.usuarioId === usuarioId;
-  });
+  if (estaLogado) {
+    usuario = favoritos.find(function(u) {
+      return String(u.usuarioId) === String(usuarioLogado.id);
+    });
+  }
 
   if (usuario) {
     postosFavoritos = postos.filter(function(posto) {
