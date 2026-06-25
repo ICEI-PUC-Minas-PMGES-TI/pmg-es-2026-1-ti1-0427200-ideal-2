@@ -3,8 +3,8 @@
     {
       "id": "1",
       "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
+      "senha": "132",
+      "nome": "Aiministrador",
       "email": "admin@abc.com"
     },
     {
@@ -171,9 +171,9 @@
       "postosFavoritos": [
         "6",
         "8",
-        "7",
         "2",
-        "1"
+        "1",
+        "5"
       ]
     },
     {
@@ -203,38 +203,6 @@
     }
   ],
   "simulacoes": [
-    {
-      "sessao": "6% → 70%",
-      "meta": "70%",
-      "tag": "11 kW",
-      "timeStr": "3h 29min",
-      "data": "23/06/2026",
-      "id": "hJSCLu66AmA"
-    },
-    {
-      "sessao": "2% → 80%",
-      "meta": "80%",
-      "tag": "7,4 kW",
-      "timeStr": "6h 19min",
-      "data": "24/06/2026",
-      "id": "VW1uQkGX5eA"
-    },
-    {
-      "sessao": "7% → 68%",
-      "meta": "68%",
-      "tag": "3,7 kW",
-      "timeStr": "9h 54min",
-      "data": "24/06/2026",
-      "id": "GdpDPrGRLuc"
-    },
-    {
-      "sessao": "7% → 68%",
-      "meta": "68%",
-      "tag": "22 kW",
-      "timeStr": "1h 40min",
-      "data": "24/06/2026",
-      "id": "0ftaf-OX86s"
-    },
     {
       "sessao": "7% → 68%",
       "meta": "68%",
@@ -274,6 +242,46 @@
       "timeStr": "10min",
       "data": "24/06/2026",
       "id": "LHklRNGrwL0"
+    },
+    {
+      "sessao": "23% → 67%",
+      "meta": "67%",
+      "tag": "350 kW",
+      "timeStr": "5min",
+      "data": "25/06/2026",
+      "id": "rHnpXrT50eM"
+    },
+    {
+      "sessao": "15% → 100%",
+      "meta": "100%",
+      "tag": "150 kW",
+      "timeStr": "20min",
+      "data": "25/06/2026",
+      "id": "rcbF3Tc1shA"
+    },
+    {
+      "sessao": "0% → 74%",
+      "meta": "74%",
+      "tag": "3,7 kW",
+      "timeStr": "12h 0min",
+      "data": "25/06/2026",
+      "id": "RiuU9-RuZqc"
+    },
+    {
+      "sessao": "16% → 100%",
+      "meta": "100%",
+      "tag": "3,7 kW",
+      "timeStr": "13h 37min",
+      "data": "25/06/2026",
+      "id": "JznhJjGTkGQ"
+    },
+    {
+      "sessao": "39% → 100%",
+      "meta": "100%",
+      "tag": "3,7 kW",
+      "timeStr": "9h 54min",
+      "data": "25/06/2026",
+      "id": "fKhgtJmq3po"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
