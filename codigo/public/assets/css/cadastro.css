@@ -1,115 +1,173 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    background-color: #8cc97a;
-    font-family: Arial, Helvetica, sans-serif;
-}
+body {
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
 
-
-
-.menu{
-    width: 220px;
-    height: 100vh;
-    background-color: #8cc97a;
-    border-right: 3px solid #1fa10d;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.logo{
-    width: 150px;
-    display: block;
-    margin: 20px auto;
-}
-
-.itens{
-    text-decoration: none;
-    color: black;
-}
-
-.menu-links{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    border-top: 2px solid #1fa10d;
-    border-bottom: 2px solid #1fa10d;
-
-    padding: 15px;
-}
-
-.icon{
-    width: 40px;
-}
-
-
-
-.conteudo{
-    flex: 1;
+    background-color: #7bc56ce0;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* FORMULÁRIO */
-
-form{
-    width: 500px;
-
-    background-color: #7fc56d;
-
-    border: 2px solid #1fa10d;
-    border-radius: 20px;
 
     padding: 40px;
 }
 
+#login {
+    width: 100%;
+    max-width: 1400px;
+}
 
-
-form h1{
-    text-align: center;
+#login h3.text-white {
+    color: #2e7d32 !important;
+    font-size: 2.8rem;
+    font-weight: 700;
     margin-bottom: 30px;
 }
 
+#login-column {
+    max-width: 900px;
+}
 
+#login-box {
+    background: white;
 
-label{
+    border-radius: 24px;
+
+    padding: 50px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+#login-box h3 {
+    color: #1565c0 !important;
+    font-size: 2rem;
+    font-weight: 700;
+
+    margin-bottom: 35px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
     display: block;
-    margin-top: 20px;
-    margin-bottom: 5px;
+
+    margin-bottom: 8px;
+
+    color: #555 !important;
+    font-weight: 500;
 }
 
+.form-control {
+    height: 55px;
 
+    border-radius: 14px;
+    border: 2px solid #e0e0e0;
 
-input{
-    width: 100%;
-    padding: 12px;
+    padding: 0 20px;
 
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 4px rgba(46,125,50,.15);
+}
+
+.btn-info {
+    background: #2e7d32;
     border: none;
-    border-radius: 10px;
+
+    border-radius: 14px;
+
+    padding: 15px 30px;
+
+    font-weight: 600;
+    font-size: 1rem;
+
+    transition: .2s;
 }
 
+.btn-info:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
 
+.form-group.text-right {
+    display: flex;
+    justify-content: center;
 
-button{
+    margin-top: 35px;
+}
+
+.form-group.text-right .btn {
+    width: 100%;
+    max-width: 350px;
+}
+
+button[data-toggle="modal"] {
     width: 100%;
 
-    padding: 15px;
     margin-top: 25px;
 
+    border-radius: 14px;
+
+    padding: 15px;
+}
+
+/* Modal */
+
+.modal-content {
     border: none;
-    border-radius: 10px;
+    border-radius: 24px;
+}
 
-    background-color: #1fa10d;
-    color: white;
+.modal-header {
+    border-bottom: 1px solid #eee;
+}
 
-    cursor: pointer;
+.modal-body {
+    padding: 35px;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+}
+
+.modal-dialog {
+    max-width: 800px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    #login-box {
+        padding: 30px;
+    }
+
+    #login h3.text-white {
+        font-size: 2rem;
+    }
+
 }

@@ -29,6 +29,14 @@
       "nome": "Gabriel Assis",
       "email": "gabrieleboltffggff@gmail.com",
       "admin": false
+    },
+    {
+      "id": "PWLLC-Aunx8",
+      "login": "testes",
+      "senha": "123",
+      "nome": "teste silva",
+      "email": "teste@test.com",
+      "admin": false
     }
   ],
   "postos": [
@@ -212,6 +220,12 @@
       ],
       "nomeUsuario": "Gabriel Assis",
       "id": "57HL23TqYgc"
+    },
+    {
+      "usuarioId": "PWLLC-Aunx8",
+      "postosFavoritos": [],
+      "nomeUsuario": "teste silva",
+      "id": "NBxSTd5oSHA"
     }
   ],
   "simulacoes": [
