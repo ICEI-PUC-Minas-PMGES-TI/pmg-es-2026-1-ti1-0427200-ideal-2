@@ -15,16 +15,6 @@ body {
   min-height: 100vh;
 }
 
-.sidebar {
-  width: 220px;
-  background: #fff;
-  border-right: 1px solid #e2e4e9;
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-
 .menu {
   display: flex;
   flex-direction: column;

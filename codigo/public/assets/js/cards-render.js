@@ -18,6 +18,17 @@ const modalFechar = document.getElementById("modal-fechar");
 const params = new URLSearchParams(window.location.search);
 const usuarioId = params.get("usuario") ? Number(params.get("usuario")) : 1;
 
+// IDs de posto podem ser numero ("1") ou string alfanumerica ("nQFOWm2C1io"),
+// entao comparamos sempre como string.
+function favoritosComoString() {
+  if (!usuario) return [];
+  return usuario.postosFavoritos.map(function (x) { return String(x); });
+}
+function ehFavorito(posto) {
+  return favoritosComoString().indexOf(String(posto.id)) !== -1;
+}
+
+
 function formatarStatus(posto) {
   if (!posto.recarga) return "";
 
@@ -31,6 +42,17 @@ function formatarStatus(posto) {
   if (!texto) return "";
 
   return "<span class='status-pill status-" + posto.status + "'>" + texto + "</span>";
+}
+
+// Os IDs dos postos podem ser numéricos ("1", "2") ou alfanuméricos ("nQFOWm2C1io"),
+// então tudo é comparado como string para funcionar nos dois casos.
+function listaFavoritosString() {
+  if (!usuario) return [];
+  return usuario.postosFavoritos.map(function(id) { return String(id); });
+}
+
+function ehFavorito(posto) {
+  return listaFavoritosString().indexOf(String(posto.id)) !== -1;
 }
 
 function renderizarLista(listaPostos) {
@@ -84,9 +106,17 @@ function renderizarLista(listaPostos) {
   });
 }
 
+function recalcularPostosFavoritos() {
+  const ids = listaFavoritosString();
+  postosFavoritos = postos.filter(function(posto) {
+    return ids.indexOf(String(posto.id)) !== -1;
+  });
+}
+
 function removerFavorito(idPosto) {
-  const novosFavoritos = usuario.postosFavoritos.filter(function(id) {
-    return id !== idPosto;
+  const idStr = String(idPosto);
+  const novosFavoritos = favoritosComoString().filter(function(id) {
+    return id !== idStr;
   });
 
   fetch(FAVORITOS_URL + "/" + usuario.id, {
@@ -101,7 +131,7 @@ function removerFavorito(idPosto) {
   .then(function(usuarioAtualizado) {
     usuario = usuarioAtualizado;
     postosFavoritos = postos.filter(function(posto) {
-      return usuario.postosFavoritos.includes(Number(posto.id));
+      return ehFavorito(posto);
     });
 
     renderizarLista(aplicarFiltros());
@@ -136,7 +166,7 @@ function aplicarFiltros() {
 
 function postosDisponiveisParaAdicionar() {
   return postos.filter(function(posto) {
-    return !usuario.postosFavoritos.includes(Number(posto.id));
+    return !ehFavorito(posto);
   });
 }
 
@@ -179,7 +209,7 @@ function fecharModal() {
 }
 
 function adicionarFavorito(idPosto) {
-  const novosFavoritos = usuario.postosFavoritos.concat([idPosto]);
+  const novosFavoritos = favoritosComoString().concat([String(idPosto)]);
 
   fetch(FAVORITOS_URL + "/" + usuario.id, {
     method: "PATCH",
@@ -193,7 +223,7 @@ function adicionarFavorito(idPosto) {
   .then(function(usuarioAtualizado) {
     usuario = usuarioAtualizado;
     postosFavoritos = postos.filter(function(posto) {
-      return usuario.postosFavoritos.includes(Number(posto.id));
+      return ehFavorito(posto);
     });
 
     renderizarModal();
@@ -209,7 +239,7 @@ function adicionarFavorito(idPosto) {
 lista.addEventListener("click", function(e) {
   const botao = e.target.closest(".btn-remover");
   if (botao) {
-    removerFavorito(Number(botao.dataset.id));
+    removerFavorito(botao.dataset.id);
   }
 });
 
@@ -257,7 +287,7 @@ if (modalLista) {
   modalLista.addEventListener("click", function(e) {
     const botao = e.target.closest(".btn-adicionar-favorito");
     if (botao) {
-      adicionarFavorito(Number(botao.dataset.id));
+      adicionarFavorito(botao.dataset.id);
     }
   });
 }
@@ -276,7 +306,7 @@ Promise.all([
 
   if (usuario) {
     postosFavoritos = postos.filter(function(posto) {
-      return usuario.postosFavoritos.includes(Number(posto.id));
+      return ehFavorito(posto);
     });
   }
 

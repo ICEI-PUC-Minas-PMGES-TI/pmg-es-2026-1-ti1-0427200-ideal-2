@@ -172,7 +172,8 @@
         "6",
         "8",
         "7",
-        "2"
+        "2",
+        "1"
       ]
     },
     {
@@ -209,6 +210,70 @@
       "timeStr": "3h 29min",
       "data": "23/06/2026",
       "id": "hJSCLu66AmA"
+    },
+    {
+      "sessao": "2% → 80%",
+      "meta": "80%",
+      "tag": "7,4 kW",
+      "timeStr": "6h 19min",
+      "data": "24/06/2026",
+      "id": "VW1uQkGX5eA"
+    },
+    {
+      "sessao": "7% → 68%",
+      "meta": "68%",
+      "tag": "3,7 kW",
+      "timeStr": "9h 54min",
+      "data": "24/06/2026",
+      "id": "GdpDPrGRLuc"
+    },
+    {
+      "sessao": "7% → 68%",
+      "meta": "68%",
+      "tag": "22 kW",
+      "timeStr": "1h 40min",
+      "data": "24/06/2026",
+      "id": "0ftaf-OX86s"
+    },
+    {
+      "sessao": "7% → 68%",
+      "meta": "68%",
+      "tag": "350 kW",
+      "timeStr": "6min",
+      "data": "24/06/2026",
+      "id": "eAlUV-1LJQA"
+    },
+    {
+      "sessao": "7% → 68%",
+      "meta": "68%",
+      "tag": "100 kW",
+      "timeStr": "22min",
+      "data": "24/06/2026",
+      "id": "7x7A0GSWiR0"
+    },
+    {
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "100 kW",
+      "timeStr": "36min",
+      "data": "24/06/2026",
+      "id": "n1vcZLWK1rg"
+    },
+    {
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "350 kW",
+      "timeStr": "10min",
+      "data": "24/06/2026",
+      "id": "g5_XVVlzE3w"
+    },
+    {
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "350 kW",
+      "timeStr": "10min",
+      "data": "24/06/2026",
+      "id": "LHklRNGrwL0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

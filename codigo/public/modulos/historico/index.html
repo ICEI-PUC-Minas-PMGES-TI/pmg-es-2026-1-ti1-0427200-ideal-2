@@ -1,164 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Histórico – ChargerMap</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../../assets/css/historico.css"/>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
-<body>
+  <body>
 
-<aside class="sidebar">
-  <div class="logo-box">
-    <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="30" cy="22" r="16" fill="#2e7d32"/>
-      <circle cx="30" cy="22" r="10" fill="#1565c0"/>
-      <rect x="23" y="19" width="14" height="7" rx="2" fill="white"/>
-      <rect x="25" y="16" width="10" height="5" rx="1" fill="white"/>
-      <circle cx="26" cy="27" r="2" fill="#2e7d32"/>
-      <circle cx="34" cy="27" r="2" fill="#2e7d32"/>
-      <path d="M33 14 L29 20 h3 l-2 6 5-7h-3z" fill="#76ff03"/>
-      <path d="M30 36 L24 28 Q30 32 36 28 Z" fill="#2e7d32"/>
-      <path d="M10 48 Q20 38 30 44 Q40 50 50 40 L50 60 L10 60Z" fill="#388e3c" opacity="0.5"/>
-      <text x="8" y="58" font-family="Arial" font-weight="bold" font-size="11" fill="#2e7d32">ChargerMap</text>
-    </svg>
-  </div>
-
-  <nav class="nav">
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-      Inicio
-    </div>
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
-      Mapa
-    </div>
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      Planejar Viajem
-    </div>
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-      Simular Recarga
-    </div>
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      Favoritos
-    </div>
-    <div class="nav-item active">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
-      Histórico
-    </div>
-    <div class="nav-spacer"></div>
-  </nav>
-
-  <div class="nav-bottom">
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-      Login
-    </div>
-  </div>
-</aside>
-
-<main class="main">
-  <h2 class="page-title">Histórico</h2>
-
-  <div class="toolbar">
-    <select class="filter-select">
-      <option value="">Filtro</option>
-      <option value="recarga">Recarga</option>
-      <option value="viagem">Viagem</option>
-      <option value="favorito">Favorito</option>
-    </select>
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+    <aside class="sidebar">
+      <div class="logo-box">
+          <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="22" r="16" fill="#2e7d32" />
+              <circle cx="30" cy="22" r="10" fill="#1565c0" />
+              <rect x="23" y="19" width="14" height="7" rx="2" fill="white" />
+              <rect x="25" y="16" width="10" height="5" rx="1" fill="white" />
+              <circle cx="26" cy="27" r="2" fill="#2e7d32" />
+              <circle cx="34" cy="27" r="2" fill="#2e7d32" />
+              <path d="M33 14 L29 20 h3 l-2 6 5-7h-3z" fill="#76ff03" />
+              <path d="M30 36 L24 28 Q30 32 36 28 Z" fill="#2e7d32" />
+              <path d="M10 48 Q20 38 30 44 Q40 50 50 40 L50 60 L10 60Z" fill="#388e3c" opacity="0.5" />
+              <text x="8" y="58" font-family="Arial" font-weight="bold" font-size="11"
+                  fill="#2e7d32">ChargerMap</text>
+          </svg>
       </div>
-      <div class="card-body">
-        <span class="card-title">Recarga — Posto Centro</span>
-        <span class="card-sub">Rua das Flores, 420 · Belo Horizonte</span>
-        <div class="card-meta">
-          <span class="card-tag">Recarga</span>
-          <span class="card-tag">45 min</span>
+
+      <nav class="nav">
+          <div class="nav-item" onclick="location.href='../mapa/mapa.html'">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+              Início
+          </div>
+          <div class="nav-item" onclick="location.href='../planejador/planejador.html'">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              Planejar Viagem
+          </div>
+          <div class="nav-item" onclick="location.href='../simulador/index.html'">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+              </svg>
+              Simular Recarga
+          </div>
+          <div class="nav-item" onclick="location.href='../postos/postos.html'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fuel-pump-fill" viewBox="0 0 16 16">
+                  <path d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1q.846-.002 1.412.336c.383.228.634.551.794.907.295.655.294 1.465.294 2.081V7.5a.5.5 0 0 1-.5.5H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1zm2.5 0a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5z"/>
+              </svg>
+              Postos
+          </div>
+          <div class="nav-item" onclick="location.href='../favoritos/cards.html'">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              Favoritos
+          </div>
+          <div class="nav-item" onclick="location.href='../historico/index.html'">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                      d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+              </svg>
+              Histórico
+          </div>
+          <div class="nav-spacer"></div>
+      </nav>
+
+      <div class="nav-bottom" onclick="location.href='../login.html'" id="bottomLogin">
+          <div class="nav-item" id="divLogin">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+              </svg>
+              Login
+          </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <h2 class="page-title">Histórico</h2>
+
+      <div class="toolbar">
+        <select class="filter-select">
+          <option value="">Filtro</option>
+          <option value="recarga">Recarga</option>
+          <option value="viagem">Viagem</option>
+          <option value="favorito">Favorito</option>
+        </select>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-title">Recarga — Posto Centro</span>
+            <span class="card-sub">Rua das Flores, 420 · Belo Horizonte</span>
+            <div class="card-meta">
+              <span class="card-tag">Recarga</span>
+              <span class="card-tag">45 min</span>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-value">38 kWh</div>
+            <div class="card-date">23 mai 2026</div>
+          </div>
         </div>
-      </div>
-      <div class="card-right">
-        <div class="card-value">38 kWh</div>
-        <div class="card-date">23 mai 2026</div>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
-      </div>
-      <div class="card-body">
-        <span class="card-title">Viagem — BH → Ouro Preto</span>
-        <span class="card-sub">101 km · 1h 22min estimado</span>
-        <div class="card-meta">
-          <span class="card-tag">Viagem</span>
-          <span class="card-tag">1 parada</span>
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-title">Viagem — BH → Ouro Preto</span>
+            <span class="card-sub">101 km · 1h 22min estimado</span>
+            <div class="card-meta">
+              <span class="card-tag">Viagem</span>
+              <span class="card-tag">1 parada</span>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-value">101 km</div>
+            <div class="card-date">20 mai 2026</div>
+          </div>
         </div>
-      </div>
-      <div class="card-right">
-        <div class="card-value">101 km</div>
-        <div class="card-date">20 mai 2026</div>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-      </div>
-      <div class="card-body">
-        <span class="card-title">Recarga — Shopping Contagem</span>
-        <span class="card-sub">Av. João César de Oliveira, 1500</span>
-        <div class="card-meta">
-          <span class="card-tag">Recarga</span>
-          <span class="card-tag">30 min</span>
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-title">Recarga — Shopping Contagem</span>
+            <span class="card-sub">Av. João César de Oliveira, 1500</span>
+            <div class="card-meta">
+              <span class="card-tag">Recarga</span>
+              <span class="card-tag">30 min</span>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-value">22 kWh</div>
+            <div class="card-date">17 mai 2026</div>
+          </div>
         </div>
-      </div>
-      <div class="card-right">
-        <div class="card-value">22 kWh</div>
-        <div class="card-date">17 mai 2026</div>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      </div>
-      <div class="card-body">
-        <span class="card-title">Favorito adicionado</span>
-        <span class="card-sub">Eletroposto Savassi · Belo Horizonte</span>
-        <div class="card-meta">
-          <span class="card-tag">Favorito</span>
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="card-title">Favorito adicionado</span>
+            <span class="card-sub">Eletroposto Savassi · Belo Horizonte</span>
+            <div class="card-meta">
+              <span class="card-tag">Favorito</span>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-value">—</div>
+            <div class="card-date">14 mai 2026</div>
+          </div>
         </div>
-      </div>
-      <div class="card-right">
-        <div class="card-value">—</div>
-        <div class="card-date">14 mai 2026</div>
-      </div>
-    </div>
 
-  </div>
-</main>
-
-</body>
-</html>
-</body>
+      </div>
+    </main>
+  </body>
+<script type="module" src="../../assets/js/userLogado.js"></script>
 </html>
