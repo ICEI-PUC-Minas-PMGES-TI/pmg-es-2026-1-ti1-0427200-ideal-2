@@ -252,6 +252,15 @@
       "timeStr": "36min",
       "data": "24/06/2026",
       "id": "n1vcZLWK1rg"
+    },
+    {
+      "usuarioId": 1,
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "3,7 kW",
+      "timeStr": "16h 13min",
+      "data": "25/06/2026",
+      "id": "7IQavNJ9GxE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
