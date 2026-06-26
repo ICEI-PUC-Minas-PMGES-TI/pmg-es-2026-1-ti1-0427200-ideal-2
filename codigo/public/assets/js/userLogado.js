@@ -1,19 +1,13 @@
 export function logOrNot() {
-    const usuario = JSON.parse(
-        sessionStorage.getItem('usuarioCorrente')
-    );
-    if (usuario.login) {
+    const usuario = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+    if (usuario && usuario.login) {
         const btnLogin = document.getElementById('bottomLogin');
         const divLogin = document.getElementById('divLogin');
-        btnLogin.setAttribute(
-            'onclick',
-            "location.href='../perfil/perfil.html'"
-        );
-        divLogin.lastChild.textContent = usuario.nome;
-        return usuario
-    }
-    else{
-        return false
+        if (btnLogin) btnLogin.setAttribute('onclick', "location.href='../perfil/perfil.html'");
+        if (divLogin) divLogin.lastChild.textContent = usuario.nome;
+        return usuario;
+    } else {
+        return false;
     }
 }
 
@@ -38,14 +32,12 @@ function isAdmin(admin) {
 }
 
 async function init() {
-    const usuario = JSON.parse(
-        sessionStorage.getItem('usuarioCorrente')
-    );
+    const usuario = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
     if (!usuario) {
-        sessionStorage.setItem ('usuarioCorrente', JSON.stringify ({}));
+        sessionStorage.setItem('usuarioCorrente', JSON.stringify({}));
     }
     const logado = logOrNot();
-    isAdmin(logado.admin);
+    if (logado) isAdmin(logado.admin);
 }
 
 init();

@@ -12,18 +12,22 @@
 // Autor: Rommel Vieira Carneiro (rommelcarneiro@gmail.com)
 // Data: 29/04/2024
 //
-// Código LoginApp  
+// Código LoginApp
 
 
 // Página inicial de Login
 const LOGIN_URL = "login.html";
 const apiUrl = '/usuarios';
 
-// Objeto para o banco de dados de usuários baseado em JSON
-var db_usuarios = {};
+// Array para o banco de dados de usuários baseado em JSON
+var db_usuarios = [];
 
 // Objeto para o usuário corrente
 var usuarioCorrente = {};
+
+// Promessa que resolve quando os usuários estiverem carregados
+let resolveUsuarios;
+const usuariosPromise = new Promise(resolve => { resolveUsuarios = resolve; });
 
 // função para gerar códigos randômicos a serem utilizados como código de usuário
 // Fonte: https://stackoverflow.com/questions/105034/how-to-create-guid-uuid
@@ -54,10 +58,10 @@ const dadosIniciais = {
 
 // Inicializa o usuarioCorrente e banco de dados de usuários da aplicação de Login
 function initLoginApp () {
-    // PARTE 1 - INICIALIZA USUARIOCORRENTE A PARTIR DE DADOS NO LOCAL STORAGE, CASO EXISTA
-    usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    // PARTE 1 - INICIALIZA USUARIOCORRENTE A PARTIR DE DADOS NO SESSION STORAGE, CASO EXISTA
+    const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
     if (usuarioCorrenteJSON) {
-        usuarioCorrente = JSON.parse (usuarioCorrenteJSON);
+        usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
     }
 
     // PARTE 2 - INICIALIZA BANCO DE DADOS DE USUÁRIOS
@@ -65,16 +69,18 @@ function initLoginApp () {
         .then(response => response.json())
         .then(data => {
             db_usuarios = data;
+            resolveUsuarios();
         })
         .catch(error => {
             console.error('Erro ao ler usuários via API JSONServer:', error);
-            displayMessage("Erro ao ler usuários");
+            resolveUsuarios(); // resolve mesmo com erro para não travar
         });
-};
+}
 
 
 // Verifica se o login do usuário está ok e, se positivo, direciona para a página inicial
-function loginUser (login, senha) {
+async function loginUser(login, senha) {
+    await usuariosPromise; // espera o fetch terminar
 
     // Verifica todos os itens do banco de dados de usuarios 
     // para localizar o usuário informado no formulario de login
@@ -89,9 +95,8 @@ function loginUser (login, senha) {
             usuarioCorrente.nome = usuario.nome;
             usuarioCorrente.admin = usuario.admin;
 
-
             // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
-            sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));
+            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
 
             // Retorna true para usuário encontrado
             return true;
@@ -103,51 +108,41 @@ function loginUser (login, senha) {
 }
 
 // Apaga os dados do usuário corrente no sessionStorage
-function logoutUser () {
+function logoutUser() {
     usuarioCorrente = {};
-    sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));
+    sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
     window.location = LOGIN_URL;
 }
 
-async function addUser (nome, login, senha, email) {
+async function addUser(nome, login, senha, email) {
 
     // Cria um objeto de usuario para o novo usuario 
-    let newId = generateUUID ();
+    let newId = generateUUID();
     let usuario = { "id": newId, "login": login, "senha": senha, "nome": nome, "email": email, "admin": false };
-    
+
     // Envia dados do novo usuário para ser inserido no JSON Server
-    const response = await fetch(apiUrl, {
+    await fetch(apiUrl, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(usuario),
     })
     .then(async response => {
-        const ret = await response.json()
+        const ret = await response.json();
         await fetch('http://localhost:3000/favoritos', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                usuarioId: ret.id,
-                postosFavoritos: [],
-                nomeUsuario: ret.nome
-            })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usuarioId: ret.id, postosFavoritos: [], nomeUsuario: ret.nome })
         });
-        return ret
+        return ret;
     })
-    .then(data => {
+    .then(() => {
         // Adiciona o novo usuário na variável db_usuarios em memória
-        db_usuarios.push (usuario);
-        displayMessage("Usuário inserido com sucesso");
+        db_usuarios.push(usuario);
     })
     .catch(error => {
         console.error('Erro ao inserir usuário via API JSONServer:', error);
-        displayMessage("Erro ao inserir usuário");
     });
 }
 
 // Inicializa as estruturas utilizadas pelo LoginApp
-initLoginApp ();
+initLoginApp();

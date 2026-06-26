@@ -11,6 +11,16 @@ const chargerPowers = {
 const BATTERY_KWH = 60;
 const API = 'http://localhost:3000/simulacoes';
 
+// Retorna o id do usuário logado como número, ou null se não estiver logado
+function getUsuarioId() {
+  try {
+    const usuario = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+    return (usuario && usuario.id) ? Number(usuario.id) || usuario.id : null;
+  } catch {
+    return null;
+  }
+}
+
 function paintTrack(input) {
   const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
   input.style.background = `linear-gradient(to right, #279b10 ${pct}%, #e2e8f0 ${pct}%)`;
@@ -35,8 +45,13 @@ rangeB.addEventListener('input', () => {
 });
 
 async function carregarHistorico() {
+  const usuarioId = getUsuarioId();
+
+  // Se não estiver logado, não exibe nada
+  if (!usuarioId) return;
+
   try {
-    const res = await fetch(API);
+    const res = await fetch(`${API}?usuarioId=${usuarioId}`);
     if (!res.ok) throw new Error('Erro ao carregar histórico');
     const simulacoes = await res.json();
 
@@ -78,8 +93,16 @@ async function simular() {
   const data = `${String(hoje.getDate()).padStart(2,'0')}/${String(hoje.getMonth()+1).padStart(2,'0')}/${hoje.getFullYear()}`;
   const tag = chargerName.split('\u2014')[1]?.trim() || chargerName;
 
+  const usuarioId = getUsuarioId();
+
+  if (!usuarioId) {
+    alert('Você precisa estar logado para salvar uma simulação.');
+    return;
+  }
+
   try {
-    const listaAtual = await fetch(API).then(r => r.json());
+    const listaAtual = await fetch(`${API}?usuarioId=${usuarioId}`).then(r => r.json());
+
     if (listaAtual.length >= 10) {
       const maisAntiga = listaAtual[0];
       await fetch(`${API}/${maisAntiga.id}`, { method: 'DELETE' });
@@ -90,6 +113,7 @@ async function simular() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        usuarioId,
         sessao: `${atual}% \u2192 ${meta}%`,
         meta: `${meta}%`,
         tag,
@@ -117,7 +141,7 @@ function adicionarLinha(s) {
     <td><span class="charger-tag">${s.tag}</span></td>
     <td>${s.timeStr}</td>
     <td class="col-date">${s.data}</td>
-    <td><button class="remove-btn" onclick="remover('${s.id}')">&#10005;</button></td>
+    <td><button class="remove-btn" onclick="remover('${s.id}', ${s.usuarioId})">&#10005;</button></td>
   `;
   const tbody = document.getElementById('history-tbody');
   tbody.insertBefore(tr, tbody.firstChild);
@@ -135,7 +159,15 @@ function resetar() {
   document.getElementById('result-inline').classList.remove('visible');
 }
 
-async function remover(id) {
+async function remover(id, donoId) {
+  const usuarioId = getUsuarioId();
+
+  // Só permite remover se for o dono da simulação
+  if (!usuarioId || usuarioId !== donoId) {
+    alert('Você não tem permissão para remover esta simulação.');
+    return;
+  }
+
   try {
     await fetch(`${API}/${id}`, { method: 'DELETE' });
   } catch (err) {
