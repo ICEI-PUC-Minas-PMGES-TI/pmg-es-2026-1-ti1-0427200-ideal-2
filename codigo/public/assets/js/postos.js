@@ -1,12 +1,12 @@
 async function buscarPostos() {
     const response = await fetch(
-        `http://localhost:3000/postos`
+        `/postos`
     );
     const dados = await response.json();
     return dados;
 }
 async function deletePosto(id) {
-    fetch(`http://localhost:3000/postos/${id}`, {
+    fetch(`/postos/${id}`, {
       method: "DELETE"
     });
 }

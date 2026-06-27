@@ -9,7 +9,7 @@ const chargerPowers = {
   'DC Ultra-Rápido — 350 kW': 350,
 };
 const BATTERY_KWH = 60;
-const API = '/simulacoes';
+fetch(`${API}/simulacoes`)
 
 // Retorna o id do usuário logado como número, ou null se não estiver logado
 function getUsuarioId() {
