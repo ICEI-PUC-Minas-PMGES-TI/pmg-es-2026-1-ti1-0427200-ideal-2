@@ -37,6 +37,14 @@
       "nome": "teste silva",
       "email": "teste@test.com",
       "admin": false
+    },
+    {
+      "id": "TuuuHYTvCDY",
+      "login": "celin",
+      "senha": "12345",
+      "nome": "Marcelo Artur Soares Sartori",
+      "email": "marceloartur.28102007@gmail.com",
+      "admin": false
     }
   ],
   "postos": [
@@ -236,6 +244,15 @@
       "postosFavoritos": [],
       "nomeUsuario": "teste silva",
       "id": "NBxSTd5oSHA"
+    },
+    {
+      "usuarioId": "TuuuHYTvCDY",
+      "postosFavoritos": [
+        "1",
+        "8"
+      ],
+      "nomeUsuario": "Marcelo Artur Soares Sartori",
+      "id": "kvmP-hvj9S8"
     }
   ],
   "simulacoes": [
@@ -282,6 +299,7 @@
       "id": "o04kzsF21Gc"
     },
     {
+<<<<<<< HEAD
       "usuarioId": 1,
       "sessao": "0% → 100%",
       "meta": "100%",
@@ -298,6 +316,77 @@
       "timeStr": "2h 44min",
       "data": "26/06/2026",
       "id": "U8q_x-vjhVc"
+=======
+      "usuarioId": "TuuuHYTvCDY",
+      "sessao": "41% → 88%",
+      "meta": "88%",
+      "tag": "3,7 kW",
+      "timeStr": "7h 37min",
+      "data": "27/06/2026",
+      "id": "JOlxmhyRbSw"
+    },
+    {
+      "usuarioId": "TuuuHYTvCDY",
+      "sessao": "39% → 100%",
+      "meta": "100%",
+      "tag": "3,7 kW",
+      "timeStr": "9h 54min",
+      "data": "27/06/2026",
+      "id": "70JRIjCD91o"
+    }
+  ],
+  "historico": [
+    {
+      "id": "h1",
+      "tipo": "recarga",
+      "titulo": "Recarga — Posto Centro",
+      "subtitulo": "Rua das Flores, 420 · Belo Horizonte",
+      "tags": [
+        "Recarga",
+        "45 min"
+      ],
+      "valor": "38 kWh",
+      "data": "23 mai 2026",
+      "icone": "flash"
+    },
+    {
+      "id": "h2",
+      "tipo": "viagem",
+      "titulo": "Viagem — BH → Ouro Preto",
+      "subtitulo": "101 km · 1h 22min estimado",
+      "tags": [
+        "Viagem",
+        "1 parada"
+      ],
+      "valor": "101 km",
+      "data": "20 mai 2026",
+      "icone": "mapa"
+    },
+    {
+      "id": "h3",
+      "tipo": "recarga",
+      "titulo": "Recarga — Shopping Contagem",
+      "subtitulo": "Av. João César de Oliveira, 1500",
+      "tags": [
+        "Recarga",
+        "30 min"
+      ],
+      "valor": "22 kWh",
+      "data": "17 mai 2026",
+      "icone": "flash"
+    },
+    {
+      "id": "h4",
+      "tipo": "favorito",
+      "titulo": "Favorito adicionado",
+      "subtitulo": "Eletroposto Savassi · Belo Horizonte",
+      "tags": [
+        "Favorito"
+      ],
+      "valor": "—",
+      "data": "14 mai 2026",
+      "icone": "coracao"
+>>>>>>> 060bf95486b4be67f327d2247b444b58fdbccf59
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

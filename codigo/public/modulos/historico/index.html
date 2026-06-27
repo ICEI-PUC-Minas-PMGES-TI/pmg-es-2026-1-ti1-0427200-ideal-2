@@ -87,81 +87,119 @@
         </select>
       </div>
 
-      <div class="cards">
-
-        <div class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-          </div>
-          <div class="card-body">
-            <span class="card-title">Recarga — Posto Centro</span>
-            <span class="card-sub">Rua das Flores, 420 · Belo Horizonte</span>
-            <div class="card-meta">
-              <span class="card-tag">Recarga</span>
-              <span class="card-tag">45 min</span>
-            </div>
-          </div>
-          <div class="card-right">
-            <div class="card-value">38 kWh</div>
-            <div class="card-date">23 mai 2026</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
-          </div>
-          <div class="card-body">
-            <span class="card-title">Viagem — BH → Ouro Preto</span>
-            <span class="card-sub">101 km · 1h 22min estimado</span>
-            <div class="card-meta">
-              <span class="card-tag">Viagem</span>
-              <span class="card-tag">1 parada</span>
-            </div>
-          </div>
-          <div class="card-right">
-            <div class="card-value">101 km</div>
-            <div class="card-date">20 mai 2026</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-          </div>
-          <div class="card-body">
-            <span class="card-title">Recarga — Shopping Contagem</span>
-            <span class="card-sub">Av. João César de Oliveira, 1500</span>
-            <div class="card-meta">
-              <span class="card-tag">Recarga</span>
-              <span class="card-tag">30 min</span>
-            </div>
-          </div>
-          <div class="card-right">
-            <div class="card-value">22 kWh</div>
-            <div class="card-date">17 mai 2026</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </div>
-          <div class="card-body">
-            <span class="card-title">Favorito adicionado</span>
-            <span class="card-sub">Eletroposto Savassi · Belo Horizonte</span>
-            <div class="card-meta">
-              <span class="card-tag">Favorito</span>
-            </div>
-          </div>
-          <div class="card-right">
-            <div class="card-value">—</div>
-            <div class="card-date">14 mai 2026</div>
-          </div>
-        </div>
-
+      <div class="cards" id="historico-lista">
+        <p style="color:#555;padding:1rem;">Carregando histórico...</p>
       </div>
     </main>
   </body>
 <script type="module" src="../../assets/js/userLogado.js"></script>
+<script>
+  const BASE = 'http://localhost:3000';
+
+  const ICONE_FLASH   = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>';
+  const ICONE_CORACAO = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+
+  function getUsuarioId() {
+    try {
+      const u = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+      return u ? String(u.id) : null;
+    } catch { return null; }
+  }
+
+  function renderizarCards(itens) {
+    const lista = document.getElementById('historico-lista');
+    if (!itens || itens.length === 0) {
+      lista.innerHTML = '<p style="color:#555;padding:1rem;">Nenhum item no histórico.</p>';
+      return;
+    }
+    lista.innerHTML = itens.map(item => `
+      <div class="card" data-tipo="${item.tipo}">
+        <div class="card-icon">${item.icone}</div>
+        <div class="card-body">
+          <span class="card-title">${item.titulo}</span>
+          <span class="card-sub">${item.subtitulo}</span>
+          <div class="card-meta">
+            ${item.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="card-value">${item.valor}</div>
+          <div class="card-date">${item.data}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function carregarHistorico(filtro) {
+    const lista = document.getElementById('historico-lista');
+    lista.innerHTML = '<p style="color:#555;padding:1rem;">Carregando...</p>';
+
+    try {
+      const usuarioId = getUsuarioId();
+
+      // Busca simulações e favoritos em paralelo
+      const [simulacoes, favoritosDB, postos] = await Promise.all([
+        fetch(`${BASE}/simulacoes`).then(r => r.json()),
+        fetch(`${BASE}/favoritos`).then(r => r.json()),
+        fetch(`${BASE}/postos`).then(r => r.json())
+      ]);
+
+      const itens = [];
+
+      // Monta cards de simulações (filtra pelo usuário logado se houver)
+      const minhasSimulacoes = usuarioId
+        ? simulacoes.filter(s => String(s.usuarioId) === usuarioId)
+        : simulacoes;
+
+      minhasSimulacoes.forEach(s => {
+        itens.push({
+          tipo: 'recarga',
+          icone: ICONE_FLASH,
+          titulo: `Recarga — ${s.sessao}`,
+          subtitulo: `Carregador ${s.tag} · ${s.timeStr}`,
+          tags: ['Recarga', s.timeStr],
+          valor: s.tag,
+          data: s.data
+        });
+      });
+
+      // Monta cards de favoritos (postos favoritados pelo usuário logado)
+      const meuFavorito = usuarioId
+        ? favoritosDB.find(f => String(f.usuarioId) === usuarioId)
+        : null;
+
+      if (meuFavorito && meuFavorito.postosFavoritos) {
+        meuFavorito.postosFavoritos.forEach(postoId => {
+          const posto = postos.find(p => String(p.id) === String(postoId));
+          if (!posto) return;
+          itens.push({
+            tipo: 'favorito',
+            icone: ICONE_CORACAO,
+            titulo: 'Favorito adicionado',
+            subtitulo: `${posto.nome} · ${posto.cidade || ''}`,
+            tags: ['Favorito'],
+            valor: '—',
+            data: '—'
+          });
+        });
+      }
+
+      // Aplica filtro do select
+      const itensFiltrados = filtro
+        ? itens.filter(i => i.tipo === filtro)
+        : itens;
+
+      renderizarCards(itensFiltrados);
+
+    } catch (e) {
+      lista.innerHTML = '<p style="color:#c00;padding:1rem;">Erro ao carregar. Verifique se o servidor está rodando.</p>';
+    }
+  }
+
+  document.querySelector('.filter-select').addEventListener('change', function () {
+    carregarHistorico(this.value);
+  });
+
+  carregarHistorico();
+</script>
 </html>
