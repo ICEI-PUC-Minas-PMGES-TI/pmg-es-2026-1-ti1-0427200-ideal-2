@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/usuarios";
+const API_URL = "/usuarios";
 const CODIGO_VALIDO = "0000";
 
 let usuarioAtual = null;

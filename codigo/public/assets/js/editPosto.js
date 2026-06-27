@@ -1,6 +1,6 @@
 async function buscarPostos(id) {
     const response = await fetch(
-        `http://localhost:3000/postos/${id}`
+        `/postos/${id}`
     );
     const dados = await response.json();
     return dados;
@@ -47,7 +47,7 @@ async function postPosto(form) {
         status,
         recarga: true,
     };
-    await fetch("http://localhost:3000/postos", {
+    await fetch("/postos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -97,7 +97,7 @@ async function updatePosto(id, form) {
         tomadas,
         status
     };
-    await fetch(`http://localhost:3000/postos/${id}`, {
+    await fetch(`/postos/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
