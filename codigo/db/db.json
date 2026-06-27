@@ -3,8 +3,8 @@
     {
       "id": "1",
       "login": "admin",
-      "senha": "132",
-      "nome": "Aiministrador",
+      "senha": "123",
+      "nome": "Administrador",
       "email": "admin@abc.com",
       "admin": true
     },
@@ -199,16 +199,10 @@
       "usuarioId": 1,
       "nomeUsuario": "Lucas",
       "postosFavoritos": [
-        "6",
-        "8",
-        "2",
-        "1",
-        "5",
-        "3",
         "Iqys2jOJQYQ",
         "fsdfsdfsdfsdf",
-        "sSuaH5S-1Iw",
-        "nQFOWm2C1io"
+        "nQFOWm2C1io",
+        "3"
       ]
     },
     {
@@ -299,24 +293,6 @@
       "id": "o04kzsF21Gc"
     },
     {
-<<<<<<< HEAD
-      "usuarioId": 1,
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "150 kW",
-      "timeStr": "24min",
-      "data": "26/06/2026",
-      "id": "4dny8vcAFIs"
-    },
-    {
-      "usuarioId": 2,
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "22 kW",
-      "timeStr": "2h 44min",
-      "data": "26/06/2026",
-      "id": "U8q_x-vjhVc"
-=======
       "usuarioId": "TuuuHYTvCDY",
       "sessao": "41% → 88%",
       "meta": "88%",
@@ -333,6 +309,15 @@
       "timeStr": "9h 54min",
       "data": "27/06/2026",
       "id": "70JRIjCD91o"
+    },
+    {
+      "usuarioId": 1,
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "100 kW",
+      "timeStr": "36min",
+      "data": "27/06/2026",
+      "id": "ilSKjAUlBTY"
     }
   ],
   "historico": [
@@ -386,7 +371,6 @@
       "valor": "—",
       "data": "14 mai 2026",
       "icone": "coracao"
->>>>>>> 060bf95486b4be67f327d2247b444b58fdbccf59
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
