@@ -94,6 +94,27 @@ async function buscarRota(origem, destino) {
     return tratamentoInfos(infos, resultado.quantidade);
 }
 
+async function postViagem(saida, chegada, infos) {
+    const usuario = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
+    if (usuario.login) {
+        const viagem = {
+            saida,
+            destino: chegada,
+            distancia: `${infos.distancia}Km`,
+            tempo:`${infos.horas}h e ${infos.min} min`,
+            postos: infos.postos,
+            usuarioId: usuario.id
+        };
+        await fetch("/viagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(viagem)
+        });
+    }
+}
+
 async function showMeDetails() {
     const saida = document.getElementById('saida').value;
     const chegada = document.getElementById('chegada').value;
@@ -115,6 +136,7 @@ async function showMeDetails() {
     tempo.innerText = `${infosViajem.horas}h e ${infosViajem.min} min`;
     distancia.innerText = `${infosViajem.distancia}Km`;
     postos.innerText = `${infosViajem.postos}`;
+    await postViagem(saida,chegada,infosViajem);
 }
 
 async function init() {

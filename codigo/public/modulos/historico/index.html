@@ -136,10 +136,11 @@
       const usuarioId = getUsuarioId();
 
       // Busca simulações e favoritos em paralelo
-      const [simulacoes, favoritosDB, postos] = await Promise.all([
+      const [simulacoes, favoritosDB, postos, viagem] = await Promise.all([
         fetch(`/simulacoes`).then(r => r.json()),
         fetch(`/favoritos`).then(r => r.json()),
-        fetch(`/postos`).then(r => r.json())
+        fetch(`/postos`).then(r => r.json()),
+        fetch(`/viagem`).then(r => r.json())
       ]);
 
       const itens = [];
@@ -158,6 +159,22 @@
           tags: ['Recarga', s.timeStr],
           valor: s.tag,
           data: s.data
+        });
+      });
+
+      const minhasViagem = usuarioId
+        ? viagem.filter(s => String(s.usuarioId) === usuarioId)
+        : viagem;
+
+      minhasViagem.forEach(s => {
+        itens.push({
+          tipo: 'viagem',
+          icone: ICONE_FLASH,
+          titulo: `Viagem — ${s.saida} → ${s.destino}`,
+          subtitulo: ``,
+          tags: ['Viagem', s.distancia, s.tempo, `Carregadores: ${s.postos}`],
+          valor: '',
+          data: ''
         });
       });
 
