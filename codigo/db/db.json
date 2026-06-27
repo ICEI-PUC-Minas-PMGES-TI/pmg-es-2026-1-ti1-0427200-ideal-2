@@ -3,8 +3,8 @@
     {
       "id": "1",
       "login": "admin",
-      "senha": "132",
-      "nome": "Aiministrador",
+      "senha": "123",
+      "nome": "Administrador",
       "email": "admin@abc.com",
       "admin": true
     },
@@ -39,11 +39,11 @@
       "admin": false
     },
     {
-      "id": "UoubMgX4f8o",
-      "login": "joao",
-      "senha": "123",
-      "nome": "joao",
-      "email": "joao@gmail.com",
+      "id": "TuuuHYTvCDY",
+      "login": "celin",
+      "senha": "12345",
+      "nome": "Marcelo Artur Soares Sartori",
+      "email": "marceloartur.28102007@gmail.com",
       "admin": false
     }
   ],
@@ -177,38 +177,6 @@
       "longitude": -44.0111
     },
     {
-      "nome": "Posto congonhas",
-      "endereco": "BR 040",
-      "cidade": "congonhas",
-      "telefone": "31977445522",
-      "horario": "24H",
-      "recarga": true,
-      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
-      "latitude": -20.5746585,
-      "longitude": -43.8130708,
-      "id": "nQFOWm2C1io",
-      "tipoConector": "CCS / CHAdeMO",
-      "potencia": "35 kW",
-      "tomadas": 8,
-      "status": "fora-de-servico"
-    },
-    {
-      "id": "Iqys2jOJQYQ",
-      "nome": "Joaozin do posto",
-      "endereco": "BR 040",
-      "cidade": "Belo Horizonte - MG",
-      "telefone": "3199998888",
-      "horario": "4H",
-      "recarga": true,
-      "tipoConector": "CCS / CHAdeMO",
-      "potencia": "35000 kW",
-      "tomadas": 9,
-      "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
-      "latitude": -19.9455526,
-      "longitude": -44.0070222
-    },
-    {
       "nome": "Posto pop",
       "endereco": "BR 040",
       "cidade": "Barbacena-MG",
@@ -231,16 +199,10 @@
       "usuarioId": 1,
       "nomeUsuario": "Lucas",
       "postosFavoritos": [
-        "6",
-        "8",
-        "2",
-        "1",
-        "5",
-        "3",
         "Iqys2jOJQYQ",
         "fsdfsdfsdfsdf",
-        "sSuaH5S-1Iw",
-        "nQFOWm2C1io"
+        "nQFOWm2C1io",
+        "3"
       ]
     },
     {
@@ -278,10 +240,13 @@
       "id": "NBxSTd5oSHA"
     },
     {
-      "usuarioId": "UoubMgX4f8o",
-      "postosFavoritos": [],
-      "nomeUsuario": "joao",
-      "id": "N-GWOggyKJA"
+      "usuarioId": "TuuuHYTvCDY",
+      "postosFavoritos": [
+        "1",
+        "8"
+      ],
+      "nomeUsuario": "Marcelo Artur Soares Sartori",
+      "id": "kvmP-hvj9S8"
     }
   ],
   "simulacoes": [
@@ -310,15 +275,6 @@
       "id": "n1vcZLWK1rg"
     },
     {
-      "usuarioId": 1,
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "3,7 kW",
-      "timeStr": "16h 13min",
-      "data": "25/06/2026",
-      "id": "7IQavNJ9GxE"
-    },
-    {
       "usuarioId": "EGL9urp-tIY",
       "sessao": "0% → 44%",
       "meta": "44%",
@@ -335,6 +291,86 @@
       "timeStr": "20min",
       "data": "26/06/2026",
       "id": "o04kzsF21Gc"
+    },
+    {
+      "usuarioId": "TuuuHYTvCDY",
+      "sessao": "41% → 88%",
+      "meta": "88%",
+      "tag": "3,7 kW",
+      "timeStr": "7h 37min",
+      "data": "27/06/2026",
+      "id": "JOlxmhyRbSw"
+    },
+    {
+      "usuarioId": "TuuuHYTvCDY",
+      "sessao": "39% → 100%",
+      "meta": "100%",
+      "tag": "3,7 kW",
+      "timeStr": "9h 54min",
+      "data": "27/06/2026",
+      "id": "70JRIjCD91o"
+    },
+    {
+      "usuarioId": 1,
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "100 kW",
+      "timeStr": "36min",
+      "data": "27/06/2026",
+      "id": "ilSKjAUlBTY"
+    }
+  ],
+  "historico": [
+    {
+      "id": "h1",
+      "tipo": "recarga",
+      "titulo": "Recarga — Posto Centro",
+      "subtitulo": "Rua das Flores, 420 · Belo Horizonte",
+      "tags": [
+        "Recarga",
+        "45 min"
+      ],
+      "valor": "38 kWh",
+      "data": "23 mai 2026",
+      "icone": "flash"
+    },
+    {
+      "id": "h2",
+      "tipo": "viagem",
+      "titulo": "Viagem — BH → Ouro Preto",
+      "subtitulo": "101 km · 1h 22min estimado",
+      "tags": [
+        "Viagem",
+        "1 parada"
+      ],
+      "valor": "101 km",
+      "data": "20 mai 2026",
+      "icone": "mapa"
+    },
+    {
+      "id": "h3",
+      "tipo": "recarga",
+      "titulo": "Recarga — Shopping Contagem",
+      "subtitulo": "Av. João César de Oliveira, 1500",
+      "tags": [
+        "Recarga",
+        "30 min"
+      ],
+      "valor": "22 kWh",
+      "data": "17 mai 2026",
+      "icone": "flash"
+    },
+    {
+      "id": "h4",
+      "tipo": "favorito",
+      "titulo": "Favorito adicionado",
+      "subtitulo": "Eletroposto Savassi · Belo Horizonte",
+      "tags": [
+        "Favorito"
+      ],
+      "valor": "—",
+      "data": "14 mai 2026",
+      "icone": "coracao"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

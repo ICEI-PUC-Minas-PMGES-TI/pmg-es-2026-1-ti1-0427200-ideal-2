@@ -1,19 +1,3 @@
-// Trabalho Interdisciplinar 1 - Aplicações Web
-//
-// Esse módulo realiza o registro de novos usuários e login para aplicações com 
-// backend baseado em API REST provida pelo JSONServer
-// Os dados de usuário estão disponíveis na seguinte URL
-// https://jsonserver.rommelpuc.repl.co/usuarios
-//
-// Para fazer o seu servidor, acesse o projeto do JSONServer no Replit, faça o 
-// fork do projeto e altere o arquivo db.json para incluir os dados do seu projeto.
-// URL Projeto JSONServer: https://replit.com/@rommelpuc/JSONServer
-//
-// Autor: Rommel Vieira Carneiro (rommelcarneiro@gmail.com)
-// Data: 29/04/2024
-//
-// Código LoginApp
-
 
 // Página inicial de Login
 const LOGIN_URL = "login.html";
@@ -128,7 +112,7 @@ async function addUser(nome, login, senha, email) {
     })
     .then(async response => {
         const ret = await response.json();
-        await fetch('http://localhost:3000/favoritos', {
+        await fetch('/favoritos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ usuarioId: ret.id, postosFavoritos: [], nomeUsuario: ret.nome })

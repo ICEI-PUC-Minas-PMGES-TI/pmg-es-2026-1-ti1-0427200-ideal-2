@@ -3,7 +3,7 @@ let map;
 
 async function buscarPostos() {
     const response = await fetch(
-        `http://localhost:3000/postos`
+        `/postos`
     );
     const dados = await response.json();
     return dados;
