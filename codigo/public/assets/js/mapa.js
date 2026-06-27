@@ -10,7 +10,6 @@ let rotaAtual = null;
 let watchId = null;
 let seguindoUsuario = false;
 
-// Ícone de posição do usuário estilo GPS
 const userIcon = L.divIcon({
     className: '',
     html: `
@@ -32,7 +31,7 @@ async function initApp() {
     let postos = [];
 
     try {
-        const response = await fetch("http://localhost:3000/postos");
+        const response = await fetch("/postos");
         if (!response.ok) throw new Error("Erro ao buscar postos");
         postos = await response.json();
     } catch (err) {
