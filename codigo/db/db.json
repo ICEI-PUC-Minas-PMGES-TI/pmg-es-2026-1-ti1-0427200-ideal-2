@@ -169,38 +169,6 @@
       "longitude": -44.0111
     },
     {
-      "nome": "Posto congonhas",
-      "endereco": "BR 040",
-      "cidade": "congonhas",
-      "telefone": "31977445522",
-      "horario": "24H",
-      "recarga": true,
-      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
-      "latitude": -20.5746585,
-      "longitude": -43.8130708,
-      "id": "nQFOWm2C1io",
-      "tipoConector": "CCS / CHAdeMO",
-      "potencia": "35 kW",
-      "tomadas": 8,
-      "status": "fora-de-servico"
-    },
-    {
-      "id": "Iqys2jOJQYQ",
-      "nome": "Joaozin do posto",
-      "endereco": "BR 040",
-      "cidade": "Belo Horizonte - MG",
-      "telefone": "3199998888",
-      "horario": "4H",
-      "recarga": true,
-      "tipoConector": "CCS / CHAdeMO",
-      "potencia": "35000 kW",
-      "tomadas": 9,
-      "status": "disponivel",
-      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
-      "latitude": -19.9455526,
-      "longitude": -44.0070222
-    },
-    {
       "nome": "Posto pop",
       "endereco": "BR 040",
       "cidade": "Barbacena-MG",
@@ -296,15 +264,6 @@
       "id": "n1vcZLWK1rg"
     },
     {
-      "usuarioId": 1,
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "3,7 kW",
-      "timeStr": "16h 13min",
-      "data": "25/06/2026",
-      "id": "7IQavNJ9GxE"
-    },
-    {
       "usuarioId": "EGL9urp-tIY",
       "sessao": "0% → 44%",
       "meta": "44%",
@@ -321,6 +280,24 @@
       "timeStr": "20min",
       "data": "26/06/2026",
       "id": "o04kzsF21Gc"
+    },
+    {
+      "usuarioId": 1,
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "150 kW",
+      "timeStr": "24min",
+      "data": "26/06/2026",
+      "id": "4dny8vcAFIs"
+    },
+    {
+      "usuarioId": 2,
+      "sessao": "0% → 100%",
+      "meta": "100%",
+      "tag": "22 kW",
+      "timeStr": "2h 44min",
+      "data": "26/06/2026",
+      "id": "U8q_x-vjhVc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
