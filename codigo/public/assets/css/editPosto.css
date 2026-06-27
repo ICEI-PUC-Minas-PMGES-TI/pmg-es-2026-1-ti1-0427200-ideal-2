@@ -67,24 +67,28 @@ main {
 
 #formPosto {
     width: 100%;
-    max-width: 650px;
+    max-width: 900px;
     background: white;
     border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    padding: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
 
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
 }
 
+/* Título ocupa as duas colunas */
 #formPosto h1 {
+    grid-column: 1 / -1;
+
     text-align: center;
     color: var(--dark);
-    margin-top: 0;
+    margin: 0 0 10px 0;
+    font-size: 2rem;
 }
 
-/* CAMPOS */
+/* Campos */
 
 #formPosto div {
     display: flex;
@@ -97,24 +101,30 @@ main {
     color: var(--dark);
 }
 
-#formPosto input {
+#formPosto input,
+#formPosto select {
     padding: 14px;
     border: 2px solid #ddd;
     border-radius: 10px;
     font-size: 1rem;
     transition: .2s;
     outline: none;
+    background: white;
 }
 
-#formPosto input:focus {
+#formPosto input:focus,
+#formPosto select:focus {
     border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, .15);
 }
 
-/* BOTÃO */
+/* Botão ocupa toda a largura */
 
 #btnSubmit {
+    grid-column: 1 / -1;
+
     margin-top: 10px;
-    padding: 15px;
+    padding: 16px;
     border: none;
     border-radius: 10px;
     background: var(--primary);
@@ -128,6 +138,21 @@ main {
 #btnSubmit:hover {
     transform: translateY(-2px);
     background: #27ae60;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+    #formPosto {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    #formPosto h1,
+    #btnSubmit {
+        grid-column: auto;
+    }
 }
 
 /* RESPONSIVO */

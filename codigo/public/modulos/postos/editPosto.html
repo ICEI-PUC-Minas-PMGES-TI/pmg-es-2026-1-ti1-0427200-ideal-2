@@ -137,6 +137,45 @@
                     required
                 >
             </div>
+            <div>
+                <label for="conector">Tipo do Conector</label>
+                <input
+                    type="text"
+                    id="conector"
+                    name="conector"
+                    placeholder="CHAdeMO / Tipo 2"
+                    required
+                >
+            </div>
+            <div>
+                <label for="potencia">Potencia</label>
+                <input
+                    type="text"
+                    id="potencia"
+                    name="potencia"
+                    placeholder="22 kW"
+                    required
+                >
+            </div>
+            <div>
+                <label for="tomadas">Tomadas</label>
+                <input
+                    type="number"
+                    id="tomadas"
+                    name="tomadas"
+                    placeholder="10"
+                    required
+                >
+            </div>
+            <div>
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="">Selecione uma opção</option>
+                    <option value="disponivel">Disponivel</option>
+                    <option value="ocupada">Ocupada</option>
+                    <option value="fora-de-servico">Fora de Servico</option>
+                </select>
+            </div>
             <button type="submit" id="btnSubmit">Salvar Posto</button>
         </form>
     </main>

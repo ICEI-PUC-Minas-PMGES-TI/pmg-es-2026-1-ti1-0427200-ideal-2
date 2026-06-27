@@ -169,15 +169,52 @@
       "longitude": -44.0111
     },
     {
-      "nome": "Gabriel Assis",
+      "nome": "Posto congonhas",
       "endereco": "BR 040",
       "cidade": "congonhas",
-      "telefone": "31988874742",
+      "telefone": "31977445522",
       "horario": "24H",
+      "recarga": true,
       "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
-      "latitude": -20.5593122,
-      "longitude": -43.813166,
-      "id": "nQFOWm2C1io"
+      "latitude": -20.5746585,
+      "longitude": -43.8130708,
+      "id": "nQFOWm2C1io",
+      "tipoConector": "CCS / CHAdeMO",
+      "potencia": "35 kW",
+      "tomadas": 8,
+      "status": "fora-de-servico"
+    },
+    {
+      "id": "Iqys2jOJQYQ",
+      "nome": "Joaozin do posto",
+      "endereco": "BR 040",
+      "cidade": "Belo Horizonte - MG",
+      "telefone": "3199998888",
+      "horario": "4H",
+      "recarga": true,
+      "tipoConector": "CCS / CHAdeMO",
+      "potencia": "35000 kW",
+      "tomadas": 9,
+      "status": "disponivel",
+      "imagem": "https://images.unsplash.com/photo-1567777176186-dfa735f1fe20?w=120&h=120&fit=crop&auto=format",
+      "latitude": -19.9455526,
+      "longitude": -44.0070222
+    },
+    {
+      "nome": "Posto pop",
+      "endereco": "BR 040",
+      "cidade": "Barbacena-MG",
+      "telefone": "31 987789987",
+      "horario": "06h às 20h",
+      "imagem": "https://images.unsplash.com/photo-1606131959866-21ca5619bac5?w=120&h=120&fit=crop&auto=format",
+      "latitude": -21.1811134,
+      "longitude": -43.755326,
+      "tipoConector": "CCS / CHAdeMO",
+      "potencia": "198 kW",
+      "tomadas": 1,
+      "status": "ocupada",
+      "recarga": true,
+      "id": "sSuaH5S-1Iw"
     }
   ],
   "favoritos": [
@@ -190,7 +227,12 @@
         "8",
         "2",
         "1",
-        "5"
+        "5",
+        "3",
+        "Iqys2jOJQYQ",
+        "fsdfsdfsdfsdf",
+        "sSuaH5S-1Iw",
+        "nQFOWm2C1io"
       ]
     },
     {
@@ -261,6 +303,24 @@
       "timeStr": "16h 13min",
       "data": "25/06/2026",
       "id": "7IQavNJ9GxE"
+    },
+    {
+      "usuarioId": "EGL9urp-tIY",
+      "sessao": "0% → 44%",
+      "meta": "44%",
+      "tag": "3,7 kW",
+      "timeStr": "7h 8min",
+      "data": "26/06/2026",
+      "id": "DtBI9TcXkf0"
+    },
+    {
+      "usuarioId": "EGL9urp-tIY",
+      "sessao": "6% → 88%",
+      "meta": "88%",
+      "tag": "150 kW",
+      "timeStr": "20min",
+      "data": "26/06/2026",
+      "id": "o04kzsF21Gc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

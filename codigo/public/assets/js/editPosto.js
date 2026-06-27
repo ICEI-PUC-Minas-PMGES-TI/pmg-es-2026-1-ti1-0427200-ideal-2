@@ -25,8 +25,13 @@ async function postPosto(form) {
     const tel = dados.get("telefone");
     const horario = dados.get("horario");
     const imagem = dados.get("imagem");
-    const {lat, lon} = await buscarEndereco(endereco+', '+cidade);
-    
+    const tipoConector = dados.get("conector");
+    const potencia = dados.get("potencia");
+    const tomadas = Number(dados.get("tomadas"));
+    const status = dados.get("status");
+
+    const { lat, lon } = await buscarEndereco(endereco + ', ' + cidade);
+
     const posto = {
         nome,
         endereco,
@@ -35,11 +40,13 @@ async function postPosto(form) {
         horario,
         imagem,
         latitude: lat,
-        longitude: lon
+        longitude: lon,
+        tipoConector,
+        potencia,
+        tomadas,
+        status,
+        recarga: true,
     };
-
-    console.log(posto);
-    
     await fetch("http://localhost:3000/postos", {
         method: "POST",
         headers: {
@@ -56,6 +63,10 @@ function mostrarDadosPosto(posto) {
     document.getElementById('telefone').value = posto.telefone;
     document.getElementById('horario').value = posto.horario;
     document.getElementById('imagem').value = posto.imagem;
+    document.getElementById('conector').value = posto.tipoConector;
+    document.getElementById('potencia').value = posto.potencia;
+    document.getElementById('tomadas').value = posto.tomadas;
+    document.getElementById('status').value = posto.status;
 }
 
 async function updatePosto(id, form) {
@@ -66,8 +77,12 @@ async function updatePosto(id, form) {
     const tel = dados.get("telefone");
     const horario = dados.get("horario");
     const imagem = dados.get("imagem");
-    const {lat, lon} = await buscarEndereco(endereco+', '+cidade);
-    
+    const tipoConector = dados.get("conector");
+    const potencia = dados.get("potencia");
+    const tomadas = Number(dados.get("tomadas"));
+    const status = dados.get("status");
+    const { lat, lon } = await buscarEndereco(endereco + ', ' + cidade);
+
     const posto = {
         nome,
         endereco,
@@ -76,9 +91,12 @@ async function updatePosto(id, form) {
         horario,
         imagem,
         latitude: lat,
-        longitude: lon
+        longitude: lon,
+        tipoConector,
+        potencia,
+        tomadas,
+        status
     };
-    
     await fetch(`http://localhost:3000/postos/${id}`, {
         method: 'PATCH',
         headers: {
@@ -86,8 +104,6 @@ async function updatePosto(id, form) {
         },
         body: JSON.stringify(posto)
     });
-    
-    
 }
 
 async function init() {
