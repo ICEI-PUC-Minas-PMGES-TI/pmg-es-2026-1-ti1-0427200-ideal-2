@@ -391,6 +391,15 @@
       "postos": 2,
       "usuarioId": "1",
       "id": "jANqoDBrQN4"
+    },
+    {
+      "saida": "Belo Horizonte",
+      "destino": "Conselheiro Lafaiete",
+      "distancia": "101.3Km",
+      "tempo": "1h e 57 min",
+      "postos": 1,
+      "usuarioId": "EGL9urp-tIY",
+      "id": "62RU2rI7qb0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

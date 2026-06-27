@@ -96,6 +96,7 @@
 <script>
   const ICONE_FLASH   = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>';
   const ICONE_CORACAO = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+  const ICONE_COMPASS = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16"><path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/><path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/></svg>';
 
   function getUsuarioId() {
     try {
@@ -169,7 +170,7 @@
       minhasViagem.forEach(s => {
         itens.push({
           tipo: 'viagem',
-          icone: ICONE_FLASH,
+          icone: ICONE_COMPASS,
           titulo: `Viagem — ${s.saida} → ${s.destino}`,
           subtitulo: ``,
           tags: ['Viagem', s.distancia, s.tempo, `Carregadores: ${s.postos}`],
