@@ -37,6 +37,14 @@
       "nome": "teste silva",
       "email": "teste@test.com",
       "admin": false
+    },
+    {
+      "id": "UoubMgX4f8o",
+      "login": "joao",
+      "senha": "123",
+      "nome": "joao",
+      "email": "joao@gmail.com",
+      "admin": false
     }
   ],
   "postos": [
@@ -268,6 +276,12 @@
       "postosFavoritos": [],
       "nomeUsuario": "teste silva",
       "id": "NBxSTd5oSHA"
+    },
+    {
+      "usuarioId": "UoubMgX4f8o",
+      "postosFavoritos": [],
+      "nomeUsuario": "joao",
+      "id": "N-GWOggyKJA"
     }
   ],
   "simulacoes": [
