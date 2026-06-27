@@ -112,7 +112,7 @@ async function addUser(nome, login, senha, email) {
     })
     .then(async response => {
         const ret = await response.json();
-        await fetch('http://localhost:3000/favoritos', {
+        await fetch('/favoritos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ usuarioId: ret.id, postosFavoritos: [], nomeUsuario: ret.nome })
