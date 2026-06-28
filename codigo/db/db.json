@@ -9,33 +9,11 @@
       "admin": true
     },
     {
-      "id": "2",
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
-    },
-    {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": "3"
-    },
-    {
       "id": "EGL9urp-tIY",
       "login": "Gabriel",
       "senha": "333",
       "nome": "Gabriel Assis",
       "email": "gabrieleboltffggff@gmail.com",
-      "admin": false
-    },
-    {
-      "id": "PWLLC-Aunx8",
-      "login": "testes",
-      "senha": "123",
-      "nome": "teste silva",
-      "email": "teste@test.com",
       "admin": false
     },
     {
@@ -195,49 +173,14 @@
   ],
   "favoritos": [
     {
-      "id": "1",
-      "usuarioId": 1,
-      "nomeUsuario": "Lucas",
-      "postosFavoritos": [
-        "Iqys2jOJQYQ",
-        "fsdfsdfsdfsdf",
-        "nQFOWm2C1io",
-        "3"
-      ]
-    },
-    {
-      "id": "2",
-      "usuarioId": 2,
-      "nomeUsuario": "Maria",
-      "postosFavoritos": [
-        "2",
-        "3"
-      ]
-    },
-    {
-      "id": "3",
-      "usuarioId": 3,
-      "nomeUsuario": "João",
-      "postosFavoritos": [
-        "1",
-        "2",
-        "3"
-      ]
-    },
-    {
       "usuarioId": "EGL9urp-tIY",
       "postosFavoritos": [
         "1",
-        "6"
+        "6",
+        "2"
       ],
       "nomeUsuario": "Gabriel Assis",
       "id": "57HL23TqYgc"
-    },
-    {
-      "usuarioId": "PWLLC-Aunx8",
-      "postosFavoritos": [],
-      "nomeUsuario": "teste silva",
-      "id": "NBxSTd5oSHA"
     },
     {
       "usuarioId": "TuuuHYTvCDY",
@@ -250,30 +193,6 @@
     }
   ],
   "simulacoes": [
-    {
-      "sessao": "7% → 68%",
-      "meta": "68%",
-      "tag": "350 kW",
-      "timeStr": "6min",
-      "data": "24/06/2026",
-      "id": "eAlUV-1LJQA"
-    },
-    {
-      "sessao": "7% → 68%",
-      "meta": "68%",
-      "tag": "100 kW",
-      "timeStr": "22min",
-      "data": "24/06/2026",
-      "id": "7x7A0GSWiR0"
-    },
-    {
-      "sessao": "0% → 100%",
-      "meta": "100%",
-      "tag": "100 kW",
-      "timeStr": "36min",
-      "data": "24/06/2026",
-      "id": "n1vcZLWK1rg"
-    },
     {
       "usuarioId": "EGL9urp-tIY",
       "sessao": "0% → 44%",
@@ -318,6 +237,15 @@
       "timeStr": "36min",
       "data": "27/06/2026",
       "id": "ilSKjAUlBTY"
+    },
+    {
+      "usuarioId": "EGL9urp-tIY",
+      "sessao": "0% → 56%",
+      "meta": "56%",
+      "tag": "3,7 kW",
+      "timeStr": "9h 5min",
+      "data": "27/06/2026",
+      "id": "jI300Ev5MmI"
     }
   ],
   "historico": [
